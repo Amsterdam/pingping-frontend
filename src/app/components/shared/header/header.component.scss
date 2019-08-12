@@ -1,0 +1,61 @@
+.header {
+  display: inline-block;
+  height: 50px;
+  margin-top: 56px;
+  width: 100%;
+}
+
+.header .logo {
+  width: 20%;
+  float: left;
+}
+
+.header .logo img {
+  width: 113px;
+  height: 44px;
+}
+
+.header .menu {
+  width: 80%;
+  text-align: right;
+  float: left;
+}
+
+.header .menu ul {
+  margin: 0;
+  list-style: none;
+}
+
+.header .menu li {
+  display: inline-block;
+  font-family: "Heavitas";
+  font-size: 14px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.header .menu li:hover {
+  border-bottom: 2px solid white;
+}
+
+.header .menu li:last-child:hover {
+  border-bottom: none;
+}
+
+.header .menu button,
+.mobile-menu button {
+  width: 135px;
+  height: 36px;
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 576px) {
+  .header {
+    margin-top: 18px;
+    text-align: center;
+  }
+
+  .header .menu {
+    display: none;
+  }
+}

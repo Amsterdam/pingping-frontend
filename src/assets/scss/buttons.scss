@@ -1,0 +1,14 @@
+button {
+  border-radius: 23px;
+  background-color: #fb9f00;
+  border: none;
+  color: white;
+  min-width: 135px;
+  font-family: "Roboto";
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #fb9f4b;
+}
