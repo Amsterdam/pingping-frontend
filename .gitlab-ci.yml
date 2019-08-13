@@ -1,0 +1,72 @@
+stages:
+  - status
+  - dependencies
+  - tests
+  - build-deploy
+
+# Staging
+staging-server-status:
+  stage: status
+  script:
+    - pwd
+    - ls -alh
+    - id
+    - sudo systemctl status --type=service
+    - free -h
+    - df -h
+  only:
+    - development
+  tags:
+    - aws-staging
+staging-install-dependencies:
+  stage: dependencies
+  cache:
+    key: npm-modules
+    policy: push
+    paths:
+      - node_modules/
+  before_script:
+    - pwd
+    - ls -alh
+  script:
+    - docker run -t --rm -v $PWD:/app -w /app --name front-builder -e NG_CLI_ANALYTICS=ci node:10.16.2-stretch-slim npm ci --no-progress
+    - sudo chown -R $(id -u):$(id -g) .
+    - docker run -t --rm -v $PWD:/app -w /app --name front-builder node:10.16.2-stretch-slim npm ls || true
+  after_script:
+    - docker run -t --rm --name front-builder node:10.16.2-stretch-slim node --version
+    - docker run -t --rm -v $PWD:/app -w /app --name front-builder node:10.16.2-stretch-slim npx ng --version
+    - sudo chown -R $(id -u):$(id -g) .
+    - git status --ignored
+  only:
+    - development
+  tags:
+    - aws-staging
+staging-build-deploy:
+  stage: build-deploy
+  environment:
+    name: staging
+    url: https//staging.pingping.refleks.tech
+  cache:
+    key: npm-modules
+    policy: pull
+    paths:
+      - node_modules/
+  before_script:
+    - pwd
+    - ls -alh
+  script:
+    - docker run -t --rm -v $PWD:/app -w /app --name front-builder -e NG_CLI_ANALYTICS=ci node:10.16.2-stretch-slim npx ng build --progress=false --configuration production
+    - sudo chown -R $(id -u):$(id -g) .
+    - sudo rm -rdf /srv/frontend
+    - sudo mkdir -p /srv/frontend
+    - sudo cp -r dist/ /srv/frontend
+    - sudo chown -R www-data:www-data /srv/frontend
+    - sudo systemctl restart nginx
+  after_script:
+    - sudo chown -R $(id -u):$(id -g) .
+    - rm -rdf dist/ node_modules/
+    - git status --ignored
+  only:
+    - development
+  tags:
+    - aws-staging
