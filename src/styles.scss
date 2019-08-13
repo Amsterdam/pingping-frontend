@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import "assets/scss/main";
-@import "assets/scss/animations";
-@import "assets/scss/buttons";
+
+/* Landing */
+@import "assets/scss/landing/fonts";
+@import "assets/scss/landing/colors";
+@import "assets/scss/landing/buttons";
+@import "assets/scss/landing/text";
+@import "assets/scss/landing/animations";
+@import "assets/scss/landing/main";
+
+/* Application */

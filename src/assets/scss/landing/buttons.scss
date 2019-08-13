@@ -1,0 +1,27 @@
+.button {
+  border-radius: 23px;
+  border: none;
+  color: white;
+  font-family: "Roboto";
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 10px 30px;
+  display: inline-block;
+
+  &:hover {
+    border-bottom: none !important;
+  }
+
+  &.button-sm {
+    max-width: 135px;
+  }
+}
+
+/* Orange */
+
+.button-orange {
+  background-color: #fb9f00;
+}
+
+.button:hover {
+  background-color: #fb9f4b;
+}

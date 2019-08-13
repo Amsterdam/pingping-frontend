@@ -1,0 +1,52 @@
+body {
+  background: url("./assets/img/bg-top.png") no-repeat center center fixed;
+  background-size: cover;
+  background-color: #0e1e32;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.show-on-mobile {
+  display: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container-rounded {
+  font-family: "Raleway";
+  max-width: 900px;
+  padding: 30px 40px;
+  color: #0e1e32;
+  margin: 0 auto;
+  border-radius: 20px;
+  border: none;
+  line-height: 1.7em;
+}
+
+.container-rounded h1 {
+  font-family: "Heavitas";
+}
+
+/* Mobile */
+@media screen and (max-width: 576px) {
+  .show-on-mobile {
+    display: inherit;
+  }
+}

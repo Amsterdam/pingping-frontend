@@ -1,0 +1,31 @@
+#featured {
+  .left {
+    width: 40%;
+    height: 100%;
+    position: relative;
+
+    .phone1,
+    .phone2 {
+      width: 70%;
+      height: 80%;
+      position: absolute;
+      max-width: 240px;
+      object-fit: contain;
+    }
+
+    .phone1 {
+      top: 0;
+      left: calc(50%);
+      z-index: 1;
+    }
+
+    .phone2 {
+      top: 100px;
+      left: calc(50% - 180px);
+    }
+  }
+
+  .right {
+    width: 60%;
+  }
+}
