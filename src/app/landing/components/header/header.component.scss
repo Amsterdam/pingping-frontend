@@ -1,7 +1,6 @@
 header {
-  max-width: 1200px;
-  margin: 56px auto 50px auto;
-  padding: 0 15px;
+  margin: 0 0 50px 0;
+  padding: 56px 15px 0 15px;
   overflow: hidden;
 
   #logo {
@@ -41,7 +40,7 @@ header {
 
 @media all and (max-width: 1058px) {
   header {
-    margin-top: 30px;
+    padding-top: 28px;
 
     #logo,
     #navigation {
@@ -61,7 +60,7 @@ header {
   }
 }
 
-@media all and (max-width: 758px) {
+@media all and (max-width: 800px) {
   #logo {
     text-align: left !important;
   }

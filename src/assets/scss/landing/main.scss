@@ -1,3 +1,7 @@
+html {
+  height: 100%;
+}
+
 body {
   background: url("./assets/img/bg-top.png") no-repeat center center fixed;
   background-size: cover;
@@ -20,13 +24,20 @@ a {
   float: right;
 }
 
+.title {
+  font-family: "Heavitas";
+  font-size: 2em;
+}
+
 .show-on-mobile {
   display: none;
 }
 
 .container {
   max-width: 1200px;
+  height: 100%;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 .container-rounded {
@@ -42,11 +53,4 @@ a {
 
 .container-rounded h1 {
   font-family: "Heavitas";
-}
-
-/* Mobile */
-@media screen and (max-width: 576px) {
-  .show-on-mobile {
-    display: inherit;
-  }
 }
