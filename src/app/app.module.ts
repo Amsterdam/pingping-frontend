@@ -7,6 +7,9 @@ import { HeaderComponent } from './landing/components/header/header.component';
 import { WhatIsItComponent } from './landing/what-is-it/what-is-it.component';
 import { IndexComponent } from './landing/index/index.component';
 import { SideNavComponent } from './landing/components/side-nav/side-nav.component';
+import { QuestionsService } from './services/questions.service';
+import { QuestionsComponent } from './application/questions/questions.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,13 +17,17 @@ import { SideNavComponent } from './landing/components/side-nav/side-nav.compone
     HeaderComponent,
     WhatIsItComponent,
     IndexComponent,
-    SideNavComponent
+    SideNavComponent,
+    QuestionsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    QuestionsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

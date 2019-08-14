@@ -1,0 +1,55 @@
+#application-container {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  padding: 20px 20px 35px 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.question-title {
+  font-family: "Heavitas";
+  font-size: 2.3em;
+  margin-bottom: 35px;
+}
+
+.question-navigation {
+  .back-button,
+  .next-button {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 5px;
+    cursor: pointer;
+    font-family: "Roboto";
+    font-size: 1.2em;
+    color: #fb9f4b;
+
+    &:disabled {
+      color: #b9b9b9;
+    }
+  }
+
+  &.navigation-back {}
+
+  &.navigation-next {
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+  }
+}
+
+.progress-bar {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+
+  div {
+    height: 10px;
+    width: 20%;
+    background: #2dbcca;
+    transition: width 0.3s ease;
+  }
+}
