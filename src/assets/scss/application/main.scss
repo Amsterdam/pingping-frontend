@@ -7,10 +7,21 @@
   position: relative;
 }
 
+.question {
+  &:not([hidden]) {
+    opacity: 1;
+    transition: opacity 0.5s linear;
+  }
+}
+
 .question-title {
   font-family: "Heavitas";
   font-size: 2.3em;
   margin-bottom: 35px;
+
+  span {
+    color: #fb9f4b;
+  }
 }
 
 .question-icon {
@@ -57,7 +68,7 @@
 
   div {
     height: 10px;
-    width: 20%;
+    width: 0%;
     background: #2dbcca;
     transition: width 0.3s ease;
   }

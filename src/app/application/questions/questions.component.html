@@ -1,10 +1,7 @@
 <div id="application-container" class="fade-in">
   <form action="#" [formGroup]="questionsForm">
     <!-- Question 1 -->
-    <div class="question" formGroupName="question1">
-<!--      <div class="question-navigation navigation-back">-->
-<!--        <button class="back-button"><img src="./assets/img/application/back.svg" alt="Back"></button>-->
-<!--      </div>-->
+    <div class="question" formGroupName="question1" [hidden]="questionPosition != 1">
       <h1 class="question-title">Wat is je geboorte datum?</h1>
       <div class="question-icon text-center">
         <img src="./assets/img/application/cake.png">
@@ -38,8 +35,189 @@
         </button>
       </div>
     </div>
+    
+    <!-- Question 2 -->
+    <div class="question" formGroupName="question2" [hidden]="questionPosition != 2">
+      <div class="question-navigation navigation-back">
+        <button class="back-button" (click)="previousQuestion()"><img src="./assets/img/application/back.svg" alt="Back"></button>
+      </div>
+      <h1 class="question-title">Heb je al DIGID?</h1>
+      <div class="question-icon text-center">
+        <img src="./assets/img/application/bank.png">
+      </div>
+      <div class="question-content text-center">
+        <div class="select-option">
+          <input id="radio1"
+                 type="radio"
+                 name="answer2"
+                 formControlName="answer2"
+                 value="Ja ik heb een DigiD"
+                 required
+                 class="text-center">
+          <label for="radio1">Ja ik heb een DigiD</label>
+          <input id="radio2"
+                 type="radio"
+                 name="answer2"
+                 formControlName="answer2"
+                 value="Nee nog niet"
+                 required
+                 class="text-center">
+          <label for="radio2">Nee nog niet</label>
+        </div>
+      </div>
+      <div class="question-navigation navigation-next text-right">
+        <button class="next-button" (click)="nextQuestion()" [disabled]="!questionsForm.controls.question2.valid">
+          Volgende
+        </button>
+      </div>
+    </div>
+    
+    <!-- Question 3 -->
+    <div class="question" formGroupName="question3" [hidden]="questionPosition != 3">
+      <div class="question-navigation navigation-back">
+        <button class="back-button" (click)="previousQuestion()"><img src="./assets/img/application/back.svg" alt="Back"></button>
+      </div>
+      <h1 class="question-title">Heb je een vast adres?</h1>
+      <div class="question-icon text-center">
+        <img src="./assets/img/application/house.png">
+      </div>
+      <div class="question-content text-center">
+        <div class="select-option">
+          <input id="radio3"
+                 type="radio"
+                 name="answer3"
+                 formControlName="answer3"
+                 value="Ja ik heb een vast adres"
+                 required
+                 class="text-center">
+          <label for="radio3">Ja ik heb een vast adres</label>
+          <input id="radio4"
+                 type="radio"
+                 name="answer3"
+                 formControlName="answer3"
+                 value="Nee dat heb ik niet"
+                 required
+                 class="text-center">
+          <label for="radio4">Nee dat heb ik niet</label>
+        </div>
+      </div>
+      <div class="question-navigation navigation-next text-right">
+        <button class="next-button" (click)="nextQuestion()" [disabled]="!questionsForm.controls.question3.valid">
+          Volgende
+        </button>
+      </div>
+    </div>
+    
+    <!-- Question 4 -->
+    <div class="question" formGroupName="question4" [hidden]="questionPosition != 4">
+      <div class="question-navigation navigation-back">
+        <button class="back-button" (click)="previousQuestion()"><img src="./assets/img/application/back.svg" alt="Back"></button>
+      </div>
+      <h1 class="question-title">Heb je een vast adres?</h1>
+      <div class="question-icon text-center">
+        <img src="./assets/img/application/card.png">
+      </div>
+      <div class="question-content text-center">
+        <div class="select-option">
+          <input id="radio5"
+                 type="radio"
+                 name="answer4"
+                 formControlName="answer4"
+                 value="Ja ik heb een bankrekening"
+                 required
+                 class="text-center">
+          <label for="radio5">Ja ik heb een bankrekening</label>
+          <input id="radio6"
+                 type="radio"
+                 name="answer4"
+                 formControlName="answer4"
+                 value="Nee nog niet"
+                 required
+                 class="text-center">
+          <label for="radio6">Nee nog niet</label>
+        </div>
+      </div>
+      <div class="question-navigation navigation-next text-right">
+        <button class="next-button" (click)="nextQuestion()" [disabled]="!questionsForm.controls.question4.valid">
+          Volgende
+        </button>
+      </div>
+    </div>
+    
+    <!-- Question 5 -->
+    <div class="question" formGroupName="question5" [hidden]="questionPosition != 5">
+      <div class="question-navigation navigation-back">
+        <button class="back-button" (click)="previousQuestion()"><img src="./assets/img/application/back.svg" alt="Back"></button>
+      </div>
+      <h1 class="question-title">Heb je <span>zelf</span> eeN zorg verzekering afgesloten?</h1>
+      <div class="question-icon text-center">
+        <img src="./assets/img/application/hospital.png">
+      </div>
+      <div class="question-content text-center">
+        <div class="select-option">
+          <input id="radio7"
+                 type="radio"
+                 name="answer5"
+                 formControlName="answer5"
+                 value="Ja ik ben verzekerd"
+                 required
+                 class="text-center">
+          <label for="radio7">Ja ik ben verzekerd</label>
+          <input id="radio8"
+                 type="radio"
+                 name="answer5"
+                 formControlName="answer5"
+                 value="Nee nog niet"
+                 required
+                 class="text-center">
+          <label for="radio8">Nee nog niet</label>
+        </div>
+      </div>
+      <div class="question-navigation navigation-next text-right">
+        <button class="next-button" (click)="nextQuestion()" [disabled]="!questionsForm.controls.question5.valid">
+          Volgende
+        </button>
+      </div>
+    </div>
+    
+    <!-- Question 6 -->
+    <div class="question" formGroupName="question6" [hidden]="questionPosition != 6">
+      <div class="question-navigation navigation-back">
+        <button class="back-button" (click)="previousQuestion()"><img src="./assets/img/application/back.svg" alt="Back"></button>
+      </div>
+      <h1 class="question-title">Heb je al zorgtoeslag?</h1>
+      <div class="question-icon text-center">
+        <img src="./assets/img/application/money.png">
+      </div>
+      <div class="question-content text-center">
+        <div class="select-option">
+          <input id="radio9"
+                 type="radio"
+                 name="answer6"
+                 formControlName="answer6"
+                 value="Ja heb ik"
+                 required
+                 class="text-center">
+          <label for="radio9">Ja heb ik</label>
+          <input id="radio10"
+                 type="radio"
+                 name="answer6"
+                 formControlName="answer6"
+                 value="Nee nog niet"
+                 required
+                 class="text-center">
+          <label for="radio10">Nee nog niet</label>
+        </div>
+      </div>
+      <div class="question-navigation navigation-next text-right">
+        <button class="next-button" (click)="finishQuestionnaire()" [disabled]="!questionsForm.controls.question6.valid">
+          Volgende
+        </button>
+      </div>
+    </div>
+    
     <div class="progress-bar">
-      <div></div>
+      <div [ngStyle]="{'width': progressPercentage + '%'}"></div>
     </div>
   </form>
 </div>
