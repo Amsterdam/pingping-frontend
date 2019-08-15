@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-questions',
@@ -7,15 +7,20 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
-  questions: FormGroup;
-  @ViewChild('question1', { static: false }) question1: HTMLElement;
+  questionsForm: FormGroup;
 
   years: number[] = [];
 
   constructor() {
-    this.questions = new FormGroup({});
-
     this.getYearsArray();
+
+    this.questionsForm = new FormGroup({
+      'question1': new FormGroup({
+        'birthDay': new FormControl(''),
+        'birthMonth': new FormControl(''),
+        'birthYear': new FormControl('')
+      })
+    });
   }
 
   ngOnInit() {
@@ -28,5 +33,9 @@ export class QuestionsComponent implements OnInit {
     for (let i = 1980 ; i <= finalYear ; i++) {
       this.years.push(i);
     }
+  }
+
+  nextQuestion() {
+    console.log(this.questionsForm);
   }
 }

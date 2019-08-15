@@ -10,6 +10,7 @@ import { SideNavComponent } from './landing/components/side-nav/side-nav.compone
 import { QuestionsService } from './services/questions.service';
 import { QuestionsComponent } from './application/questions/questions.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SplashScreenComponent } from './application/splash-screen/splash-screen.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     WhatIsItComponent,
     IndexComponent,
     SideNavComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    SplashScreenComponent
   ],
   imports: [
     BrowserModule,

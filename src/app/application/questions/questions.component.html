@@ -1,33 +1,41 @@
 <div id="application-container" class="fade-in">
-  <form action="#" [formGroup]="questions">
+  <form action="#" [formGroup]="questionsForm">
     <!-- Question 1 -->
-    <div class="question" #question1>
-      <div class="question-navigation navigation-back">
-        <button class="back-button"><img src="./assets/img/application/back.svg" alt="Back"></button>
-      </div>
+    <div class="question" formGroupName="question1">
+<!--      <div class="question-navigation navigation-back">-->
+<!--        <button class="back-button"><img src="./assets/img/application/back.svg" alt="Back"></button>-->
+<!--      </div>-->
       <h1 class="question-title">Wat is je geboorte datum?</h1>
+      <div class="question-icon text-center">
+        <img src="./assets/img/application/cake.png">
+      </div>
       <div class="question-content text-center">
-        <select placeholder="Dag">
-          <option value="dag" disabled>Dag</option>
+        <select formControlName="birthDay" required>
+          <option value="dag" [selected]="true" disabled>Dag</option>
           <option *ngFor="let i of [].constructor(31); let index = index"
                   value="{{ index + 1 }}">
-            {{ index + 1 }}</option>
+            {{ index + 1 }}
+          </option>
         </select>
-        <select placeholder="Maand">
-          <option value="maand" disabled>Maand</option>
+        <select formControlName="birthMonth" required>
+          <option value="maand" [selected]="true" disabled>Maand</option>
           <option *ngFor="let i of [].constructor(12); let index = index"
                   value="{{ index + 1 }}">
-            {{ index + 1 }}</option>
+            {{ index + 1 }}
+          </option>
         </select>
-        <select placeholder="Jaar">
-          <option value="jaar" disabled>Jaar</option>
+        <select formControlName="birthYear" required>
+          <option value="jaar" [selected]="true" disabled>Jaar</option>
           <option *ngFor="let i of years"
                   value="{{ i }}">
-            {{ i }}</option>
+            {{ i }}
+          </option>
         </select>
       </div>
       <div class="question-navigation navigation-next text-right">
-        <button class="next-button" disabled>Volgende</button>
+        <button class="next-button" (click)="nextQuestion()" [disabled]="!questionsForm.controls.question1.valid">
+          Volgende
+        </button>
       </div>
     </div>
     <div class="progress-bar">
