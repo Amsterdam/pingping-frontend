@@ -9,7 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class QuestionsComponent implements OnInit {
   questionsForm: FormGroup;
   questionsNumber: number = 6;
-  questionPosition = 1;
+  questionPosition: number = 1;
+  skippedQuestions: number[] = [];
   progressPercentage: number;
   years: number[] = [];
 
@@ -46,27 +47,54 @@ export class QuestionsComponent implements OnInit {
 
   getYearsArray() {
     const currentYear = new Date().getFullYear();
-    const finalYear = currentYear - 18;
 
-    for (let i = 1980 ; i <= finalYear ; i++) {
+    for (let i = 1990 ; i <= currentYear ; i++) {
       this.years.push(i);
     }
   }
 
-  previousQuestion() {
-    if ((this.questionPosition - 1) > 0) {
+  previousQuestion(previousQuestion: number, breakPointQuestion?: number) {
+    if (!this.skippedQuestions.includes(previousQuestion)) {
       this.questionPosition -= 1;
-
-      this.updateProgressBar();
+    } else {
+      this.questionPosition = breakPointQuestion;
     }
+
+    this.updateProgressBar();
   }
 
-  nextQuestion() {
-    if ((this.questionPosition + 1) <= this.questionsNumber) {
-      this.questionPosition += 1;
-
-      this.updateProgressBar();
+  nextQuestion(nextQuestion: number, breakPointQuestion?: number) {
+    if (!this.skippedQuestions.includes(nextQuestion)) {
+      if ((nextQuestion) <= this.questionsNumber) {
+        this.questionPosition = nextQuestion;
+      }
+    } else {
+      if (breakPointQuestion > this.questionsNumber) {
+        console.log('Questionnaire finished!');
+      } else {
+        this.questionPosition = breakPointQuestion;
+      }
     }
+
+    this.updateProgressBar();
+  }
+
+  addToSkippedQuestions(questionToAdd: number) {
+    if (!this.skippedQuestions.includes(questionToAdd)) {
+      this.skippedQuestions.push(questionToAdd);
+    }
+
+    console.log('Skipped questions: ', this.skippedQuestions);
+  }
+
+  removeFromSkippedQuestions(questionToSkip: number) {
+    const index = this.skippedQuestions.indexOf(questionToSkip, 0);
+
+    if (index > -1) {
+      this.skippedQuestions.splice(index, 1);
+    }
+
+    console.log('Skipped questions: ', this.skippedQuestions);
   }
 
   updateProgressBar() {
@@ -74,6 +102,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   finishQuestionnaire() {
-    console.log(this.questionsForm.value);
+    console.log('Form: ', this.questionsForm.value);
+    console.log('Skipped Question: ', this.skippedQuestions);
   }
 }

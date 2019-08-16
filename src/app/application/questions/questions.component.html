@@ -30,16 +30,17 @@
         </select>
       </div>
       <div class="question-navigation navigation-next text-right">
-        <button class="next-button" (click)="nextQuestion()" [disabled]="!questionsForm.controls.question1.valid">
+        <button class="next-button" (click)="nextQuestion(2)" [disabled]="!questionsForm.controls.question1.valid">
           Volgende
         </button>
       </div>
     </div>
     
     <!-- Question 2 -->
+    <!-- Breakpoint-->
     <div class="question" formGroupName="question2" [hidden]="questionPosition != 2">
       <div class="question-navigation navigation-back">
-        <button class="back-button" (click)="previousQuestion()"><img src="./assets/img/application/back.svg" alt="Back"></button>
+        <button class="back-button" (click)="previousQuestion(1)"><img src="./assets/img/application/back.svg" alt="Back"></button>
       </div>
       <h1 class="question-title">Heb je al DIGID?</h1>
       <div class="question-icon text-center">
@@ -54,7 +55,7 @@
                  value="Ja ik heb een DigiD"
                  required
                  class="text-center">
-          <label for="radio1">Ja ik heb een DigiD</label>
+          <label for="radio1" (click)="addToSkippedQuestions(3)">Ja ik heb een DigiD</label>
           <input id="radio2"
                  type="radio"
                  name="answer2"
@@ -62,11 +63,11 @@
                  value="Nee nog niet"
                  required
                  class="text-center">
-          <label for="radio2">Nee nog niet</label>
+          <label for="radio2" (click)="removeFromSkippedQuestions(3)">Nee nog niet</label>
         </div>
       </div>
       <div class="question-navigation navigation-next text-right">
-        <button class="next-button" (click)="nextQuestion()" [disabled]="!questionsForm.controls.question2.valid">
+        <button class="next-button" (click)="nextQuestion(3, 4)" [disabled]="!questionsForm.controls.question2.valid">
           Volgende
         </button>
       </div>
@@ -75,7 +76,7 @@
     <!-- Question 3 -->
     <div class="question" formGroupName="question3" [hidden]="questionPosition != 3">
       <div class="question-navigation navigation-back">
-        <button class="back-button" (click)="previousQuestion()"><img src="./assets/img/application/back.svg" alt="Back"></button>
+        <button class="back-button" (click)="previousQuestion(2)"><img src="./assets/img/application/back.svg" alt="Back"></button>
       </div>
       <h1 class="question-title">Heb je een vast adres?</h1>
       <div class="question-icon text-center">
@@ -102,7 +103,7 @@
         </div>
       </div>
       <div class="question-navigation navigation-next text-right">
-        <button class="next-button" (click)="nextQuestion()" [disabled]="!questionsForm.controls.question3.valid">
+        <button class="next-button" (click)="nextQuestion(4)" [disabled]="!questionsForm.controls.question3.valid">
           Volgende
         </button>
       </div>
@@ -111,7 +112,7 @@
     <!-- Question 4 -->
     <div class="question" formGroupName="question4" [hidden]="questionPosition != 4">
       <div class="question-navigation navigation-back">
-        <button class="back-button" (click)="previousQuestion()"><img src="./assets/img/application/back.svg" alt="Back"></button>
+        <button class="back-button" (click)="previousQuestion(3, 2)"><img src="./assets/img/application/back.svg" alt="Back"></button>
       </div>
       <h1 class="question-title">Heb je een vast adres?</h1>
       <div class="question-icon text-center">
@@ -138,16 +139,17 @@
         </div>
       </div>
       <div class="question-navigation navigation-next text-right">
-        <button class="next-button" (click)="nextQuestion()" [disabled]="!questionsForm.controls.question4.valid">
+        <button class="next-button" (click)="nextQuestion(5)" [disabled]="!questionsForm.controls.question4.valid">
           Volgende
         </button>
       </div>
     </div>
     
     <!-- Question 5 -->
+    <!-- Breakpoint-->
     <div class="question" formGroupName="question5" [hidden]="questionPosition != 5">
       <div class="question-navigation navigation-back">
-        <button class="back-button" (click)="previousQuestion()"><img src="./assets/img/application/back.svg" alt="Back"></button>
+        <button class="back-button" (click)="previousQuestion(4)"><img src="./assets/img/application/back.svg" alt="Back"></button>
       </div>
       <h1 class="question-title">Heb je <span>zelf</span> eeN zorg verzekering afgesloten?</h1>
       <div class="question-icon text-center">
@@ -162,7 +164,7 @@
                  value="Ja ik ben verzekerd"
                  required
                  class="text-center">
-          <label for="radio7">Ja ik ben verzekerd</label>
+          <label for="radio7" (click)="addToSkippedQuestions(6)">Ja ik ben verzekerd</label>
           <input id="radio8"
                  type="radio"
                  name="answer5"
@@ -170,11 +172,11 @@
                  value="Nee nog niet"
                  required
                  class="text-center">
-          <label for="radio8">Nee nog niet</label>
+          <label for="radio8" (click)="removeFromSkippedQuestions(6)">Nee nog niet</label>
         </div>
       </div>
       <div class="question-navigation navigation-next text-right">
-        <button class="next-button" (click)="nextQuestion()" [disabled]="!questionsForm.controls.question5.valid">
+        <button class="next-button" (click)="nextQuestion(6, 7)" [disabled]="!questionsForm.controls.question5.valid">
           Volgende
         </button>
       </div>
