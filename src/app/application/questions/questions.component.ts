@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { QuestionsService } from '../../services/questions.service';
 
 @Component({
   selector: 'app-questions',
@@ -14,7 +15,7 @@ export class QuestionsComponent implements OnInit {
   progressPercentage: number;
   years: number[] = [];
 
-  constructor() {
+  constructor(private questionsService: QuestionsService) {
     this.progressPercentage = 0;
     this.getYearsArray();
     this.questionsForm = new FormGroup({
@@ -67,10 +68,16 @@ export class QuestionsComponent implements OnInit {
     if (!this.skippedQuestions.includes(nextQuestion)) {
       if ((nextQuestion) <= this.questionsNumber) {
         this.questionPosition = nextQuestion;
+      } else {
+        console.log(this.questionsForm);
+
+        this.sendQuestionsForm();
       }
     } else {
       if (breakPointQuestion > this.questionsNumber) {
-        console.log('Questionnaire finished!');
+        console.log(this.questionsForm);
+
+        this.sendQuestionsForm();
       } else {
         this.questionPosition = breakPointQuestion;
       }
@@ -101,8 +108,33 @@ export class QuestionsComponent implements OnInit {
     this.progressPercentage = (100 * this.questionPosition) / this.questionsNumber;
   }
 
-  finishQuestionnaire() {
-    console.log('Form: ', this.questionsForm.value);
-    console.log('Skipped Question: ', this.skippedQuestions);
+  sendQuestionsForm() {
+    let questionsPayload = {
+      tasks: {
+        question1_birthDay: parseInt(this.questionsForm.value.question1.birthDay),
+        question1_birthMonth: parseInt(this.questionsForm.value.question1.birthMonth),
+        question1_birthYear: parseInt(this.questionsForm.value.question1.birthYear),
+        question2: this.questionsForm.value.question2.answer2,
+        question3: this.questionsForm.value.question3.answer3,
+        question4: this.questionsForm.value.question4.answer4,
+        question5: this.questionsForm.value.question5.answer5,
+        question6: this.questionsForm.value.question6.answer6
+      }
+    };
+
+
+    // Nullify skipped questions
+
+    if (this.questionsForm.value.question2.answer2.search('Ja') >= 0) {
+      questionsPayload.tasks.question3 = null;
+    }
+
+    if (this.questionsForm.value.question5.answer5.search('Ja') >= 0) {
+      questionsPayload.tasks.question6 = null;
+    }
+
+    console.log(questionsPayload);
+
+    this.questionsService.sendQuestionsForm(questionsPayload);
   }
 }

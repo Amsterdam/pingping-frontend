@@ -11,6 +11,7 @@ import { QuestionsService } from './services/questions.service';
 import { QuestionsComponent } from './application/questions/questions.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SplashScreenComponent } from './application/splash-screen/splash-screen.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SplashScreenComponent } from './application/splash-screen/splash-screen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     QuestionsService
