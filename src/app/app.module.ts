@@ -12,6 +12,7 @@ import { QuestionsComponent } from './application/questions/questions.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { SplashScreenComponent } from './application/splash-screen/splash-screen.component';
 import { HttpClientModule } from '@angular/common/http';
+import { WelcomeScreenComponent } from './application/welcome-screen/welcome-screen.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     IndexComponent,
     SideNavComponent,
     QuestionsComponent,
-    SplashScreenComponent
+    SplashScreenComponent,
+    WelcomeScreenComponent
   ],
   imports: [
     BrowserModule,

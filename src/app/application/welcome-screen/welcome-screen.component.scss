@@ -1,0 +1,45 @@
+#welcome-container {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  padding: 30px;
+
+  h3 {
+    font-size: 2.2em;
+    line-height: 0.7em;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: "Heavitas";
+  }
+
+  img {
+    width: 120px;
+    margin-bottom: 25px;
+  }
+
+  a:not(.button) {
+    color: #0d2036;
+    font-family: "Raleway";
+    display: inline-block;
+    margin-top: 20px;
+  }
+
+  .button {
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 15px 30px;
+    border-radius: 30px;
+  }
+
+  .button-white {
+    background: #ffffff;
+    color: #fb9f00;
+    border: 1px solid #fb9f00;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+}
