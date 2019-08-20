@@ -2,6 +2,9 @@
   <form action="#" [formGroup]="questionsForm">
     <!-- Question 1 -->
     <div class="question" formGroupName="question1" [hidden]="questionPosition != 1">
+      <div class="question-navigation navigation-back">
+        <button class="back-button" routerLink="/welcome"><img src="./assets/img/application/back.svg" alt="Back"></button>
+      </div>
       <h1 class="question-title">Wat is je geboorte datum?</h1>
       <div class="question-icon text-center">
         <img src="./assets/img/application/cake.png">
@@ -164,7 +167,7 @@
                  value="Ja ik ben verzekerd"
                  required
                  class="text-center">
-          <label for="radio7" (click)="addToSkippedQuestions(6)">Ja ik ben verzekerd</label>
+          <label for="radio7" (click)="removeFromSkippedQuestions(6)">Ja ik ben verzekerd</label>
           <input id="radio8"
                  type="radio"
                  name="answer5"
@@ -172,7 +175,7 @@
                  value="Nee nog niet"
                  required
                  class="text-center">
-          <label for="radio8" (click)="removeFromSkippedQuestions(6)">Nee nog niet</label>
+          <label for="radio8" (click)="addToSkippedQuestions(6)">Nee nog niet</label>
         </div>
       </div>
       <div class="question-navigation navigation-next text-right">

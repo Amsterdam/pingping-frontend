@@ -8,6 +8,8 @@
 }
 
 .question {
+  font-family: "Raleway";
+
   &:not([hidden]) {
     opacity: 1;
     transition: opacity 0.5s linear;

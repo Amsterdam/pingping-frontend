@@ -6,18 +6,18 @@ import { environment } from '../../environments/environment.prod';
   providedIn: 'root'
 })
 export class QuestionsService {
+  headers = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+
   constructor(private httpClient: HttpClient) { }
 
   sendQuestionsForm(data) {
     data = JSON.stringify(data);
 
-    const headers = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-
-    this.httpClient.post(`${ environment.apiUrl }/route/calculate/`, data, headers).subscribe(response => {
+    this.httpClient.post(`${ environment.apiUrl }/route/calculate/`, data, this.headers).subscribe(response => {
       console.log('Response: ', response);
     });
   }
