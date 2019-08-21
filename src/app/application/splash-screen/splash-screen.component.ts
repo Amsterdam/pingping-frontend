@@ -12,7 +12,7 @@ export class SplashScreenComponent implements OnInit {
 
   ngOnInit() {
     setInterval(() => {
-      this.router.navigate(['/route-questionnaire']);
+      this.router.navigate(['/route-questionnaire/1']);
     }, 3000);
   }
 }

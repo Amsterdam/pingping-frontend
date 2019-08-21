@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
-export class QuestionsService {
+export class RouteQuestionnaireService {
   headers = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

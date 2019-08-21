@@ -7,8 +7,8 @@ import { HeaderComponent } from './landing/components/header/header.component';
 import { WhatIsItComponent } from './landing/what-is-it/what-is-it.component';
 import { IndexComponent } from './landing/index/index.component';
 import { SideNavComponent } from './landing/components/side-nav/side-nav.component';
-import { QuestionsService } from './services/questions.service';
-import { QuestionsComponent } from './application/questions/questions.component';
+import { RouteQuestionnaireService } from './services/route-questionnaire.service';
+import { RouteQuestionnaireComponent } from './application/route-questionnaire/route-questionnaire.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SplashScreenComponent } from './application/splash-screen/splash-screen.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,7 +22,7 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
     WhatIsItComponent,
     IndexComponent,
     SideNavComponent,
-    QuestionsComponent,
+    RouteQuestionnaireComponent,
     SplashScreenComponent,
     WelcomeScreenComponent
   ],
@@ -34,7 +34,7 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
     DeviceDetectorModule.forRoot()
   ],
   providers: [
-    QuestionsService
+    RouteQuestionnaireService
   ],
   bootstrap: [AppComponent]
 })
