@@ -1,5 +1,5 @@
 select {
-  padding: 10px 35px 10px 10px;
+  padding: 20px 35px 20px 25px;
   border: 1px solid #0d2036;
   font-family: "Raleway";
   text-align: center;
@@ -13,16 +13,16 @@ select {
   }
 
   &:first-child {
-    margin-right: 10px;
+    margin-right: 8px;
   }
 
   &:nth-child(2) {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
   }
 
   &:last-child {
-    margin-left: 10px;
+    margin-left: 8px;
   }
 }
 

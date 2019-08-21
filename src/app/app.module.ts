@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SplashScreenComponent } from './application/splash-screen/splash-screen.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WelcomeScreenComponent } from './application/welcome-screen/welcome-screen.component';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { WelcomeScreenComponent } from './application/welcome-screen/welcome-scr
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DeviceDetectorModule.forRoot()
   ],
   providers: [
     QuestionsService

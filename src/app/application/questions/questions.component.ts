@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { QuestionsService } from '../../services/questions.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-questions',
@@ -15,7 +16,8 @@ export class QuestionsComponent implements OnInit {
   progressPercentage: number;
   years: number[] = [];
 
-  constructor(private questionsService: QuestionsService) {
+  constructor(private questionsService: QuestionsService,
+              private deviceDetectorService: DeviceDetectorService) {
     this.progressPercentage = 0;
     this.getYearsArray();
     this.questionsForm = new FormGroup({
@@ -44,6 +46,13 @@ export class QuestionsComponent implements OnInit {
 
   ngOnInit() {
     this.updateProgressBar();
+
+    console.log('Device detector: ', {
+      deviceInfo: this.deviceDetectorService,
+      isMobile: this.deviceDetectorService.isMobile(),
+      isTablet: this.deviceDetectorService.isTablet(),
+      isDesktop: this.deviceDetectorService.isDesktop(),
+    });
   }
 
   getYearsArray() {
