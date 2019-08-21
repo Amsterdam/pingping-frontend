@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api.staging.pingping.refleks.tech/api'
+  apiUrl: 'https://65db79ea.ngrok.io/api'
+  // apiUrl: 'https://api.staging.pingping.refleks.tech/api'
 };

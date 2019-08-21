@@ -14,11 +14,22 @@ export class RouteQuestionnaireService {
 
   constructor(private httpClient: HttpClient) { }
 
-  sendQuestionsForm(data) {
-    data = JSON.stringify(data);
-
-    this.httpClient.post(`${ environment.apiUrl }/route/calculate/`, data, this.headers).subscribe(response => {
-      console.log('Response: ', response);
+  getFirstQuestion() {
+    this.httpClient.get(`${ environment.apiUrl }/question/first`, this.headers).subscribe(response => {
+      return response;
     });
+  }
+
+  sendQuestion(data: any) {
+    data = JSON.stringify(data);
+    let responseQuestion;
+
+    this.httpClient.post(`${ environment.apiUrl }/`, data, this.headers).subscribe(response => {
+      console.log('Response: ', response);
+
+      responseQuestion = response;
+    });
+
+    return responseQuestion;
   }
 }

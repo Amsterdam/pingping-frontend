@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RouteQuestionnaireService } from '../../services/route-questionnaire.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-questions',
@@ -10,27 +11,43 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 })
 export class RouteQuestionnaireComponent implements OnInit {
   questionsForm: FormGroup;
-  questionsNumber: number = 6;
-  questionPosition: number = 1;
-  progressPercentage: number;
+  question: any = null;
+  questionPosition: any;
+  progressPercentage: number = 0;
   years: number[] = [];
 
   constructor(private questionsService: RouteQuestionnaireService,
-              private deviceDetectorService: DeviceDetectorService) {
-    this.progressPercentage = 0;
-    this.getYearsArray();
-    this.questionsForm = new FormGroup({
-      'birthDay': new FormControl('', Validators.required),
-      'birthMonth': new FormControl('', Validators.required),
-      'birthYear': new FormControl('', Validators.required)
-    });
-
-    console.log(this.questionsForm);
-  }
+              private deviceDetectorService: DeviceDetectorService,
+              private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.updateProgressBar();
+    // this.updateProgressBar();
+    this.questionPosition = this.route.snapshot.paramMap.get('questionPosition');
 
+    if (this.questionPosition == '1') {
+      this.question = this.questionsService.getFirstQuestion();
+      console.log(this.question);
+      this.setYearsArray();
+
+      this.questionsForm = new FormGroup({
+        'question': new FormControl(this.question.question),
+        'birthDay': new FormControl('', Validators.required),
+        'birthMonth': new FormControl('', Validators.required),
+        'birthYear': new FormControl('', Validators.required)
+      });
+    } else {
+      this.questionsForm = new FormGroup({
+        'question': new FormControl('Question title'),
+        'answer': new FormControl('')
+      });
+    }
+
+    this.showInfoInConsole();
+  }
+
+  showInfoInConsole() {
+    console.log(this.questionsForm);
+    console.log('Question position: ', this.questionPosition);
     console.log('Device detector: ', {
       deviceInfo: this.deviceDetectorService,
       isMobile: this.deviceDetectorService.isMobile(),
@@ -39,7 +56,7 @@ export class RouteQuestionnaireComponent implements OnInit {
     });
   }
 
-  getYearsArray() {
+  setYearsArray() {
     const currentYear = new Date().getFullYear();
 
     for (let i = 1990 ; i <= currentYear ; i++) {
@@ -48,14 +65,23 @@ export class RouteQuestionnaireComponent implements OnInit {
   }
 
   previousQuestion(previousQuestion: number) {
-    this.updateProgressBar();
+    // this.updateProgressBar();
   }
 
-  nextQuestion(nextQuestion: number) {
-    this.updateProgressBar();
+  sendQuestion(data: any) {
+    let nextQuestion = this.questionsService.sendQuestion(data);
+
+    this.questionsForm = new FormGroup({
+      'question': new FormControl(nextQuestion.question),
+      'answer': new FormControl('')
+    });
+
+    this.question = nextQuestion;
+
+    // this.updateProgressBar();
   }
 
-  updateProgressBar() {
-    this.progressPercentage = (100 * this.questionPosition) / this.questionsNumber;
-  }
+  // updateProgressBar() {
+  //   this.progressPercentage = (100 * this.question.questionPosition) / this.question.questionsNumber;
+  // }
 }

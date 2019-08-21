@@ -10,7 +10,7 @@
         <img src="./assets/img/application/cake.png">
       </div>
       <!-- Date question type -->
-      <div class="question-content text-center">
+      <div *ngIf="questionPosition == '1'" class="question-content text-center">
         <select formControlName="birthDay" required>
           <option value="dag" [selected]="true" disabled>Dag</option>
           <option *ngFor="let i of [].constructor(31); let index = index"
@@ -35,28 +35,28 @@
       </div>
       
       <!-- Option question type -->
-<!--      <div class="question-content text-center">-->
-<!--        <div class="select-option">-->
-<!--          <input id="radio1"-->
-<!--                 type="radio"-->
-<!--                 name="yesAnswer"-->
-<!--                 formControlName="yesAnswer"-->
-<!--                 value="Ja ik heb een DigiD"-->
-<!--                 required-->
-<!--                 class="text-center">-->
-<!--          <label for="radio1">Ja ik heb een DigiD</label>-->
-<!--          <input id="radio2"-->
-<!--                 type="radio"-->
-<!--                 name="noAnswer"-->
-<!--                 formControlName="noAnswer"-->
-<!--                 value="Nee nog niet"-->
-<!--                 required-->
-<!--                 class="text-center">-->
-<!--          <label for="radio2">Nee nog niet</label>-->
-<!--        </div>-->
-<!--      </div>-->
+      <div *ngIf="questionPosition == '2'" class="question-content text-center">
+        <div class="select-option">
+          <input id="radio1"
+                 type="radio"
+                 name="answer"
+                 formControlName="answer"
+                 value="Ja ik heb een DigiD"
+                 required
+                 class="text-center">
+          <label for="radio1">Ja ik heb een DigiD</label>
+          <input id="radio2"
+                 type="radio"
+                 name="answer"
+                 formControlName="answer"
+                 value="Nee nog niet"
+                 required
+                 class="text-center">
+          <label for="radio2">Nee nog niet</label>
+        </div>
+      </div>
       <div class="question-navigation navigation-next text-right">
-        <button class="next-button" (click)="nextQuestion(0)" [disabled]="!questionsForm.valid">
+        <button class="next-button" (click)="sendQuestion()" [disabled]="!questionsForm.valid">
           Volgende
         </button>
       </div>

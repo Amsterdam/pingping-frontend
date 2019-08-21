@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: SplashScreenComponent },
   { path: 'welcome', component: WelcomeScreenComponent },
   { path: 'what-is-pingping', component: RouteQuestionnaireComponent },
-  { path: 'route-questionnaire/:questionposition', component: RouteQuestionnaireComponent },
+  { path: 'route-questionnaire/:questionPosition', component: RouteQuestionnaireComponent },
   { path: '**', pathMatch: 'full', component: IndexComponent }
 ];
 
