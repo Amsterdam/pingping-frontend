@@ -15,19 +15,16 @@ export class RouteQuestionnaireService {
   constructor(private httpClient: HttpClient) { }
 
   getFirstQuestion() {
-    return this.httpClient.get(`${ environment.apiUrl }/question/first`, this.headers);
+    return this.httpClient.get(`${ environment.apiUrl }/question/first/`, this.headers);
   }
 
-  sendQuestion(data: any) {
+  getQuestion(currentQuestion: any) {
+    return this.httpClient.get(`${ environment.apiUrl }/question/${ currentQuestion }/`, this.headers);
+  }
+
+  sendQuestion(data: any, currentQuestion: number) {
     data = JSON.stringify(data);
-    let responseQuestion;
 
-    this.httpClient.post(`${ environment.apiUrl }/`, data, this.headers).subscribe(response => {
-      console.log('Response: ', response);
-
-      responseQuestion = response;
-    });
-
-    return responseQuestion;
+    return this.httpClient.post(`${ environment.apiUrl }/question/${ currentQuestion }/next/`, data, this.headers);
   }
 }

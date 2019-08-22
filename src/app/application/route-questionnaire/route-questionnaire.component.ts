@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RouteQuestionnaireService } from '../../services/route-questionnaire.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-questions',
@@ -10,51 +10,56 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./route-questionnaire.component.scss']
 })
 export class RouteQuestionnaireComponent implements OnInit {
-  questionsForm: FormGroup;
-  question: any = null;
+  questionForm: FormGroup;
+  currentQuestion: any = {};
   questionPosition: any;
   progressPercentage = 0;
   years: number[] = [];
 
   constructor(private questionsService: RouteQuestionnaireService,
               private deviceDetectorService: DeviceDetectorService,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute,
+              private router: Router) {}
 
   ngOnInit() {
-    // this.updateProgressBar();
-    this.questionPosition = this.route.snapshot.paramMap.get('questionPosition');
+    this.route.params.subscribe((params: any) => {
+      this.questionPosition = this.route.snapshot.paramMap.get('questionPosition');
+      this.currentQuestion.type = null;
+      this.questionForm = new FormGroup({
+        question: new FormControl(''),
 
-    if (this.questionPosition == '1') {
-      this.question = this.questionsService.getFirstQuestion().subscribe(response => {
-        console.log(this.question);
-        this.setYearsArray();
+        birthDay: new FormControl(''),
+        birthMonth: new FormControl(''),
+        birthYear: new FormControl(''),
 
-        this.questionsForm = new FormGroup({
-          'question': new FormControl(this.question.question),
-          'birthDay': new FormControl('', Validators.required),
-          'birthMonth': new FormControl('', Validators.required),
-          'birthYear': new FormControl('', Validators.required)
+        answer: new FormControl('')
+      });
+
+      if (this.questionPosition) {
+        this.questionsService.getQuestion(this.questionPosition).subscribe((response: any) => {
+          this.updateProgressBar(response);
+
+          this.currentQuestion = response;
+
+          this.initForm(response);
         });
-      });
-    } else {
-      this.questionsForm = new FormGroup({
-        'question': new FormControl('Question title'),
-        'answer': new FormControl('')
-      });
-    }
-
-    this.showInfoInConsole();
+      } else {
+        this.questionsService.getFirstQuestion().subscribe((response: any) => {
+          this.router.navigate([`/route-questionnaire/${ response.currentQuestion }/`]);
+        });
+      }
+    });
   }
 
   showInfoInConsole() {
-    console.log(this.questionsForm);
+    console.log(this.questionForm);
     console.log('Question position: ', this.questionPosition);
-    console.log('Device detector: ', {
-      deviceInfo: this.deviceDetectorService,
-      isMobile: this.deviceDetectorService.isMobile(),
-      isTablet: this.deviceDetectorService.isTablet(),
-      isDesktop: this.deviceDetectorService.isDesktop(),
-    });
+    // console.log('Device detector: ', {
+    //   deviceInfo: this.deviceDetectorService,
+    //   isMobile: this.deviceDetectorService.isMobile(),
+    //   isTablet: this.deviceDetectorService.isTablet(),
+    //   isDesktop: this.deviceDetectorService.isDesktop(),
+    // });
   }
 
   setYearsArray() {
@@ -65,24 +70,40 @@ export class RouteQuestionnaireComponent implements OnInit {
     }
   }
 
-  previousQuestion(previousQuestion: number) {
-    // this.updateProgressBar();
+  initForm(response) {
+    if (response.questionType == 'date') {
+      this.setYearsArray();
+
+      this.questionForm = null;
+      this.questionForm = new FormGroup({
+        birthDay: new FormControl('', Validators.required),
+        birthMonth: new FormControl('', Validators.required),
+        birthYear: new FormControl('', Validators.required)
+      });
+    } else {
+      this.questionForm = new FormGroup({
+        answer: new FormControl('', Validators.required)
+      });
+    }
   }
 
-  sendQuestion(data: any) {
-    const nextQuestion = this.questionsService.sendQuestion(data);
+  sendQuestion() {
+    const data = { answer: null };
 
-    this.questionsForm = new FormGroup({
-      'question': new FormControl(nextQuestion.question),
-      'answer': new FormControl('')
+    if (this.questionForm.value.answer) {
+      data.answer = this.questionForm.value.answer
+    } else {
+      data.answer = this.questionForm.value;
+    }
+
+    this.questionsService.sendQuestion(data, this.currentQuestion.currentQuestion).subscribe((response: any) => {
+      console.log(response);
+
+      this.router.navigate([`/route-questionnaire/${ response.currentQuestion }/`]);
     });
-
-    this.question = nextQuestion;
-
-    // this.updateProgressBar();
   }
 
-  // updateProgressBar() {
-  //   this.progressPercentage = (100 * this.question.questionPosition) / this.question.questionsNumber;
-  // }
+  updateProgressBar(question: any) {
+    this.progressPercentage = (100 * (question.order + 1)) / question.numberOfQuestions;
+  }
 }
