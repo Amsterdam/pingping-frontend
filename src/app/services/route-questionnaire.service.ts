@@ -15,9 +15,7 @@ export class RouteQuestionnaireService {
   constructor(private httpClient: HttpClient) { }
 
   getFirstQuestion() {
-    this.httpClient.get(`${ environment.apiUrl }/question/first`, this.headers).subscribe(response => {
-      return response;
-    });
+    return this.httpClient.get(`${ environment.apiUrl }/question/first`, this.headers);
   }
 
   sendQuestion(data: any) {

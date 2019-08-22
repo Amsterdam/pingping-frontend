@@ -13,7 +13,7 @@ export class RouteQuestionnaireComponent implements OnInit {
   questionsForm: FormGroup;
   question: any = null;
   questionPosition: any;
-  progressPercentage: number = 0;
+  progressPercentage = 0;
   years: number[] = [];
 
   constructor(private questionsService: RouteQuestionnaireService,
@@ -25,15 +25,16 @@ export class RouteQuestionnaireComponent implements OnInit {
     this.questionPosition = this.route.snapshot.paramMap.get('questionPosition');
 
     if (this.questionPosition == '1') {
-      this.question = this.questionsService.getFirstQuestion();
-      console.log(this.question);
-      this.setYearsArray();
+      this.question = this.questionsService.getFirstQuestion().subscribe(response => {
+        console.log(this.question);
+        this.setYearsArray();
 
-      this.questionsForm = new FormGroup({
-        'question': new FormControl(this.question.question),
-        'birthDay': new FormControl('', Validators.required),
-        'birthMonth': new FormControl('', Validators.required),
-        'birthYear': new FormControl('', Validators.required)
+        this.questionsForm = new FormGroup({
+          'question': new FormControl(this.question.question),
+          'birthDay': new FormControl('', Validators.required),
+          'birthMonth': new FormControl('', Validators.required),
+          'birthYear': new FormControl('', Validators.required)
+        });
       });
     } else {
       this.questionsForm = new FormGroup({
@@ -69,7 +70,7 @@ export class RouteQuestionnaireComponent implements OnInit {
   }
 
   sendQuestion(data: any) {
-    let nextQuestion = this.questionsService.sendQuestion(data);
+    const nextQuestion = this.questionsService.sendQuestion(data);
 
     this.questionsForm = new FormGroup({
       'question': new FormControl(nextQuestion.question),
