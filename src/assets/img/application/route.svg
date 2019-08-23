@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="27" viewBox="0 0 26 27">
+    <defs>
+        <path id="b" d="M375 618H0v49h375z"/>
+        <filter id="a" width="103.5%" height="126.5%" x="-1.7%" y="-11.2%" filterUnits="objectBoundingBox">
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+        </filter>
+        <filter id="c" width="102.3%" height="117.3%" x="-1.1%" y="-6.6%" filterUnits="objectBoundingBox">
+            <feOffset dy=".5" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#FEFEFE" d="M-127-624h375V43h-375z"/>
+        <g transform="translate(-127 -624)">
+            <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+            <use fill="#FFF" xlink:href="#b"/>
+            <use fill="#000" filter="url(#c)" xlink:href="#b"/>
+        </g>
+        <text fill="#4D4D4D" font-family=".SFNSText, .SF NS Text" font-size="10" letter-spacing=".12" transform="translate(-24 26)">
+            <tspan x="17.252" y="13">Je route</tspan>
+        </text>
+        <g transform="translate(1 1)">
+            <rect width="25" height="25" rx="2"/>
+            <g stroke="#007DBB" stroke-width="1.38">
+                <path d="M6.766 3.531a3.234 3.234 0 1 0-6.47 0c0 2.137 3.235 7.547 3.235 7.547s3.235-5.352 3.235-7.547zM24.016 16.469a3.234 3.234 0 1 0-6.47 0c0 2.137 3.235 7.547 3.235 7.547s3.235-5.352 3.235-7.547z"/>
+                <path stroke-linecap="round" d="M13.234 19.703H3.531a2.163 2.163 0 0 1-2.156-2.156c0-1.186.97-2.156 2.156-2.156h3.774c.892 0 1.617-.725 1.617-1.618 0-.892.724-1.617 1.617-1.617h3.774c1.185 0 2.156-.97 2.156-2.156 0-1.186-.97-2.156-2.157-2.156H10"/>
+            </g>
+        </g>
+    </g>
+</svg>

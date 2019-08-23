@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="25" viewBox="0 0 18 25">
+    <defs>
+        <path id="b" d="M375 618H0v49h375z"/>
+        <filter id="a" width="103.5%" height="126.5%" x="-1.7%" y="-11.2%" filterUnits="objectBoundingBox">
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+        </filter>
+        <filter id="c" width="102.3%" height="117.3%" x="-1.1%" y="-6.6%" filterUnits="objectBoundingBox">
+            <feOffset dy=".5" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#FEFEFE" d="M-227-625h375V42h-375z"/>
+        <g transform="translate(-227 -625)">
+            <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+            <use fill="#FFF" xlink:href="#b"/>
+            <use fill="#000" filter="url(#c)" xlink:href="#b"/>
+        </g>
+        <path fill="#D1D1D1" fill-rule="nonzero" d="M10.5 6.861l1.833.306c.64.11.89.889.417 1.333l-1.361 1.278.278 1.833c.11.639-.584 1.111-1.14.806l-1.638-.89-1.667.834a.775.775 0 0 1-1.11-.833l.332-1.834L5.14 8.39a.77.77 0 0 1 .444-1.306l1.834-.25.86-1.666a.77.77 0 0 1 1.39.027l.833 1.667zM17.694 21.5c.167.361.112.778-.138 1.083-.25.306-.64.445-1.028.361l-2.306-.527-1.139 2.055a1.039 1.039 0 0 1-.916.528h-.056c-.389-.028-.75-.25-.889-.611L8.89 19.194 6.556 24.39c-.167.361-.5.583-.89.611h-.055c-.361 0-.722-.194-.917-.528l-1.138-2.055-2.278.527a1.035 1.035 0 0 1-1.028-.36A1.025 1.025 0 0 1 .111 21.5l2.722-6.083A8.873 8.873 0 0 1 0 8.917C.028 4 4.028 0 8.944 0c4.917 0 8.917 4 8.917 8.917a8.895 8.895 0 0 1-2.889 6.555l2.722 6.028zm-8.75-6a6.58 6.58 0 0 0 6.584-6.583 6.58 6.58 0 0 0-6.584-6.584 6.58 6.58 0 0 0-6.583 6.584A6.58 6.58 0 0 0 8.944 15.5z"/>
+    </g>
+</svg>

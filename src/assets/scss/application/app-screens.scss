@@ -1,0 +1,142 @@
+#app-container {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 100;
+  }
+
+  #start-route {
+    padding: 30px 30px 80px 30px;
+    font-family: "Raleway", Arial;
+
+    #start-route-title {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+
+      h1 {
+        font-size: 1.6em;
+        font-family: "Heavitas", Arial;
+        margin: 0;
+      }
+
+      a {
+        display: block;
+        color: #0d2036;
+      }
+    }
+
+    #route-cards {
+      margin-left: -30px;
+      margin-right: -30px;
+      padding-bottom: 20px;
+      overflow-x: scroll;
+
+      #route-cards-container {
+        width: max-content;
+        overflow: hidden;
+        padding: 0 30px;
+      }
+
+      .route-card {
+        width: 210px;
+        height: 150px;
+        border-radius: 8px;
+        box-shadow: 1px 1px 10px 1px rgba(220, 220, 220, 0.5);
+        background-color: #fb9f4b;
+        padding: 15px;
+        margin: 0 5px;
+        float: left;
+
+        &:first-child {
+          margin-left: 0;
+          margin-right: 15px;
+        }
+
+        &:last-child {
+          margin-left: 15px;
+          margin-right: 0;
+        }
+
+        .task-header {
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+
+          .task-icon {
+            background: #ffffff;
+            border-radius: 50px;
+            padding: 15px;
+
+            img {
+              width: 28px;
+              height: 25px;
+            }
+          }
+
+          .task-points {
+            border-radius: 10px;
+            background: scale-color(#fb9f4b, $lightness: -20%);
+            color: #ffffff;
+            padding: 5px 8px;
+            font-family: 'Heavitas', Arial;
+            font-size: 0.8em;
+            font-weight: 100;
+          }
+
+          h2 {
+            color: #ffffff;
+          }
+        }
+
+        .task-description {
+          h2 {
+            font-family: "Heavitas", Arial;
+            font-size: 1.1em;
+            color: #ffffff;
+            margin-bottom: 7px;
+            letter-spacing: 1px;
+          }
+
+          p {
+            font-family: "Raleway", Arial;
+            font-size: 0.9em;
+            color: #0d2036;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    #task-description {
+      margin-top: 40px;
+
+      h2 {
+        font-family: "Heavitas", Arial;
+        font-size: 1.1em;
+        color: #0d2036;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+      }
+
+      p {
+        font-family: "Raleway", Arial;
+        font-size: 1em;
+        line-height: 1.6em;
+        color: #0d2036;
+        margin: 0;
+      }
+
+      .button {
+        margin-top: 40px;
+        padding: 16px 20px;
+        font-family: "Heavitas";
+        font-size: 1em;
+        border-radius: 50px;
+        background: #fb9f4b;
+        font-weight: 100;
+      }
+    }
+  }
+}
