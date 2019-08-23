@@ -1,28 +1,28 @@
 select {
-  padding: 20px 35px 20px 20px;
+  padding: 15px 30px 15px 15px;
   border: 1px solid #0d2036;
   font-family: "Raleway";
   text-align: center;
   border-radius: 5px;
   font-size: 1em;
   appearance: none;
-  background: url('./assets/img/application/arrow-down.svg') no-repeat calc(100% - 12px) 50%;
+  background: url('./assets/img/application/arrow-down.svg') no-repeat calc(100% - 10px) 50%;
 
   &:focus {
-    background: url('./assets/img/application/arrow-up.svg') no-repeat calc(100% - 12px) 50%;
+    background: url('./assets/img/application/arrow-up.svg') no-repeat calc(100% - 10px) 50%;
   }
 
   &:first-child {
-    margin-right: 8px;
+    margin-right: 6px;
   }
 
   &:nth-child(2) {
-    margin-left: 3px;
-    margin-right: 3px;
+    margin-left: 2px;
+    margin-right: 2px;
   }
 
   &:last-child {
-    margin-left: 8px;
+    margin-left: 6px;
   }
 }
 
