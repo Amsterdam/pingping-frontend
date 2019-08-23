@@ -14,6 +14,7 @@ import { SplashScreenComponent } from './application/splash-screen/splash-screen
 import { HttpClientModule } from '@angular/common/http';
 import { WelcomeScreenComponent } from './application/welcome-screen/welcome-screen.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
+import { RouteScreenComponent } from './application/route-screen/route-screen.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
     SideNavComponent,
     RouteQuestionnaireComponent,
     SplashScreenComponent,
-    WelcomeScreenComponent
+    WelcomeScreenComponent,
+    RouteScreenComponent
   ],
   imports: [
     BrowserModule,
