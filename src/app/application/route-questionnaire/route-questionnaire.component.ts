@@ -104,6 +104,6 @@ export class RouteQuestionnaireComponent implements OnInit {
   }
 
   updateProgressBar(question: any) {
-    this.progressPercentage = (100 * (question.order + 1)) / question.numberOfQuestions;
+    this.progressPercentage = (100 * question.order) / question.numberOfQuestions;
   }
 }
