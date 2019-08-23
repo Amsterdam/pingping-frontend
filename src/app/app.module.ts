@@ -16,6 +16,7 @@ import { WelcomeScreenComponent } from './application/welcome-screen/welcome-scr
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { RouteScreenComponent } from './application/route-screen/route-screen.component';
 import { AppNavigationComponent } from './application/app-navigation/app-navigation.component';
+import { RouteConfirmationComponent } from './application/route-confirmation/route-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AppNavigationComponent } from './application/app-navigation/app-navigat
     SplashScreenComponent,
     WelcomeScreenComponent,
     RouteScreenComponent,
-    AppNavigationComponent
+    AppNavigationComponent,
+    RouteConfirmationComponent
   ],
   imports: [
     BrowserModule,
