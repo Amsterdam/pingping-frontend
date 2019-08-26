@@ -6,6 +6,7 @@ import { SplashScreenComponent } from './application/splash-screen/splash-screen
 import { WelcomeScreenComponent } from './application/welcome-screen/welcome-screen.component';
 import { RouteScreenComponent } from './application/route-screen/route-screen.component';
 import { RouteConfirmationComponent } from './application/route-confirmation/route-confirmation.component';
+import { TaskComponent } from './application/task/task.component';
 
 const routes: Routes = [
   { path: '', component: SplashScreenComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'route-questionnaire/:questionPosition', component: RouteQuestionnaireComponent },
   { path: 'route-confirmation', component: RouteConfirmationComponent },
   { path: 'route-screen', component: RouteScreenComponent },
+  { path: 'task', component: TaskComponent },
   { path: '**', pathMatch: 'full', component: IndexComponent }
 ];
 

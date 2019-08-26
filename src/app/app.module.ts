@@ -17,6 +17,7 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
 import { RouteScreenComponent } from './application/route-screen/route-screen.component';
 import { AppNavigationComponent } from './application/app-navigation/app-navigation.component';
 import { RouteConfirmationComponent } from './application/route-confirmation/route-confirmation.component';
+import { TaskComponent } from './application/task/task.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RouteConfirmationComponent } from './application/route-confirmation/rou
     WelcomeScreenComponent,
     RouteScreenComponent,
     AppNavigationComponent,
-    RouteConfirmationComponent
+    RouteConfirmationComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
