@@ -14,6 +14,7 @@ export class RouteQuestionnaireComponent implements OnInit {
   currentQuestion: any = {};
   questionPosition: any;
   progressPercentage = 0;
+  days: number[];
   years: number[] = [];
 
   constructor(private questionsService: RouteQuestionnaireService,
@@ -62,6 +63,17 @@ export class RouteQuestionnaireComponent implements OnInit {
     // });
   }
 
+  setDaysArray() {
+    this.questionForm.controls['birthDay'].reset();
+
+      let daysCount: any = new Date(
+      this.questionForm.controls['birthYear'].value,
+      this.questionForm.controls['birthMonth'].value,
+      0).getDate();
+
+    this.days = [].constructor(daysCount);
+  }
+
   setYearsArray() {
     const currentYear = new Date().getFullYear();
 
@@ -79,6 +91,13 @@ export class RouteQuestionnaireComponent implements OnInit {
         birthDay: new FormControl('', Validators.required),
         birthMonth: new FormControl('', Validators.required),
         birthYear: new FormControl('', Validators.required)
+      });
+
+      this.questionForm.controls['birthMonth'].valueChanges.subscribe(() => {
+        this.setDaysArray();
+      });
+      this.questionForm.controls['birthYear'].valueChanges.subscribe(() => {
+        this.setDaysArray();
       });
     } else {
       this.questionForm = new FormGroup({

@@ -13,7 +13,7 @@
       <div *ngIf="currentQuestion.questionType == 'date'" class="question-content text-center">
         <select formControlName="birthDay" required>
           <option value="dag" [selected]="true" disabled>Dag</option>
-          <option *ngFor="let i of [].constructor(31); let index = index"
+          <option *ngFor="let i of days; let index = index"
                   value="{{ index + 1 }}">
             {{ index + 1 }}
           </option>
