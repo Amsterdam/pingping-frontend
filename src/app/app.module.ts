@@ -18,6 +18,7 @@ import { RouteScreenComponent } from './application/route-screen/route-screen.co
 import { AppNavigationComponent } from './application/app-navigation/app-navigation.component';
 import { RouteConfirmationComponent } from './application/route-confirmation/route-confirmation.component';
 import { TaskComponent } from './application/task/task.component';
+import { RewardsComponent } from './application/rewards/rewards.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TaskComponent } from './application/task/task.component';
     RouteScreenComponent,
     AppNavigationComponent,
     RouteConfirmationComponent,
-    TaskComponent
+    TaskComponent,
+    RewardsComponent
   ],
   imports: [
     BrowserModule,
