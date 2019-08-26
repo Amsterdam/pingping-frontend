@@ -7,25 +7,12 @@ import { environment } from '../../environments/environment.prod';
 })
 export class RouteQuestionnaireService {
   headers = {
-    headers: null
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
   };
 
-  constructor(private httpClient: HttpClient) {
-    if (localStorage.getItem('tempID')) {
-      this.headers.headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'temp-id': JSON.parse(localStorage.getItem('tempID'))
-      });
-    } else {
-      localStorage.setItem('tempID', JSON.stringify(this.createTempID()));
-      let tempID = localStorage.getItem('tempID');
-
-        this.headers.headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'temp-id': tempID
-      });
-    }
-  }
+  constructor(private httpClient: HttpClient) {}
 
   createTempID() {
     var dt = new Date().getTime();
@@ -50,6 +37,21 @@ export class RouteQuestionnaireService {
 
   sendQuestion(data: any, currentQuestion: number) {
     data = JSON.stringify(data);
+
+    if (localStorage.getItem('tempID')) {
+      this.headers.headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'temp-id': JSON.parse(localStorage.getItem('tempID'))
+      });
+    } else {
+      localStorage.setItem('tempID', JSON.stringify(this.createTempID()));
+      let tempID = localStorage.getItem('tempID');
+
+      this.headers.headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'temp-id': tempID
+      });
+    }
 
     return this.httpClient.post(`${ environment.apiUrl }/question/${ currentQuestion }/next/`, data, this.headers);
   }
