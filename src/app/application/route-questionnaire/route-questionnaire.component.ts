@@ -116,9 +116,13 @@ export class RouteQuestionnaireComponent implements OnInit {
     }
 
     this.questionsService.sendQuestion(data, this.currentQuestion.currentQuestion).subscribe((response: any) => {
-      console.log(response);
+      if (!response.user_user_key) {
+        this.router.navigate([`/route-questionnaire/${ response.currentQuestion }/`]);
+      } else {
+        localStorage.setItem('ppUserID', JSON.stringify(response.user_user_key.user_key));
 
-      this.router.navigate([`/route-questionnaire/${ response.currentQuestion }/`]);
+        this.router.navigate(['/route-confirmation']);
+      }
     });
   }
 

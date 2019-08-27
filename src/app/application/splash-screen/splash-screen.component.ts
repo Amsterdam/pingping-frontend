@@ -12,7 +12,11 @@ export class SplashScreenComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.router.navigate(['/route-questionnaire/']);
+      if (localStorage.getItem('ppUserID')) {
+        this.router.navigate(['/route-screen/']);
+      } else {
+        this.router.navigate(['/route-questionnaire/']);
+      }
     }, 3000);
   }
 }

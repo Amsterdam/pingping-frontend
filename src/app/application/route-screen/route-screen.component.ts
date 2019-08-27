@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../../services/app.service';
 
 @Component({
   selector: 'app-route-screen',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./route-screen.component.scss']
 })
 export class RouteScreenComponent implements OnInit {
+  route: any;
 
-  constructor() { }
+  constructor(private AppService: AppService) { }
 
   ngOnInit() {
-  }
+    this.AppService.getRoute().subscribe(response => {
+      this.route = response;
 
+      console.log(this.route);
+    });
+  }
 }
