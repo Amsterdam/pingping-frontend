@@ -117,19 +117,22 @@
         height: 65px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: stretch;
         margin: 23px -10px 0 -10px;
 
-        img {
-          width: 50px !important;
-          display: block;
+        .bullet {
+          width: 75px;
 
           &.active {
-            width: 65px !important;
+            width: 95px;
+          }
+
+          img {
+            width: 100%;
           }
         }
 
-        div {
+        div:not(.bullet) {
           background: #bfe9ee;
           height: 10px;
           width: 100%;
