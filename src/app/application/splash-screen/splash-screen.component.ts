@@ -11,8 +11,8 @@ export class SplashScreenComponent implements OnInit {
   constructor(private router : Router) { }
 
   ngOnInit() {
-    // setTimeout(() => {
-    //   this.router.navigate(['/route-questionnaire/']);
-    // }, 3000);
+    setTimeout(() => {
+      this.router.navigate(['/route-questionnaire/']);
+    }, 3000);
   }
 }
