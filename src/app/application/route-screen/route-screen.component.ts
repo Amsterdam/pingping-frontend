@@ -7,15 +7,37 @@ import { AppService } from '../../services/app.service';
   styleUrls: ['./route-screen.component.scss']
 })
 export class RouteScreenComponent implements OnInit {
-  route: any;
+  tasks: any;
+  currentTask: number = 0;
 
-  constructor(private AppService: AppService) { }
+  constructor(private AppService: AppService) {
+  }
 
   ngOnInit() {
     this.AppService.getRoute().subscribe(response => {
-      this.route = response;
+      this.tasks = response;
 
-      console.log(this.route);
+      this.setTasksStatus(this.tasks);
     });
+  }
+
+  setTasksStatus(tasks: any[]) {
+    // Set Current task
+    for (let i = 0 ; i < tasks.length ; i++) {
+      if (tasks[i].complete != null) {
+        this.currentTask = i + 1;
+        tasks[i].status = 'current';
+      }
+    }
+
+    // Set completed tasks
+    for (let i = (this.currentTask - 1) ; i >= 0 ; i--) {
+      tasks[i].status = 'completed';
+    }
+
+    // Set completed tasks
+    for (let i = (this.currentTask + 1) ; i < tasks.length ; i++) {
+      tasks[i].status = 'upcoming';
+    }
   }
 }

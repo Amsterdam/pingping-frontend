@@ -8,26 +8,29 @@
     </div>
     <div id="route-cards">
       <div id="route-cards-container">
-        <div class="route-card-container">
+        <div *ngFor="let task of tasks; let index = index"
+             class="route-card-container"
+             [ngClass]="{
+               'completed-task': task.status == 'completed',
+               'current-task': currentTask == index,
+               'upcoming-task': task.status == 'upcoming'
+              }">
           <div class="route-card">
             <div class="task-header">
               <div class="task-icon">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNNyAyMWgtNHYtMTFoNHYxMXptNy0xMWgtNHYxMWg0di0xMXptNyAwaC00djExaDR2LTExem0yIDEyaC0yMnYyaDIydi0yem0tMjMtMTNoMjRsLTEyLTktMTIgOXoiLz48L3N2Zz4=">
+                <img src="{{ task.card_icon }}">
               </div>
               <div class="task-points">
-                20 City pings
+                {{ task.city_points_value }} City pings
               </div>
             </div>
             <div class="task-description">
-              <h2>Digit Aanvragen</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur.
-              </p>
+              <h2>{{ task.card_description }}</h2>
             </div>
           </div>
           <div class="task-bullet">
             <div></div>
-            <div class="bullet active">
+            <div class="bullet" [ngClass]="{ 'active': currentTask == index }">
               <img src="./assets/img/application/task-bullet.svg" alt="Task bullet">
             </div>
             <div></div>
@@ -36,11 +39,11 @@
       </div>
     </div>
     <div id="task-description">
-      <h2>Waarom digid</h2>
+      <h2>{{ tasks[currentTask].card_description }}</h2>
       <p>
-        Met je DigiD laat je online aan de overheid  en instanties zien dat jij bent wie je zegt dat je bent! Met je DigiD bewijs je online dat jij een Baas bent!
+        {{ tasks[currentTask].brief_description }}
       </p>
-      <a class="button button-orange" href="/task">Maak je digid aan</a>
+      <a class="button button-orange" href="/task/{{ tasks[currentTask].task }}">{{ tasks[currentTask].info_b }}</a>
     </div>
   </div>
   <app-app-navigation></app-app-navigation>

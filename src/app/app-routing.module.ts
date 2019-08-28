@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'route-questionnaire/:questionPosition', component: RouteQuestionnaireComponent },
   { path: 'route-confirmation', component: RouteConfirmationComponent },
   { path: 'route-screen', component: RouteScreenComponent },
-  { path: 'task', component: TaskComponent },
+  { path: 'task/:task', component: TaskComponent },
   { path: 'rewards', component: RewardsComponent },
   { path: '**', pathMatch: 'full', component: IndexComponent }
 ];

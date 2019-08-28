@@ -55,6 +55,36 @@
       margin: 0 10px;
       float: left;
 
+      /* Completed tasks*/
+
+      &.completed-task .route-card {
+        background-color: #f8434e;
+      }
+
+      &.completed-task .task-points {
+        background: #fd0a17;
+      }
+
+      /* Current task*/
+
+      &.current-task .route-card {
+        background-color: #fb9f4b;
+      }
+
+      &.current-task .task-points {
+        background: #ff902a;
+      }
+
+      /* Upcoming tasks*/
+
+      &.upcoming-task .route-card {
+        background-color: #2dbcca;
+      }
+
+      &.upcoming-task .task-points {
+        background: #269ba6;
+      }
+
       &:first-child {
         margin-left: 0;
         margin-right: 10px;
@@ -70,7 +100,6 @@
         height: 150px;
         border-radius: 8px;
         box-shadow: 1px 1px 10px 1px rgba(220, 220, 220, 0.5);
-        background-color: #fb9f4b;
         padding: 15px;
 
         .task-header {
@@ -92,7 +121,6 @@
 
           .task-points {
             border-radius: 10px;
-            background: scale-color(#fb9f4b, $lightness: -20%);
             color: #ffffff;
             padding: 5px 8px;
             font-family: 'Heavitas', Arial;

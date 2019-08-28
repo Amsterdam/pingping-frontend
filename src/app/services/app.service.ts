@@ -18,4 +18,8 @@ export class AppService {
   getRoute() {
     return this.httpClient.get(`${ environment.apiUrl }/route/preview/`, this.headers);
   }
+
+  getTask(task: string) {
+    return this.httpClient.get(`${ environment.apiUrl }/task/${ task }/`, this.headers);
+  }
 }
