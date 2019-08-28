@@ -1,8 +1,26 @@
-#start-route {
+#route-screen {
   padding: 30px;
   font-family: "Raleway", Arial;
+  overflow: hidden;
+  position: relative;
 
-  #start-route-title {
+  #blue-oval,
+  #red-oval {
+    position: absolute;
+    z-index: -1;
+  }
+
+  #blue-oval {
+    top: -200px;
+    left: -240px;
+  }
+
+  #red-oval {
+    top: 130px;
+    right: -240px;
+  }
+
+  #route-screen-title {
     overflow: hidden;
     display: flex;
     align-items: center;
