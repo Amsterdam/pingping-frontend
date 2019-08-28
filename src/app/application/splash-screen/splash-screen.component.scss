@@ -6,9 +6,28 @@
   justify-content: center;
   background: #0d2036;
   box-sizing: border-box;
+  position: relative;
+  overflow: h;
 
-  img {
+  img:nth-child(2) {
     width: 150px;
     height: auto;
+    z-index: 2;
+  }
+
+  #blue-oval,
+  #red-oval {
+    position: absolute;
+    z-index: 1;
+  }
+
+  #blue-oval {
+    top: -160px;
+    left: -160px;
+  }
+
+  #red-oval {
+    bottom: -160px;
+    right: -160px;
   }
 }
