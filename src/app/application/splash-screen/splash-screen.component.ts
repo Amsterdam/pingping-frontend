@@ -13,9 +13,9 @@ export class SplashScreenComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       if (localStorage.getItem('ppUserID')) {
-        this.router.navigate(['/route-screen/']);
+        this.router.navigate(['/route-screen']);
       } else {
-        this.router.navigate(['/route-questionnaire/']);
+        this.router.navigate(['/welcome']);
       }
     }, 3000);
   }
