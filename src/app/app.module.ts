@@ -19,6 +19,7 @@ import { AppNavigationComponent } from './application/app-navigation/app-navigat
 import { RouteConfirmationComponent } from './application/route-confirmation/route-confirmation.component';
 import { TaskComponent } from './application/task/task.component';
 import { RewardsComponent } from './application/rewards/rewards.component';
+import { WhatIsPingpingComponent } from './application/what-is-pingping/what-is-pingping.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { RewardsComponent } from './application/rewards/rewards.component';
     AppNavigationComponent,
     RouteConfirmationComponent,
     TaskComponent,
-    RewardsComponent
+    RewardsComponent,
+    WhatIsPingpingComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,8 @@
     <!-- Question template -->
     <div class="question">
       <div class="question-navigation navigation-back">
-        <button class="back-button" routerLink="/route-questionnaire/{{ currentQuestion.previousQuestion }}/"><img src="./assets/img/application/back.svg" alt="Back"></button>
+        <button *ngIf="currentQuestion.previousQuestion" class="back-button" routerLink="/route-questionnaire/{{ currentQuestion.previousQuestion }}"><img src="./assets/img/application/back.svg" alt="Back"></button>
+        <button *ngIf="!currentQuestion.previousQuestion" class="back-button" routerLink="/welcome"><img src="./assets/img/application/back.svg" alt="Back"></button>
       </div>
       <h1 class="question-title">{{ currentQuestion.question }}</h1>
       <div class="question-icon text-center">

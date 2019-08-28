@@ -12,10 +12,10 @@ export class RouteScreenComponent implements OnInit {
   constructor(private AppService: AppService) { }
 
   ngOnInit() {
-    // this.AppService.getRoute().subscribe(response => {
-    //   this.route = response;
-    //
-    //   console.log(this.route);
-    // });
+    this.AppService.getRoute().subscribe(response => {
+      this.route = response;
+
+      console.log(this.route);
+    });
   }
 }

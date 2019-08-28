@@ -8,11 +8,12 @@ import { RouteScreenComponent } from './application/route-screen/route-screen.co
 import { RouteConfirmationComponent } from './application/route-confirmation/route-confirmation.component';
 import { TaskComponent } from './application/task/task.component';
 import { RewardsComponent } from './application/rewards/rewards.component';
+import { WhatIsPingpingComponent } from './application/what-is-pingping/what-is-pingping.component';
 
 const routes: Routes = [
   { path: '', component: SplashScreenComponent },
   { path: 'welcome', component: WelcomeScreenComponent },
-  { path: 'what-is-pingping', component: RouteQuestionnaireComponent },
+  { path: 'what-is-pingping', component: WhatIsPingpingComponent },
   { path: 'route-questionnaire', component: RouteQuestionnaireComponent },
   { path: 'route-questionnaire/:questionPosition', component: RouteQuestionnaireComponent },
   { path: 'route-confirmation', component: RouteConfirmationComponent },
