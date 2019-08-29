@@ -12,6 +12,11 @@ export class AppService {
       'Authorization': localStorage.getItem('ppUserID')
     })
   };
+  headersWithoutUser = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+  };
 
   constructor(private httpClient: HttpClient) { }
 
@@ -21,5 +26,17 @@ export class AppService {
 
   getTask(task: string) {
     return this.httpClient.get(`${ environment.apiUrl }/task/${ task }/`, this.headers);
+  }
+
+  getRewards() {
+    return this.httpClient.get(`${ environment.apiUrl }/reward/`, this.headers);
+  }
+
+  requestDefaultRoute() {
+    return this.httpClient.post(`${ environment.apiUrl }/question/default/`, '', {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    });
   }
 }

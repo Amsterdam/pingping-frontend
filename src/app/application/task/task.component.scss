@@ -1,8 +1,8 @@
 #task {
   #back-button {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 10px;
+    left: 10px;
     z-index: 10;
     background: none;
     border: none;
@@ -12,14 +12,14 @@
   }
 
   #video-player {
-    height: 210px;
     background: #0d2036;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 45px 0 0 0;
 
-    img {
-      cursor: pointer;
+    iframe {
+      min-height: 231px;
     }
   }
 

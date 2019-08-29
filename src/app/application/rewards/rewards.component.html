@@ -8,12 +8,13 @@
       </div>
     </div>
     <div id="rewards-list">
-      <div class="reward" *ngFor="let item of [].constructor(3)">
-        <a href="#">
+      <div class="reward" *ngFor="let reward of rewards">
+        <a href="/">
           <div class="header" [ngStyle]="{ 'background': 'url(https://placeimg.com/335/335/people)' }">
-            <h1>Artis</h1>
+            <img *ngIf="reward.claimed" src="./assets/img/application/city-pings-red.svg" alt="Claimed">
+            <h1>{{ reward.title }}</h1>
             <div class="points">
-              <span>20/20</span>
+              <span>20/{{ reward.cost }}</span>
               <h2>City Pings</h2>
             </div>
             <div class="progress-bar">
@@ -21,7 +22,7 @@
             </div>
           </div>
           <div class="footer">
-            <h2>DAGJE NAAR ARTIS MET JE VRIENDEN</h2>
+            <h2>{{ reward.description }}</h2>
           </div>
         </a>
       </div>

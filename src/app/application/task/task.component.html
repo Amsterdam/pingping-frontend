@@ -2,17 +2,17 @@
   <div id="task">
     <button id="back-button" routerLink="/route-screen"><img src="./assets/img/application/back-white.svg" alt="Back"></button>
     <div id="video-player">
-      <img src="./assets/img/application/play.svg" alt="Play">
+      <iframe width="560" [src]="task.media" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div id="task-description">
       <h1>{{ task.name }}</h1>
       <p>
         {{ task.description }}
       </p>
-      <ul>
-        <li>1</li>
+      <ul *ngIf="task.steps">
+        <li *ngFor="let step of task.steps">{{ step }}</li>
       </ul>
-      <a href="#" class="button button-orange">Mijn DIGID is aangemaakt</a>
+      <a href="#" class="button button-orange">{{ task.check_task }}</a>
     </div>
   </div>
   <app-app-navigation></app-app-navigation>
