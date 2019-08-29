@@ -4,11 +4,11 @@
   bottom: 0;
   left: 0;
   background: #ffffff;
-  border-top: 1px solid #f7f7f7;
+  border-top: 1px solid #dedede;
   display: flex;
 
   a {
-    padding: 3px;
+    padding: 38px 3px 3px 3px;
     text-align: center;
     display: block;
     color: #cccccc;
@@ -16,8 +16,40 @@
     font-size: 0.8em;
     flex: 1;
 
+    &:nth-child(1) {
+      background: url("../../../assets/img/application/cashbook.svg") 50% 5px no-repeat;
+    }
+
+    &:nth-child(2) {
+      background: url("../../../assets/img/application/route.svg") 50% 5px no-repeat;
+    }
+
+    &:nth-child(3) {
+      background: url("../../../assets/img/application/city-pings.svg") 50% 5px no-repeat;
+    }
+
+    &:nth-child(4) {
+      background: url("../../../assets/img/application/more.svg") 50% 5px no-repeat;
+    }
+
     &.active {
       color: #4d4d4d;
+
+      &:nth-child(1) {
+        background: url("../../../assets/img/application/cashbook-blue.svg") 50% 5px no-repeat;
+      }
+
+      &:nth-child(2) {
+        background: url("../../../assets/img/application/route-blue.svg") 50% 5px no-repeat;
+      }
+
+      &:nth-child(3) {
+        background: url("../../../assets/img/application/city-pings-blue.svg") 50% 5px no-repeat;
+      }
+
+      &:nth-child(4) {
+        background: url("../../../assets/img/application/more-blue.svg") 50% 5px no-repeat;
+      }
     }
   }
 }

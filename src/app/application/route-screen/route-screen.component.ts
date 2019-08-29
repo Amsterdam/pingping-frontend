@@ -7,11 +7,18 @@ import { AppService } from '../../services/app.service';
   styleUrls: ['./route-screen.component.scss']
 })
 export class RouteScreenComponent implements OnInit {
-  tasks: any;
+  tasks: any = [{
+    brief_description: null,
+    card_description: null,
+    card_icon: null,
+    city_points_value: null,
+    complete: null,
+    info_b: null,
+    task: null
+  }];
   currentTask: number = 0;
 
-  constructor(private AppService: AppService) {
-  }
+  constructor(private AppService: AppService) {}
 
   ngOnInit() {
     this.AppService.getRoute().subscribe(response => {
