@@ -8,6 +8,7 @@ import { AppService } from '../../services/app.service';
 })
 export class RewardsComponent implements OnInit {
   rewards: any = [{
+    id: null,
     title: null,
     cost: null,
     description: null,
@@ -15,6 +16,8 @@ export class RewardsComponent implements OnInit {
     succes_m: null,
     claimed: null
   }];
+  reward: any = null;
+  showPopUp: boolean = false;
 
   constructor(private appService: AppService) { }
 
@@ -22,5 +25,15 @@ export class RewardsComponent implements OnInit {
     this.appService.getRewards().subscribe(response => {
       this.rewards = response;
     });
+  }
+
+  openRewardPopup(reward: any) {
+    this.reward = null;
+    this.reward = reward;
+    this.showPopUp = true;
+  }
+
+  closePopup() {
+    this.showPopUp = false;
   }
 }

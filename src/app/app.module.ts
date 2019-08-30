@@ -20,6 +20,7 @@ import { RouteConfirmationComponent } from './application/route-confirmation/rou
 import { TaskComponent } from './application/task/task.component';
 import { RewardsComponent } from './application/rewards/rewards.component';
 import { WhatIsPingpingComponent } from './application/what-is-pingping/what-is-pingping.component';
+import { RewardPopupComponent } from './application/reward-popup/reward-popup.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { WhatIsPingpingComponent } from './application/what-is-pingping/what-is-
     RouteConfirmationComponent,
     TaskComponent,
     RewardsComponent,
-    WhatIsPingpingComponent
+    WhatIsPingpingComponent,
+    RewardPopupComponent
   ],
   imports: [
     BrowserModule,

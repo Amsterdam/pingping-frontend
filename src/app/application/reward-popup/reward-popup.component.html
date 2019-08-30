@@ -1,0 +1,17 @@
+<div id="reward-popup-container">
+  <div id="reward-popup">
+    <button id="close-button" (click)="closePopup()"><img src="./assets/img/application/close.svg" alt="Close"></button>
+    <div id="thumbnail">
+      <img src="https://placeimg.com/350/320/any" alt="Reward thumbnail">
+    </div>
+    <div id="reward-description">
+      <h2>{{ reward.title }}</h2>
+      <h3>{{ reward.cost }} City Pings</h3>
+      <p>
+        {{ reward.description }}
+      </p>
+    </div>
+    <a id="claim-reward" class="orange" (click)="claimReward()">Claim reward</a>
+<!--    <a id="claim-reward" class="gray" (click)="rewardClaimed()">Kan nog niet geclaimd worden</a>-->
+  </div>
+</div>

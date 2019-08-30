@@ -1,3 +1,4 @@
+<app-reward-popup [reward]="reward" *ngIf="showPopUp" (showPopup)="closePopup()"></app-reward-popup>
 <div id="app-container">
   <div id="rewards">
     <div id="rewards-title">
@@ -9,7 +10,7 @@
     </div>
     <div id="rewards-list">
       <div class="reward" *ngFor="let reward of rewards">
-        <a href="/">
+        <a (click)="openRewardPopup(reward)">
           <div class="header" [ngStyle]="{ 'background': 'url(https://placeimg.com/335/335/people)' }">
             <img *ngIf="reward.claimed" src="./assets/img/application/city-pings-red.svg" alt="Claimed">
             <h1>{{ reward.title }}</h1>
