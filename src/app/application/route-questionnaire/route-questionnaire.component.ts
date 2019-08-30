@@ -47,6 +47,8 @@ export class RouteQuestionnaireComponent implements OnInit {
       } else {
         this.questionsService.getFirstQuestion().subscribe((response: any) => {
           this.router.navigate([`/route-questionnaire/${ response.currentQuestion }/`]);
+
+          localStorage.setItem('ppCookie', response.cookie);
         });
       }
     });
@@ -107,17 +109,21 @@ export class RouteQuestionnaireComponent implements OnInit {
   }
 
   sendQuestion() {
-    const data = { answer: null };
+    const data: any = { answer: null };
+    const ppCookie = localStorage.getItem('ppCookie');
 
     if (this.questionForm.value.answer) {
-      data.answer = this.questionForm.value.answer
+      data.answer = this.questionForm.value.answer;
+      data.cookie = ppCookie;
     } else {
       data.answer = this.questionForm.value;
+      data.cookie = ppCookie;
     }
 
     this.questionsService.sendQuestion(data, this.currentQuestion.currentQuestion).subscribe((response: any) => {
       if (!response.user_user_key) {
         this.router.navigate([`/route-questionnaire/${ response.currentQuestion }/`]);
+        localStorage.setItem('ppCookie', response.cookie);
       } else {
         localStorage.setItem('ppUserID', JSON.stringify(response.user_user_key.user_key));
 
