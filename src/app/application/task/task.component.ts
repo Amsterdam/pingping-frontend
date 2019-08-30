@@ -10,6 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class TaskComponent implements OnInit {
   task: any = {
+    id: null,
     city_points_value: null,
     description: null,
     name: null,
@@ -23,10 +24,15 @@ export class TaskComponent implements OnInit {
     this.appService.getTask(this.route.snapshot.paramMap.get('task')).subscribe((response: any) => {
       this.task = response;
 
-      // this.task.media = this.sanitizer.bypassSecurityTrustResourceUrl(this.task.media);
-      this.task.media = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/jv68lO2uPUw');
+      this.task.media = this.sanitizer.bypassSecurityTrustResourceUrl(response.media);
     });}
 
   ngOnInit() {
+  }
+
+  completeTask() {
+    this.appService.completeTask(this.task.id).subscribe(response => {
+      console.log(response);
+    });
   }
 }

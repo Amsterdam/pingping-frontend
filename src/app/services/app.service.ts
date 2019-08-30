@@ -39,4 +39,12 @@ export class AppService {
       })
     });
   }
+
+  completeTask(taskID: number) {
+    return this.httpClient.post(`${ environment.apiUrl }/task/${ taskID }/complete/`, '', this.headers);
+  }
+
+  getUserPoints(ppUserID: string) {
+    return this.httpClient.get(`${ environment.apiUrl }/user/${ ppUserID }`, this.headers);
+  }
 }
