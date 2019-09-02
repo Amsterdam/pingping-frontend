@@ -42,6 +42,10 @@
       overflow: hidden;
       position: relative;
 
+      &.out-of-stock {
+        opacity: 0.4;
+      }
+
       .header {
         height: 335px;
         background-size: cover !important;

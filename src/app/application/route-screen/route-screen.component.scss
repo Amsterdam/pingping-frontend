@@ -111,10 +111,14 @@
           .task-icon {
             background: #ffffff;
             border-radius: 50px;
-            padding: 13px 15px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             img {
-              width: 28px;
+              max-width: 28px;
             }
           }
 

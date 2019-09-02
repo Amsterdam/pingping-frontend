@@ -25,10 +25,10 @@ export class TaskComponent implements OnInit {
       this.task = response;
 
       this.task.media = this.sanitizer.bypassSecurityTrustResourceUrl(response.media);
-    });}
-
-  ngOnInit() {
+    });
   }
+
+  ngOnInit() { }
 
   completeTask() {
     this.appService.completeTask(this.task.id).subscribe(response => {

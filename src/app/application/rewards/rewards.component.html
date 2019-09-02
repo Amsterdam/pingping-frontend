@@ -5,17 +5,19 @@
       <button id="back-button" routerLink="/route-screen"><img src="./assets/img/application/back-white.svg" alt="Back"></button>
       <h1>Rewards</h1>
       <div class="align-center">
-        <img src="./assets/img/application/group.svg" alt="PP"> <span>20</span>
+        <img src="./assets/img/application/group.svg" alt="PP"> <span>{{ user.city_pings }}</span>
       </div>
     </div>
-    <div id="rewards-list">
-      <div class="reward" *ngFor="let reward of rewards">
+    <div *ngIf="showRewards" id="rewards-list">
+      <div class="reward"
+           *ngFor="let reward of rewards"
+           [ngClass]="{ 'out-of-stock': reward.left == 0 }">
         <a (click)="openRewardPopup(reward)">
-          <div class="header" [ngStyle]="{ 'background': 'url(https://placeimg.com/335/335/people)' }">
+          <div class="header" [style.backgroundImage]="'url(' + reward.picture + ')'">
             <img *ngIf="reward.claimed" src="./assets/img/application/city-pings-red.svg" alt="Claimed">
             <h1>{{ reward.title }}</h1>
             <div class="points">
-              <span>20/{{ reward.cost }}</span>
+              <span>{{ user.city_pings }}/{{ reward.cost }}</span>
               <h2>City Pings</h2>
             </div>
             <div class="progress-bar">

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AppService } from '../../services/app.service';
 
 @Component({
   selector: 'app-reward-popup',
@@ -8,17 +9,42 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class RewardPopupComponent implements OnInit {
   @Input() reward: any;
   @Output() showPopup: EventEmitter<boolean> = new EventEmitter();
+  user: any = {
+    city_pings: null,
+    user_key: null
+  };
+  hideActions: boolean = false;
+  showQR: boolean = false;
+  canClaim: boolean = false;
+  showClaimedInfo: boolean = false;
 
-  constructor() { }
+  constructor(private appService: AppService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.hideActions = true;
 
-  claimReward() {
+    this.appService.getUser().subscribe((response: any) => {
+      this.user = response;
+      this.hideActions = false;
 
+      if (this.user.city_pings >= this.reward.cost) {
+        this.canClaim = true;
+      }
+    });
   }
 
-  rewardClaimed() {
+  claimReward() {
+    this.appService.claimReward(this.reward.id).subscribe((response: any) => {
+      this.reward = response;
+      this.hideActions = true;
+      this.showQR = true;
+    });
+  }
 
+  cantClaim() {
+    this.hideActions = true;
+    this.showQR = false;
+    this.showClaimedInfo = true;
   }
 
   closePopup() {

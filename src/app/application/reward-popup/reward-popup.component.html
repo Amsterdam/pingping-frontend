@@ -1,17 +1,45 @@
 <div id="reward-popup-container">
   <div id="reward-popup">
     <button id="close-button" (click)="closePopup()"><img src="./assets/img/application/close.svg" alt="Close"></button>
-    <div id="thumbnail">
-      <img src="https://placeimg.com/350/320/any" alt="Reward thumbnail">
+    <div *ngIf="!hideActions">
+      <div id="thumbnail">
+        <img src="{{ reward.picture }}" alt="Reward thumbnail">
+      </div>
+      <div id="reward-description">
+        <h2>{{ reward.title }}</h2>
+        <h3>{{ reward.cost }} City Pings</h3>
+        <p>
+          {{ reward.description }}
+        </p>
+      </div>
     </div>
-    <div id="reward-description">
+    
+    <div *ngIf="showQR" id="qr-info">
       <h2>{{ reward.title }}</h2>
       <h3>{{ reward.cost }} City Pings</h3>
+      <div id="qr-code" class="text-center">
+        <img src="{{ reward.qrcode }}" alt="QR Code">
+      </div>
       <p>
-        {{ reward.description }}
+        Laat deze QR-code scannen op locatie om gratis een dagje naar Artis te gaan. Heel veel plezier!
       </p>
     </div>
-    <a id="claim-reward" class="orange" (click)="claimReward()">Claim reward</a>
-<!--    <a id="claim-reward" class="gray" (click)="rewardClaimed()">Kan nog niet geclaimd worden</a>-->
+  
+    <div *ngIf="showClaimedInfo" id="claimed-info">
+      <h2>{{ reward.title }}</h2>
+      <h3>{{ reward.cost }} City Pings</h3>
+      <div id="imgs" class="text-center">
+        <img src="../../../assets/img/application/woman-crossing-arms.png" alt="Woman">
+        <img src="../../../assets/img/application/man-crossing-arms.png" alt="Man">
+      </div>
+      <p>
+        Deze reward is al gebruikt. Wij hopen dat je er veel plezier van hebt gehad.
+      </p>
+    </div>
+    
+    <div *ngIf="!hideActions">
+      <a *ngIf="canClaim" class="claim-reward orange" (click)="claimReward()">Claim reward</a>
+      <a *ngIf="!canClaim" class="claim-reward gray" (click)="cantClaim()">Kan nog niet geclaimd worden</a>
+    </div>
   </div>
 </div>

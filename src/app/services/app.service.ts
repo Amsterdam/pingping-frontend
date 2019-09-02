@@ -28,6 +28,10 @@ export class AppService {
     return this.httpClient.get(`${ environment.apiUrl }/task/${ task }/`, this.headers);
   }
 
+  getReward(rewardID: number) {
+    return this.httpClient.get(`${ environment.apiUrl }/reward/${ rewardID }`, this.headers);
+  }
+
   getRewards() {
     return this.httpClient.get(`${ environment.apiUrl }/reward/`, this.headers);
   }
@@ -44,7 +48,11 @@ export class AppService {
     return this.httpClient.post(`${ environment.apiUrl }/task/${ taskID }/complete/`, '', this.headers);
   }
 
-  getUserPoints(ppUserID: string) {
-    return this.httpClient.get(`${ environment.apiUrl }/user/${ ppUserID }`, this.headers);
+  getUser() {
+    return this.httpClient.get(`${ environment.apiUrl }/user/me/`, this.headers);
+  }
+
+  claimReward(rewardID: number) {
+    return this.httpClient.post(`${ environment.apiUrl }/reward/${ rewardID }/claim/`, '', this.headers);
   }
 }

@@ -14,16 +14,27 @@ export class RewardsComponent implements OnInit {
     description: null,
     info: null,
     succes_m: null,
-    claimed: null
+    claimed: null,
+    picture: null
   }];
   reward: any = null;
   showPopUp: boolean = false;
+  showRewards: boolean = false;
+  user: any = {
+    city_pings: null,
+    user_key: null
+  };
 
   constructor(private appService: AppService) { }
 
   ngOnInit() {
-    this.appService.getRewards().subscribe(response => {
+    this.appService.getRewards().subscribe((response: any) => {
       this.rewards = response;
+      this.showRewards = true;
+    });
+
+    this.appService.getUser().subscribe((response: any) => {
+      this.user = response;
     });
   }
 
