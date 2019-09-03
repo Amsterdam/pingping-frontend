@@ -18,7 +18,8 @@
       <h2>{{ reward.title }}</h2>
       <h3>{{ reward.cost }} City Pings</h3>
       <div id="qr-code" class="text-center">
-        <img src="{{ reward.claimed.qr }}" alt="QR Code">
+        <img *ngIf="reward.qr" src="{{ reward.qr }}" alt="QR Code">
+        <img *ngIf="reward.claimed.qr" src="{{ reward.claimed.qr }}" alt="QR Code">
       </div>
       <p>
         Laat deze QR-code scannen op locatie om gratis een dagje naar Artis te gaan. Heel veel plezier!

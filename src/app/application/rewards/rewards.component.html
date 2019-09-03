@@ -1,4 +1,4 @@
-<app-reward-popup [reward]="reward" *ngIf="showPopUp" (showPopup)="closePopup()"></app-reward-popup>
+<app-reward-popup [reward]="reward" *ngIf="showPopUp" (showPopup)="closePopup()" (userData)="updateData()"></app-reward-popup>
 <div id="app-container">
   <div id="rewards">
     <div id="rewards-title">

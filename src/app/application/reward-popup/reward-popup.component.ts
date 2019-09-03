@@ -9,6 +9,7 @@ import { AppService } from '../../services/app.service';
 export class RewardPopupComponent implements OnInit {
   @Input() reward: any;
   @Output() showPopup: EventEmitter<boolean> = new EventEmitter();
+  @Output() userData: EventEmitter<any> = new EventEmitter();
   user: any = {
     city_pings: null,
     user_key: null
@@ -44,6 +45,10 @@ export class RewardPopupComponent implements OnInit {
       this.reward = response;
       this.hideActions = true;
       this.showQR = true;
+
+      this.appService.getUser().subscribe((response: any) => {
+        this.userData.emit(response);
+      });
     });
   }
 
