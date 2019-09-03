@@ -27,8 +27,14 @@ export class RewardPopupComponent implements OnInit {
       this.user = response;
       this.hideActions = false;
 
-      if (this.user.city_pings >= this.reward.cost) {
+      if ((this.user.city_pings >= this.reward.cost) && (this.reward.left > 0)) {
         this.canClaim = true;
+      }
+
+      if (!this.reward.claimed.validated) {
+        this.showQR = true;
+        this.showClaimedInfo = false;
+        this.hideActions = true;
       }
     });
   }

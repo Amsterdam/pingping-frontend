@@ -17,11 +17,13 @@
             <img *ngIf="reward.claimed" src="./assets/img/application/city-pings-red.svg" alt="Claimed">
             <h1>{{ reward.title }}</h1>
             <div class="points">
-              <span>{{ user.city_pings }}/{{ reward.cost }}</span>
+              <span *ngIf="reward.claimed">{{ reward.cost }}</span>
+              <span *ngIf="!reward.claimed">{{ user.city_pings }}/{{ reward.cost }}</span>
               <h2>City Pings</h2>
             </div>
             <div class="progress-bar">
-              <div></div>
+              <div *ngIf="reward.claimed" [ngStyle]="{ 'width': '100%' }"></div>
+              <div *ngIf="!reward.claimed" [ngStyle]="{ 'width': (100 * user.city_pings) / reward.cost + '%' }"></div>
             </div>
           </div>
           <div class="footer">
