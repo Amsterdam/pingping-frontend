@@ -12,11 +12,11 @@
       </div>
       <!-- Date question type -->
       <div *ngIf="currentQuestion.questionType == 'date'" class="question-content text-center">
-        <select formControlName="birthDay" required>
-          <option value="dag" [selected]="true" disabled>Dag</option>
-          <option *ngFor="let i of days; let index = index"
-                  value="{{ index + 1 }}">
-            {{ index + 1 }}
+        <select formControlName="birthYear" required>
+          <option value="jaar" [selected]="true" disabled>Jaar</option>
+          <option *ngFor="let i of years"
+                  value="{{ i }}">
+            {{ i }}
           </option>
         </select>
         <select formControlName="birthMonth" required>
@@ -26,11 +26,11 @@
             {{ index + 1 }}
           </option>
         </select>
-        <select formControlName="birthYear" required>
-          <option value="jaar" [selected]="true" disabled>Jaar</option>
-          <option *ngFor="let i of years"
-                  value="{{ i }}">
-            {{ i }}
+        <select formControlName="birthDay" required>
+          <option value="dag" [selected]="true" disabled>Dag</option>
+          <option *ngFor="let i of days; let index = index"
+                  value="{{ index + 1 }}">
+            {{ index + 1 }}
           </option>
         </select>
       </div>

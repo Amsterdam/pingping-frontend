@@ -21,6 +21,7 @@ import { TaskComponent } from './application/task/task.component';
 import { RewardsComponent } from './application/rewards/rewards.component';
 import { WhatIsPingpingComponent } from './application/what-is-pingping/what-is-pingping.component';
 import { RewardPopupComponent } from './application/reward-popup/reward-popup.component';
+import { TaskPopupComponent } from './application/task-popup/task-popup.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { RewardPopupComponent } from './application/reward-popup/reward-popup.co
     TaskComponent,
     RewardsComponent,
     WhatIsPingpingComponent,
-    RewardPopupComponent
+    RewardPopupComponent,
+    TaskPopupComponent
   ],
   imports: [
     BrowserModule,
