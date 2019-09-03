@@ -14,10 +14,13 @@ export class RewardPopupComponent implements OnInit {
     city_pings: null,
     user_key: null
   };
+  claimedData: any;
   hideActions: boolean = false;
   showQR: boolean = false;
+  showQRTemporary: boolean = false;
   canClaim: boolean = false;
   showClaimedInfo: boolean = false;
+  showValidatedInfo: boolean = false;
 
   constructor(private appService: AppService) { }
 
@@ -37,14 +40,22 @@ export class RewardPopupComponent implements OnInit {
         this.showClaimedInfo = false;
         this.hideActions = true;
       }
+
+      if (this.reward.claimed.validated) {
+        this.showQR = false;
+        this.hideActions = true;
+        this.showClaimedInfo = false;
+        this.showValidatedInfo = true;
+      }
     });
   }
 
   claimReward() {
     this.appService.claimReward(this.reward.id).subscribe((response: any) => {
-      this.reward = response;
+      this.claimedData = response;
       this.hideActions = true;
-      this.showQR = true;
+      this.showQR = false;
+      this.showQRTemporary = true;
 
       this.appService.getUser().subscribe((response: any) => {
         this.userData.emit(response);

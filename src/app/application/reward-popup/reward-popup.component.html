@@ -18,8 +18,18 @@
       <h2>{{ reward.title }}</h2>
       <h3>{{ reward.cost }} City Pings</h3>
       <div id="qr-code" class="text-center">
-        <img *ngIf="reward.qr" src="{{ reward.qr }}" alt="QR Code">
         <img *ngIf="reward.claimed.qr" src="{{ reward.claimed.qr }}" alt="QR Code">
+      </div>
+      <p>
+        Laat deze QR-code scannen op locatie om gratis een dagje naar Artis te gaan. Heel veel plezier!
+      </p>
+    </div>
+    
+    <div *ngIf="showQRTemporary" id="qr-info">
+      <h2>{{ reward.title }}</h2>
+      <h3>{{ reward.cost }} City Pings</h3>
+      <div id="qr-code" class="text-center">
+        <img *ngIf="claimedData.qr" src="{{ claimedData.qr }}" alt="QR Code">
       </div>
       <p>
         Laat deze QR-code scannen op locatie om gratis een dagje naar Artis te gaan. Heel veel plezier!
@@ -27,6 +37,18 @@
     </div>
   
     <div *ngIf="showClaimedInfo" id="claimed-info">
+      <h2>{{ reward.title }}</h2>
+      <h3>{{ reward.cost }} City Pings</h3>
+      <div id="imgs" class="text-center">
+        <img src="../../../assets/img/application/woman-crossing-arms.png" alt="Woman">
+        <img src="../../../assets/img/application/man-crossing-arms.png" alt="Man">
+      </div>
+      <p>
+        Deze reward is al gebruikt. Wij hopen dat je er veel plezier van hebt gehad.
+      </p>
+    </div>
+  
+    <div *ngIf="showValidatedInfo" id="claimed-info">
       <h2>{{ reward.title }}</h2>
       <h3>{{ reward.cost }} City Pings</h3>
       <div id="imgs" class="text-center">
