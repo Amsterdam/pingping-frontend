@@ -25,10 +25,10 @@
       </p>
     </div>
     
-    <div *ngIf="showQRTemporary" id="qr-info">
+    <div *ngIf="showQRTemporary" id="qr-info-temporary">
       <h2>{{ reward.title }}</h2>
       <h3>{{ reward.cost }} City Pings</h3>
-      <div id="qr-code" class="text-center">
+      <div id="qr-code-temporary" class="text-center">
         <img *ngIf="claimedData.qr" src="{{ claimedData.qr }}" alt="QR Code">
       </div>
       <p>
@@ -39,7 +39,7 @@
     <div *ngIf="showClaimedInfo" id="claimed-info">
       <h2>{{ reward.title }}</h2>
       <h3>{{ reward.cost }} City Pings</h3>
-      <div id="imgs" class="text-center">
+      <div class="imgs" class="text-center">
         <img src="../../../assets/img/application/woman-crossing-arms.png" alt="Woman">
         <img src="../../../assets/img/application/man-crossing-arms.png" alt="Man">
       </div>
@@ -48,10 +48,10 @@
       </p>
     </div>
   
-    <div *ngIf="showValidatedInfo" id="claimed-info">
+    <div *ngIf="showValidatedInfo" id="claimed-info-validated">
       <h2>{{ reward.title }}</h2>
       <h3>{{ reward.cost }} City Pings</h3>
-      <div id="imgs" class="text-center">
+      <div class="imgs" class="text-center">
         <img src="../../../assets/img/application/woman-crossing-arms.png" alt="Woman">
         <img src="../../../assets/img/application/man-crossing-arms.png" alt="Man">
       </div>

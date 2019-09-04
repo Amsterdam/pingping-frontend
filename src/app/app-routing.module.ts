@@ -9,6 +9,8 @@ import { RouteConfirmationComponent } from './application/route-confirmation/rou
 import { TaskComponent } from './application/task/task.component';
 import { RewardsComponent } from './application/rewards/rewards.component';
 import { WhatIsPingpingComponent } from './application/what-is-pingping/what-is-pingping.component';
+import { GoalsComponent } from './application/goals/goals.component';
+import { CreateGoalComponent } from './application/create-goal/create-goal.component';
 
 const routes: Routes = [
   { path: '', component: SplashScreenComponent },
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'route-screen', component: RouteScreenComponent },
   { path: 'task/:task', component: TaskComponent },
   { path: 'rewards', component: RewardsComponent },
+  { path: 'goals', component: GoalsComponent },
+  { path: 'create-goal', component: CreateGoalComponent },
   { path: '**', pathMatch: 'full', component: IndexComponent }
 ];
 

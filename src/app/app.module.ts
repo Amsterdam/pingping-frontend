@@ -22,6 +22,8 @@ import { RewardsComponent } from './application/rewards/rewards.component';
 import { WhatIsPingpingComponent } from './application/what-is-pingping/what-is-pingping.component';
 import { RewardPopupComponent } from './application/reward-popup/reward-popup.component';
 import { TaskPopupComponent } from './application/task-popup/task-popup.component';
+import { GoalsComponent } from './application/goals/goals.component';
+import { CreateGoalComponent } from './application/create-goal/create-goal.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { TaskPopupComponent } from './application/task-popup/task-popup.componen
     RewardsComponent,
     WhatIsPingpingComponent,
     RewardPopupComponent,
-    TaskPopupComponent
+    TaskPopupComponent,
+    GoalsComponent,
+    CreateGoalComponent
   ],
   imports: [
     BrowserModule,

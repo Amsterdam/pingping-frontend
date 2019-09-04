@@ -84,7 +84,8 @@
       }
     }
 
-    #qr-info {
+    #qr-info,
+    #qr-info-temporary {
       padding: 30px 20px;
       line-height: 1.3em;
       font-family: "Raleway";
@@ -108,7 +109,8 @@
         margin-bottom: 20px;
       }
 
-      #qr-code {
+      #qr-code,
+      #qr-code-temporary {
         padding: 40px;
 
         img {
@@ -123,7 +125,8 @@
       }
     }
 
-    #claimed-info {
+    #claimed-info,
+    #claimed-info-validated {
       padding: 30px 20px;
       line-height: 1.3em;
       font-family: "Raleway";
@@ -147,7 +150,7 @@
         margin-bottom: 20px;
       }
 
-      #imgs {
+      .imgs {
         margin-top: 67px;
         margin-bottom: 40px;
 

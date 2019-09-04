@@ -21,9 +21,9 @@
         </select>
         <select formControlName="birthMonth" required>
           <option value="maand" [selected]="true" disabled>Maand</option>
-          <option *ngFor="let i of [].constructor(12); let index = index"
+          <option *ngFor="let i of month; let index = index"
                   value="{{ index + 1 }}">
-            {{ index + 1 }}
+            {{ i }}
           </option>
         </select>
         <select formControlName="birthDay" required>

@@ -15,6 +15,20 @@ export class RouteQuestionnaireComponent implements OnInit {
   questionPosition: any;
   progressPercentage = 0;
   days: number[];
+  month: string[] = [
+    'Januari',
+    'Februari',
+    'Maart',
+    'April',
+    'Mei',
+    'Juni',
+    'Juli',
+    'Augustus',
+    'September',
+    'Oktober',
+    'November',
+    'December'
+  ];
   years: number[] = [];
 
   constructor(private questionsService: RouteQuestionnaireService,
