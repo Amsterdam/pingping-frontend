@@ -74,12 +74,14 @@
       font-family: "Heavitas";
       font-size: 1em;
       box-sizing: border-box;
+      border: none;
 
       &.orange {
         background: #fb9f4b;
       }
 
-      &.gray {
+      &.gray,
+      &:disabled {
         background: #e2e2e2;
       }
     }

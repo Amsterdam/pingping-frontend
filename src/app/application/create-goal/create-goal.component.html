@@ -5,11 +5,13 @@
       <h1>Nieuw goal aanmaken</h1>
     </div>
     <div id="create-goal-form">
-      <form action="#" [formGroup]="form">
+      <form action="#" [formGroup]="form" (ngSubmit)="disableSend()">
         <div id="form-card">
           <h4 class="text-center">Nieuw goal</h4>
           <div id="quantity-field">
-            <span>&euro;</span><input type="number" value="500" formControlName="goalQuantity" (click)="emptyInput()">
+            <span>&euro;</span><input type="number" value="500"
+                                      formControlName="goalQuantity"
+                                      (click)="emptyInput()">
           </div>
           <div id="goal-title-field">
             <label for="goal-title">Goal titel</label>
@@ -22,8 +24,7 @@
         </div>
         <button type="submit"
                 class="button button-orange"
-                [disabled]="!form.valid"
-                (keypress)="updateValidationStatus()"
+                [disabled]="!form.valid || disableButton"
                 (click)="createGoal()">Goal opslaan</button>
       </form>
     </div>

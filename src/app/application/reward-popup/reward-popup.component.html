@@ -61,8 +61,8 @@
     </div>
     
     <div *ngIf="!hideActions">
-      <a *ngIf="canClaim" class="claim-reward orange" (click)="claimReward()">Claim reward</a>
-      <a *ngIf="!canClaim" class="claim-reward gray" (click)="cantClaim()">Kan nog niet geclaimd worden</a>
+      <button *ngIf="canClaim" class="claim-reward orange" (click)="claimReward()" [disabled]="claimedPressed">Claim reward</button>
+      <button *ngIf="!canClaim" class="claim-reward gray" (click)="cantClaim()">Kan nog niet geclaimd worden</button>
     </div>
   </div>
 </div>

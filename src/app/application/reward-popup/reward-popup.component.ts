@@ -21,6 +21,7 @@ export class RewardPopupComponent implements OnInit {
   canClaim: boolean = false;
   showClaimedInfo: boolean = false;
   showValidatedInfo: boolean = false;
+  claimedPressed: boolean = false;
 
   constructor(private appService: AppService) { }
 
@@ -51,6 +52,8 @@ export class RewardPopupComponent implements OnInit {
   }
 
   claimReward() {
+    this.claimedPressed = true;
+
     this.appService.claimReward(this.reward.id).subscribe((response: any) => {
       this.claimedData = response;
       this.hideActions = true;

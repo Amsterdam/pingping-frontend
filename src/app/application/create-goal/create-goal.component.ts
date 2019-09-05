@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AppService } from '../../services/app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-goal',
@@ -9,9 +10,10 @@ import { AppService } from '../../services/app.service';
 })
 export class CreateGoalComponent implements OnInit {
   form: FormGroup;
-  validationStatus: boolean = false;
+  disableButton: boolean = false;
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService,
+              private router: Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -21,16 +23,8 @@ export class CreateGoalComponent implements OnInit {
     });
   }
 
-  updateValidationStatus() {
-    if (this.form.controls.goalQuantity.value != '0' && this.form.controls.goalQuantity.value.tri() != '') {
-      this.validationStatus = true;
-    } else {
-      this.validationStatus = false;
-    }
-  }
-
   emptyInput() {
-    if (this.form.value.goalQuantity == '0' || this.form.value.goalQuantity.trim() == '' || this.form.value.goalQuantity.trim() == '0') {
+    if (this.form.value.goalQuantity == '0') {
       this.form.controls.goalQuantity.reset();
     }
   }
@@ -45,7 +39,11 @@ export class CreateGoalComponent implements OnInit {
     };
 
     this.appService.createGoal(goal).subscribe(response => {
-      console.log(response);
+      this.router.navigate(['/goals']);
     });
+  }
+
+  disableSend() {
+    this.disableButton = true;
   }
 }
