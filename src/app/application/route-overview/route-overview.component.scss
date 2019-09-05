@@ -1,0 +1,93 @@
+#app-container {
+  height: 100%;
+}
+
+#route-overview {
+  padding: 30px;
+  font-family: "Raleway", Arial;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+
+  #blue-oval,
+  #red-oval {
+    position: absolute;
+    z-index: -1;
+  }
+
+  #blue-oval {
+    top: -200px;
+    left: -240px;
+  }
+
+  #red-oval {
+    top: 130px;
+    right: -240px;
+  }
+
+  #route-overview-title {
+    margin-bottom: 30px;
+
+    #back-button {
+      background: none;
+      border: none;
+      margin: 0;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    h1 {
+      font-size: 1.6em;
+      font-family: "Heavitas", Arial;
+    }
+  }
+
+  #route-overview-list {
+    h2 {
+      padding: 20px;
+      color: #ffffff;
+      background: #11bdc8;
+      font-family: "Heavitas", Arial;
+      font-size: 2em;
+      border-radius: 5px;
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    #tasks-container {
+      .task {
+        display: flex;
+
+        .task-path {
+          max-width: 30px;
+          height: 68px;
+
+          div {
+            width: 10px;
+            height: 40px;
+            background: #bde9ed;
+            margin-left: 10px;
+          }
+
+          img {
+            max-width: 100%;
+          }
+        }
+
+        .task-title {
+          width: 100%;
+          height: 68px;
+          position: relative;
+
+          h3 {
+            font-family: "Heavitas", Arial;
+            position: absolute;
+            left: 20px;
+            bottom: 0;
+            margin: 0 0 2px 0;
+          }
+        }
+      }
+    }
+  }
+}

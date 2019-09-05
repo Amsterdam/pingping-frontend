@@ -24,6 +24,7 @@ import { RewardPopupComponent } from './application/reward-popup/reward-popup.co
 import { TaskPopupComponent } from './application/task-popup/task-popup.component';
 import { GoalsComponent } from './application/goals/goals.component';
 import { CreateGoalComponent } from './application/create-goal/create-goal.component';
+import { RouteOverviewComponent } from './application/route-overview/route-overview.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CreateGoalComponent } from './application/create-goal/create-goal.compo
     RewardPopupComponent,
     TaskPopupComponent,
     GoalsComponent,
-    CreateGoalComponent
+    CreateGoalComponent,
+    RouteOverviewComponent
   ],
   imports: [
     BrowserModule,

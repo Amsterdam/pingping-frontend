@@ -1,0 +1,25 @@
+<div id="app-container">
+  <div id="route-overview">
+    <img id="blue-oval" src="./assets/img/application/oval-blue.svg" alt="Blue oval">
+    <img id="red-oval" src="./assets/img/application/oval-red.svg" alt="Red oval">
+    <div id="route-overview-title">
+      <button id="back-button" routerLink="/route-screen"><img src="./assets/img/application/back.svg" alt="Back"></button>
+      <h1>Je route!</h1>
+    </div>
+    <div id="route-overview-list">
+      <h2>Fiks de basis</h2>
+      <div id="tasks-container">
+        <div *ngFor="let task of tasks" class="task">
+          <div class="task-path">
+            <div></div>
+            <img src="../../../assets/img/application/task-bullet.svg" alt="Task bullet">
+          </div>
+          <div class="task-title">
+            <h3>{{ task.card_description }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-app-navigation></app-app-navigation>
+</div>
