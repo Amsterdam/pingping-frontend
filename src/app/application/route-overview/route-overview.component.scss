@@ -67,10 +67,16 @@
             height: 40px;
             background: #bde9ed;
             margin-left: 10px;
+
+            &.completed {
+              background: #11bdc8;
+            }
           }
 
           img {
             max-width: 100%;
+            position: relative;
+            left: 1px;
           }
         }
 

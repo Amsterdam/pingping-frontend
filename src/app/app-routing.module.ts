@@ -12,6 +12,7 @@ import { WhatIsPingpingComponent } from './application/what-is-pingping/what-is-
 import { GoalsComponent } from './application/goals/goals.component';
 import { CreateGoalComponent } from './application/create-goal/create-goal.component';
 import { RouteOverviewComponent } from './application/route-overview/route-overview.component';
+import { AchievementsComponent } from './application/achievements/achievements.component';
 
 const routes: Routes = [
   { path: '', component: SplashScreenComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'task/:task', component: TaskComponent },
   { path: 'rewards', component: RewardsComponent },
   { path: 'goals', component: GoalsComponent },
+  { path: 'achievements', component: AchievementsComponent },
   { path: 'create-goal', component: CreateGoalComponent },
   { path: '**', pathMatch: 'full', component: IndexComponent }
 ];

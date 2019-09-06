@@ -11,8 +11,9 @@
       <div id="tasks-container">
         <div *ngFor="let task of tasks" class="task">
           <div class="task-path">
-            <div></div>
-            <img src="../../../assets/img/application/task-bullet.svg" alt="Task bullet">
+            <div [ngClass]="{ 'completed': task.complete }"></div>
+            <img *ngIf="!task.complete" src="../../../assets/img/application/task-bullet.svg" alt="Task bullet">
+            <img *ngIf="task.complete" src="../../../assets/img/application/task-bullet-completed.svg" alt="Task bullet">
           </div>
           <div class="task-title">
             <h3>{{ task.card_description }}</h3>
