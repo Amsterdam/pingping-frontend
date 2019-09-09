@@ -21,6 +21,14 @@ export class RouteScreenComponent implements OnInit {
   constructor(private AppService: AppService) {}
 
   ngOnInit() {
+    if (localStorage.getItem('ppCookie')) {
+      localStorage.removeItem('ppCookie');
+    }
+
+    if (localStorage.getItem('tempID')) {
+      localStorage.removeItem('tempID');
+    }
+
     this.AppService.getRoute().subscribe(response => {
       this.tasks = response;
 

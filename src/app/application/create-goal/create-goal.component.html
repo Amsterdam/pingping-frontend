@@ -1,0 +1,33 @@
+<div id="app-container">
+  <div id="create-goal">
+    <div id="create-goal-header">
+      <button id="back-button" routerLink="/goals"><img src="./assets/img/application/back.svg" alt="Back"></button>
+      <h1>Nieuw goal aanmaken</h1>
+    </div>
+    <div id="create-goal-form">
+      <form action="#" [formGroup]="form" (ngSubmit)="disableSend()">
+        <div id="form-card">
+          <h4 class="text-center">Nieuw goal</h4>
+          <div id="quantity-field">
+            <span>&euro;</span><input type="number" value="500"
+                                      formControlName="goalQuantity"
+                                      (click)="emptyInput()">
+          </div>
+          <div id="goal-title-field">
+            <label for="goal-title">Goal titel</label>
+            <input type="text" id="goal-title" formControlName="goalTitle">
+          </div>
+          <div id="goal-description-field">
+            <label for="goal-description">Wat houdt het in? <span>(Optional)</span></label>
+            <textarea id="goal-description" formControlName="goalDescription"></textarea>
+          </div>
+        </div>
+        <button type="submit"
+                class="button button-orange"
+                [disabled]="!form.valid || disableButton"
+                (click)="createGoal()">Goal opslaan</button>
+      </form>
+    </div>
+  </div>
+  <app-app-navigation></app-app-navigation>
+</div>

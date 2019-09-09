@@ -1,0 +1,52 @@
+<div id="app-container">
+  <div id="goals">
+    <div id="goals-header">
+      <button id="back-button" routerLink="/route-screen"><img src="./assets/img/application/back-white.svg" alt="Back"></button>
+      <h1>Zet je goals, waar ga jij voor?</h1>
+      <div id="goals-summary">
+        <p id="total-goals">{{ goals.length }} Goals</p>
+        <p>
+          Je hebt nog geen goals opgesteld
+        </p>
+        <div id="goals-details">
+          <div>
+            <p>Nieuwe goals</p>
+            <p>0</p>
+          </div>
+          <div>
+            <p>Bijna afgerond</p>
+            <p>0</p>
+          </div>
+          <div>
+            <p>Afgerond</p>
+            <p>0</p>
+          </div>
+        </div>
+      </div>
+      <div id="create-goal">
+        <button class="button button-orange" (click)="createGoal()">Zet nieuwe goal</button>
+      </div>
+    </div>
+    <div id="goals-list">
+      <p *ngIf="goals.length == 0" id="no-goals-message" class="text-center">
+        Je hebt nog geen goals opgesteld
+      </p>
+      <div *ngIf="goals.length > 0">
+        <div *ngFor="let goal of goals" class="goal">
+          <div class="goal-icon">
+            <img src="../../../assets/img/application/saving-pig.svg" alt="Savings pig">
+          </div>
+          <div class="goal-info">
+            <p>
+              &euro; {{ goal.desired_amount }} {{ goal.title }}
+            </p>
+            <p>
+              {{ goal.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-app-navigation></app-app-navigation>
+</div>

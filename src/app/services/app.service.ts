@@ -55,4 +55,14 @@ export class AppService {
   claimReward(rewardID: number) {
     return this.httpClient.post(`${ environment.apiUrl }/reward/${ rewardID }/claim/`, '', this.headers);
   }
+
+  getGoals() {
+    return this.httpClient.get(`${ environment.apiUrl }/goal/`, this.headers);
+  }
+
+  createGoal(goal: any) {
+    goal = JSON.stringify(goal);
+
+    return this.httpClient.post(`${ environment.apiUrl }/goal/`, goal, this.headers);
+  }
 }

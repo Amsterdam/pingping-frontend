@@ -1,0 +1,103 @@
+#app-container {
+  height: 100%;
+  background: #f9f9f9;
+}
+
+#create-goal {
+  #back-button {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  #create-goal-header {
+    padding: 20px;
+    position: relative;
+
+    h1 {
+      margin: 19px 0 5px 0;
+      font-family: 'Heavitas', Arial;
+      font-size: 1.7em;
+    }
+  }
+
+  #create-goal-form {
+    padding: 20px;
+
+    #form-card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px #d8d8d8;
+
+      h4 {
+        font-family: 'Heavitas', Arial;
+        font-size: 1.2em;
+        margin: 0 0 20px 0;
+      }
+
+      #quantity-field {
+        padding: 15px;
+        border-radius: 50px;
+        box-shadow: 0 2px 5px #d8d8d8;
+        display: flex;
+        justify-content: center;
+
+        span,
+        input {
+          width: 100%;
+          font-family: 'Heavitas', Arial;
+          font-size: 1.2em;
+          border: none;
+          padding: 5px;
+          outline: none;
+        }
+
+        span {
+          text-align: right;
+        }
+      }
+
+      #goal-title-field,
+      #goal-description-field {
+        margin: 20px 0;
+
+        label {
+          width: 100%;
+          font-family: 'Heavitas', Arial;
+          font-size: 0.7em;
+          display: inline-block;
+          margin-bottom: 10px;
+
+          span {
+            font-family: 'Raleway', Arial;
+            font-size: 1.3em;
+          }
+        }
+
+        input,
+        textarea {
+          width: 100%;
+          box-sizing: border-box;
+          border-radius: 3px;
+          border: 1px solid #c7cbd5;
+          font-family: 'Raleway', Arial;
+          outline: none;
+          font-size: 1em;
+          padding: 15px;
+        }
+      }
+    }
+
+    .button {
+      width: 100%;
+      margin-top: 20px;
+
+      &:disabled {
+        background: #e2e2e2;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AppService } from '../../services/app.service';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -17,6 +17,8 @@ export class TaskComponent implements OnInit {
     media: null,
     steps: null
   };
+  showPopUp: boolean = false;
+  disableAction: boolean = false;
 
   constructor(private appService: AppService,
               private route: ActivatedRoute,
@@ -30,9 +32,14 @@ export class TaskComponent implements OnInit {
 
   ngOnInit() { }
 
+  closePopup() {
+    this.showPopUp = false;
+  }
+
   completeTask() {
     this.appService.completeTask(this.task.id).subscribe(response => {
-      console.log(response);
+      this.showPopUp = true;
+      this.disableAction = true;
     });
   }
 }
