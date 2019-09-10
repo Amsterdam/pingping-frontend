@@ -8,11 +8,11 @@
       </div>
     </div>
     <div id="achievements-list">
-      <div *ngFor="let achievement of [].constructor(6)">
-        <div class="achievement">
-          <img src="./assets/img/application/thumbs-up.png" alt="">
-          <h3>Achievement</h3>
-          <p>20 Punten</p>
+      <div *ngFor="let achievement of achievements">
+        <div class="achievement" [ngClass]="{ 'completed': achievement.earned }">
+          <img src="{{ achievement.icon }}" alt="Achievement">
+          <h3>{{ achievement.name }}</h3>
+          <p>{{ achievement.city_points }} Punten</p>
         </div>
       </div>
     </div>

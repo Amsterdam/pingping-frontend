@@ -37,11 +37,7 @@ export class AppService {
   }
 
   requestDefaultRoute() {
-    return this.httpClient.post(`${ environment.apiUrl }/question/default/`, '', {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      })
-    });
+    return this.httpClient.post(`${ environment.apiUrl }/question/default/`, '', this.headersWithoutUser);
   }
 
   completeTask(taskID: number) {
@@ -64,5 +60,9 @@ export class AppService {
     goal = JSON.stringify(goal);
 
     return this.httpClient.post(`${ environment.apiUrl }/goal/`, goal, this.headers);
+  }
+
+  getAchievements() {
+    return this.httpClient.get(`${ environment.apiUrl }/achievement/`, this.headers);
   }
 }
