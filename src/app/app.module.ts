@@ -26,6 +26,11 @@ import { GoalsComponent } from './application/goals/goals.component';
 import { CreateGoalComponent } from './application/create-goal/create-goal.component';
 import { RouteOverviewComponent } from './application/route-overview/route-overview.component';
 import { AchievementsComponent } from './application/achievements/achievements.component';
+import { DeleteDataComponent } from './application/delete-data/delete-data.component';
+import { DeleteDataPopupComponent } from './application/delete-data-popup/delete-data-popup.component';
+import { MoreComponent } from './application/more/more.component';
+import { ExportComponent } from './application/export/export.component';
+import { ImportComponent } from './application/import/import.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +53,12 @@ import { AchievementsComponent } from './application/achievements/achievements.c
     GoalsComponent,
     CreateGoalComponent,
     RouteOverviewComponent,
-    AchievementsComponent
+    AchievementsComponent,
+    DeleteDataComponent,
+    DeleteDataPopupComponent,
+    MoreComponent,
+    ExportComponent,
+    ImportComponent
   ],
   imports: [
     BrowserModule,
