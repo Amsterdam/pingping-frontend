@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment.prod';
+import { Observable, Observer } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -64,5 +65,18 @@ export class AppService {
 
   getAchievements() {
     return this.httpClient.get(`${ environment.apiUrl }/achievement/`, this.headers);
+  }
+
+  deleteUserData() {
+    return new Observable((observer: Observer<any>) => {
+      this.httpClient.get(`${ environment.apiUrl }/user/me/`, this.headers).subscribe((response: any) => {
+        this.httpClient.delete(`${ environment.apiUrl }/user/${ response.id }/`, this.headers).subscribe((response: any) => {
+          localStorage.removeItem('ppUserID');
+
+          observer.next(response);
+          observer.complete();
+        });
+      });
+    });
   }
 }

@@ -13,6 +13,9 @@ import { GoalsComponent } from './application/goals/goals.component';
 import { CreateGoalComponent } from './application/create-goal/create-goal.component';
 import { RouteOverviewComponent } from './application/route-overview/route-overview.component';
 import { AchievementsComponent } from './application/achievements/achievements.component';
+import { DeleteDataComponent } from './application/delete-data/delete-data.component';
+import { MoreComponent } from './application/more/more.component';
+import { ExportComponent } from './application/export/export.component';
 
 const routes: Routes = [
   { path: '', component: SplashScreenComponent },
@@ -27,6 +30,9 @@ const routes: Routes = [
   { path: 'rewards', component: RewardsComponent },
   { path: 'goals', component: GoalsComponent },
   { path: 'achievements', component: AchievementsComponent },
+  { path: 'more', component: MoreComponent },
+  { path: 'export', component: ExportComponent },
+  { path: 'delete-data', component: DeleteDataComponent },
   { path: 'create-goal', component: CreateGoalComponent },
   { path: '**', pathMatch: 'full', component: IndexComponent }
 ];
