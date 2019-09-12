@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AppService } from '../../services/app.service';
 import { Router } from '@angular/router';
+import { AppService } from '../../../services/app.service';
 
 @Component({
   selector: 'app-create-goal',

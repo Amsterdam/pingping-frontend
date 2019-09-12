@@ -4,21 +4,21 @@ import { IndexComponent } from './landing/index/index.component';
 import { RouteQuestionnaireComponent } from './application/route-questionnaire/route-questionnaire.component';
 import { SplashScreenComponent } from './application/splash-screen/splash-screen.component';
 import { WelcomeScreenComponent } from './application/welcome-screen/welcome-screen.component';
-import { RouteScreenComponent } from './application/route-screen/route-screen.component';
+import { RouteScreenComponent } from './application/app-navigation/route-screen/route-screen.component';
 import { RouteConfirmationComponent } from './application/route-confirmation/route-confirmation.component';
-import { TaskComponent } from './application/task/task.component';
-import { RewardsComponent } from './application/rewards/rewards.component';
+import { TaskComponent } from './application/app-navigation/route-screen/task/task.component';
+import { RewardsComponent } from './application/app-navigation/rewards/rewards.component';
 import { WhatIsPingpingComponent } from './application/what-is-pingping/what-is-pingping.component';
 import { GoalsComponent } from './application/goals/goals.component';
-import { CreateGoalComponent } from './application/create-goal/create-goal.component';
+import { CreateGoalComponent } from './application/goals/create-goal/create-goal.component';
 import { RouteOverviewComponent } from './application/route-overview/route-overview.component';
-import { AchievementsComponent } from './application/achievements/achievements.component';
-import { DeleteDataComponent } from './application/delete-data/delete-data.component';
-import { MoreComponent } from './application/more/more.component';
-import { ExportComponent } from './application/export/export.component';
-import { ImportComponent } from './application/import/import.component';
-import { ImportConfirmationComponent } from './application/import-confirmation/import-confirmation.component';
-import { DeleteDataConfirmationComponent } from './application/delete-data-confirmation/delete-data-confirmation.component';
+import { AchievementsComponent } from './application/app-navigation/achievements/achievements.component';
+import { DeleteDataComponent } from './application/app-navigation/more/delete-data/delete-data.component';
+import { MoreComponent } from './application/app-navigation/more/more.component';
+import { ExportComponent } from './application/app-navigation/more/export/export.component';
+import { ImportComponent } from './application/app-navigation/more/import/import.component';
+import { ImportConfirmationComponent } from './application/app-navigation/more/import/import-confirmation/import-confirmation.component';
+import { DeleteDataConfirmationComponent } from './application/app-navigation/more/delete-data/delete-data-confirmation/delete-data-confirmation.component';
 
 const routes: Routes = [
   { path: '', component: SplashScreenComponent },
