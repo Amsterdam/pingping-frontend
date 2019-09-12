@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment.prod';
+import { Observable, Observer } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -37,11 +38,7 @@ export class AppService {
   }
 
   requestDefaultRoute() {
-    return this.httpClient.post(`${ environment.apiUrl }/question/default/`, '', {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      })
-    });
+    return this.httpClient.post(`${ environment.apiUrl }/question/default/`, '', this.headersWithoutUser);
   }
 
   completeTask(taskID: number) {
@@ -54,5 +51,32 @@ export class AppService {
 
   claimReward(rewardID: number) {
     return this.httpClient.post(`${ environment.apiUrl }/reward/${ rewardID }/claim/`, '', this.headers);
+  }
+
+  getGoals() {
+    return this.httpClient.get(`${ environment.apiUrl }/goal/`, this.headers);
+  }
+
+  createGoal(goal: any) {
+    goal = JSON.stringify(goal);
+
+    return this.httpClient.post(`${ environment.apiUrl }/goal/`, goal, this.headers);
+  }
+
+  getAchievements() {
+    return this.httpClient.get(`${ environment.apiUrl }/achievement/`, this.headers);
+  }
+
+  deleteUserData() {
+    return new Observable((observer: Observer<any>) => {
+      this.httpClient.get(`${ environment.apiUrl }/user/me/`, this.headers).subscribe((response: any) => {
+        this.httpClient.delete(`${ environment.apiUrl }/user/${ response.id }/`, this.headers).subscribe((response: any) => {
+          localStorage.removeItem('ppUserID');
+
+          observer.next(response);
+          observer.complete();
+        });
+      });
+    });
   }
 }

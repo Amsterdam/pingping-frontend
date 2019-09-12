@@ -1,0 +1,21 @@
+<div id="app-container">
+  <div id="export">
+    <div id="export-title">
+      <button id="back-button" routerLink="/more"><img src="./assets/img/application/back.svg" alt="Back"></button>
+      <h1>Gegevens Exporteren</h1>
+    </div>
+    <div id="export-content">
+      <p>
+        Als je van device switcht wil je natuurlijk niet dat al jouw gegevens en prestaties op Ping Ping verloren gaan!
+      </p>
+      <p>
+        Het is heel simpel om jouw gegevens te exporteren naar een nieuw device. Kopieer de UUID (Universally Unique Identifier) hieronder en plak hem in de 'importeer gegevens' pagina op jouw nieuwe device!
+      </p>
+      <div class="actions">
+        <input id="pp-user-id" class="text-center" type="text" [value]="ppUserID" readonly>
+        <button id="copy-to-clipboard-button" class="button button-orange" (click)="copyToClipboard()">UUID Kopiëren</button>
+      </div>
+    </div>
+  </div>
+  <app-app-navigation></app-app-navigation>
+</div>

@@ -44,6 +44,16 @@ export class RewardsComponent implements OnInit {
     this.showPopUp = true;
   }
 
+  updateData() {
+    this.appService.getRewards().subscribe((response: any) => {
+      this.rewards = response;
+    });
+
+    this.appService.getUser().subscribe((response: any) => {
+      this.user = response;
+    });
+  }
+
   closePopup() {
     this.showPopUp = false;
   }

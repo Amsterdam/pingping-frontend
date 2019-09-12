@@ -1,0 +1,78 @@
+#delete-data-popup-container {
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  padding: 30px;
+  position: fixed;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.38);
+
+  #delete-data-popup {
+    height: 100%;
+    background: #ffffff;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    padding: 25px 20px;
+    box-sizing: border-box;
+
+    #close-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: none;
+      border: none;
+      padding: 0;
+
+      img {
+        width: 50px;
+      }
+    }
+
+    h1 {
+      font-family: 'Heavitas', Arial;
+      font-size: 2em;
+      margin: 0 0 40px 0;
+    }
+
+    p {
+      font-family: 'Raleway', Arial;
+      font-size: 1.1em;
+      line-height: 1.5em;
+    }
+
+    .button {
+      width: 100%;
+      margin-top: 40px;
+      font-size: 1.4em;
+    }
+
+    .button-red {
+      background: #f8434e;
+    }
+
+    .actions {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      box-sizing: border-box;
+      padding: 0 20px;
+      font-size: 0.9em;
+
+      button {
+        font-family: 'Raleway', Arial;
+        font-size: 1.3em;
+      }
+
+      .sub-option {
+        text-align: center;
+        display: block;
+        font-size: 1.2em;
+        color: #0d2036;
+        font-family: 'Raleway', Arial;
+        padding: 20px 0;
+      }
+    }
+  }
+}

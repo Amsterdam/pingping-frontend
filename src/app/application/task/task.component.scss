@@ -38,7 +38,12 @@
     }
 
     .button {
+      width: 100%;
       font-size: 0.9em;
+
+      &:disabled {
+        background: #e2e2e2;
+      }
     }
 
     ul {

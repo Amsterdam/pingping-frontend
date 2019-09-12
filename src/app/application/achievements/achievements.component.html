@@ -1,0 +1,21 @@
+<div id="app-container">
+  <div id="achievements">
+    <div id="achievements-title">
+      <button id="back-button" routerLink="/route-screen"><img src="./assets/img/application/back-white.svg" alt="Back"></button>
+      <h1>Rewards</h1>
+      <div class="align-center">
+        <img src="./assets/img/application/group.svg" alt="PP"> <span>{{ user.city_pings }}</span>
+      </div>
+    </div>
+    <div id="achievements-list">
+      <div *ngFor="let achievement of achievements">
+        <div class="achievement" [ngClass]="{ 'completed': achievement.earned }">
+          <img src="{{ achievement.icon }}" alt="Achievement">
+          <h3>{{ achievement.name }}</h3>
+          <p>{{ achievement.city_points }} Punten</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-app-navigation></app-app-navigation>
+</div>

@@ -1,0 +1,13 @@
+<div id="delete-data-popup-container">
+  <div id="delete-data-popup">
+    <button id="close-button" (click)="closePopup()"><img src="./assets/img/application/close.svg" alt="Close"></button>
+    <h1>Gegevens verwijderen </h1>
+    <p>
+      Weet je zeker dat je jouw gegevens wil verwijderen? Wanneer je de gegevens hebt verwijderd is het geen mogelijkheid meer op deze terug te halen.
+    </p>
+    <div class="actions">
+      <button class="button button-red" (click)="deleteUserData()">Verwijder</button>
+      <a class="sub-option" (click)="closePopup()">Niet verwijderen</a>
+    </div>
+  </div>
+</div>
