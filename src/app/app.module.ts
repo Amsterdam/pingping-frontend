@@ -31,6 +31,7 @@ import { DeleteDataPopupComponent } from './application/delete-data-popup/delete
 import { MoreComponent } from './application/more/more.component';
 import { ExportComponent } from './application/export/export.component';
 import { ImportComponent } from './application/import/import.component';
+import { ImportConfirmationComponent } from './application/import-confirmation/import-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ImportComponent } from './application/import/import.component';
     DeleteDataPopupComponent,
     MoreComponent,
     ExportComponent,
-    ImportComponent
+    ImportComponent,
+    ImportConfirmationComponent
   ],
   imports: [
     BrowserModule,

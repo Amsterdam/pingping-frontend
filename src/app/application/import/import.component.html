@@ -1,1 +1,27 @@
-<p>import works!</p>
+<div id="app-container">
+  <div id="import">
+    <div id="import-title">
+      <button id="back-button" routerLink="/more"><img src="./assets/img/application/back.svg" alt="Back"></button>
+      <h1>Gegevens Importeren</h1>
+    </div>
+    <div id="import-content">
+      <p>
+        Als je van device switcht wil je natuurlijk niet dat al jouw gegevens en prestaties op Ping Ping verloren gaan!
+      </p>
+      <p>
+        Het is heel simpel om jouw gegevens te exporteren naar een nieuw device. Kopieer de UUID (Unieke link) vanuit de 'exporteer gegevens' pagina op jouw oude device en plak hem hieronder op jouw nieuwe device!
+      </p>
+      <div class="actions"
+           [formGroup]="importForm">
+        <input id="pp-user-id" class="text-center" type="text" formControlName="ppUserID">
+        <button #importUserData
+                id="copy-to-clipboard-button"
+                class="button button-orange"
+                [disabled]="!importForm.valid"
+                [ngClass]="{ 'button-gray': !importForm.valid }"
+                (click)="import()">Importeer gegevens</button>
+      </div>
+    </div>
+  </div>
+  <app-app-navigation></app-app-navigation>
+</div>

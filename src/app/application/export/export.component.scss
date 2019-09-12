@@ -1,6 +1,5 @@
 #app-container {
   height: 100%;
-  background: #f9f9f9;
 }
 
 #export {
@@ -42,6 +41,7 @@
         font-size: 1.5em;
         font-family: 'Raleway', Arial;
         box-sizing: border-box;
+        outline: none;
       }
 
       button {

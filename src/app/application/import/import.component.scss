@@ -1,0 +1,58 @@
+#app-container {
+  height: 100%;
+}
+
+#import {
+  #back-button {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  #import-title {
+    padding: 20px;
+    position: relative;
+
+    h1 {
+      margin: 19px 0 5px 0;
+      font-family: 'Heavitas', Arial;
+      font-size: 1.7em;
+    }
+  }
+
+  #import-content {
+    padding: 20px;
+
+    p {
+      font-family: 'Raleway', Arial;
+      margin-bottom: 20px;
+    }
+
+    .actions {
+      margin-top: 40px;
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 50px;
+        border: 1px solid #fb9f00;
+        font-size: 1.5em;
+        font-family: 'Raleway', Arial;
+        box-sizing: border-box;
+        outline: none;
+      }
+
+      button {
+        margin-top: 10px;
+        width: 100%;
+        font-family: 'Raleway', Arial;
+
+        &.button-gray {
+          background: #a1a4ac;
+        }
+      }
+    }
+  }
+}

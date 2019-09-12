@@ -79,4 +79,8 @@ export class AppService {
       });
     });
   }
+
+  importUserData(ppUserID: string) {
+    return this.httpClient.get(`${ environment.apiUrl }/user/?user_key=${ ppUserID }`, this.headers);
+  }
 }

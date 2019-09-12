@@ -16,6 +16,8 @@ import { AchievementsComponent } from './application/achievements/achievements.c
 import { DeleteDataComponent } from './application/delete-data/delete-data.component';
 import { MoreComponent } from './application/more/more.component';
 import { ExportComponent } from './application/export/export.component';
+import { ImportComponent } from './application/import/import.component';
+import { ImportConfirmationComponent } from './application/import-confirmation/import-confirmation.component';
 
 const routes: Routes = [
   { path: '', component: SplashScreenComponent },
@@ -32,6 +34,8 @@ const routes: Routes = [
   { path: 'achievements', component: AchievementsComponent },
   { path: 'more', component: MoreComponent },
   { path: 'export', component: ExportComponent },
+  { path: 'import', component: ImportComponent },
+  { path: 'import-confirmation', component: ImportConfirmationComponent },
   { path: 'delete-data', component: DeleteDataComponent },
   { path: 'create-goal', component: CreateGoalComponent },
   { path: '**', pathMatch: 'full', component: IndexComponent }
