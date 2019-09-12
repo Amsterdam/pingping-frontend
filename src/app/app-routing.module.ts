@@ -18,6 +18,7 @@ import { MoreComponent } from './application/more/more.component';
 import { ExportComponent } from './application/export/export.component';
 import { ImportComponent } from './application/import/import.component';
 import { ImportConfirmationComponent } from './application/import-confirmation/import-confirmation.component';
+import { DeleteDataConfirmationComponent } from './application/delete-data-confirmation/delete-data-confirmation.component';
 
 const routes: Routes = [
   { path: '', component: SplashScreenComponent },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'import', component: ImportComponent },
   { path: 'import-confirmation', component: ImportConfirmationComponent },
   { path: 'delete-data', component: DeleteDataComponent },
+  { path: 'delete-data-confirmation', component: DeleteDataConfirmationComponent },
   { path: 'create-goal', component: CreateGoalComponent },
   { path: '**', pathMatch: 'full', component: IndexComponent }
 ];

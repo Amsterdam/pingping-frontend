@@ -17,7 +17,7 @@ export class DeleteDataPopupComponent implements OnInit {
 
   deleteUserData() {
     this.appService.deleteUserData().subscribe(response => {
-      this.router.navigate(['/delete-confirmation']);
+      this.router.navigate(['/delete-data-confirmation']);
     });
   }
 

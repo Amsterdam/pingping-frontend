@@ -1,0 +1,53 @@
+#app-container {
+  margin-bottom: 0;
+  height: 100%;
+}
+
+#delete-data-confirmation {
+  padding: 30px;
+  height: 100%;
+  box-sizing: border-box;
+
+  h1 {
+    font-family: 'Heavitas', Arial;
+    font-size: 2em;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 29px;
+    margin-top: 10px;
+  }
+
+  p {
+    max-width: 285px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #top-bg {
+    width: 100%;
+    height: 160px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #0d2036;
+    z-index: -1;
+  }
+
+  #icon {
+    max-width: 165px;
+    padding: 28px 25px 38px 25px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 2px 2px 6px 1px rgba(166, 166, 166, 0.5);
+    background-color: #ffffff;
+    margin: 0 auto 39px auto;
+  }
+
+  .button {
+    margin-top: 75px;
+    box-shadow: 0 2px 6px 0 rgba(203, 203, 203, 0.4);
+  }
+}

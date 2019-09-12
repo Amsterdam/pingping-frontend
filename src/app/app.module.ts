@@ -32,6 +32,7 @@ import { MoreComponent } from './application/more/more.component';
 import { ExportComponent } from './application/export/export.component';
 import { ImportComponent } from './application/import/import.component';
 import { ImportConfirmationComponent } from './application/import-confirmation/import-confirmation.component';
+import { DeleteDataConfirmationComponent } from './application/delete-data-confirmation/delete-data-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ImportConfirmationComponent } from './application/import-confirmation/i
     MoreComponent,
     ExportComponent,
     ImportComponent,
-    ImportConfirmationComponent
+    ImportConfirmationComponent,
+    DeleteDataConfirmationComponent
   ],
   imports: [
     BrowserModule,
