@@ -7,6 +7,24 @@
   padding: 30px;
   height: 100%;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+
+  #blue-oval,
+  #red-oval {
+    position: absolute;
+  }
+
+  #blue-oval {
+    width: 397px;
+    top: 400px;
+    left: -200px;
+  }
+
+  #red-oval {
+    top: 23px;
+    right: -274px;
+  }
 
   h1 {
     font-family: 'Heavitas', Arial;
@@ -33,6 +51,11 @@
     left: 0;
     background: #0d2036;
     z-index: -1;
+  }
+
+  #import-confirmation-content {
+    position: relative;
+    z-index: 2;
   }
 
   #icon {

@@ -19,6 +19,7 @@ import { ExportComponent } from './application/app-navigation/more/export/export
 import { ImportComponent } from './application/app-navigation/more/import/import.component';
 import { ImportConfirmationComponent } from './application/app-navigation/more/import/import-confirmation/import-confirmation.component';
 import { DeleteDataConfirmationComponent } from './application/app-navigation/more/delete-data/delete-data-confirmation/delete-data-confirmation.component';
+import { PrivacyComponent } from './application/app-navigation/more/privacy/privacy.component';
 
 const routes: Routes = [
   { path: '', component: SplashScreenComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'task/:task', component: TaskComponent },
   { path: 'rewards', component: RewardsComponent },
   { path: 'goals', component: GoalsComponent },
+  { path: 'create-goal', component: CreateGoalComponent },
   { path: 'achievements', component: AchievementsComponent },
   { path: 'more', component: MoreComponent },
   { path: 'export', component: ExportComponent },
@@ -39,7 +41,7 @@ const routes: Routes = [
   { path: 'import-confirmation', component: ImportConfirmationComponent },
   { path: 'delete-data', component: DeleteDataComponent },
   { path: 'delete-data-confirmation', component: DeleteDataConfirmationComponent },
-  { path: 'create-goal', component: CreateGoalComponent },
+  { path: 'privacy', component: PrivacyComponent },
   { path: '**', pathMatch: 'full', component: IndexComponent }
 ];
 

@@ -20,6 +20,10 @@ export class MoreComponent implements OnInit {
     this.router.navigate(['/import']);
   }
 
+  privacy() {
+    this.router.navigate(['/privacy']);
+  }
+
   deleteUserData() {
     this.router.navigate(['/delete-data']);
   }

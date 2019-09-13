@@ -33,6 +33,7 @@ import { ExportComponent } from './application/app-navigation/more/export/export
 import { ImportComponent } from './application/app-navigation/more/import/import.component';
 import { ImportConfirmationComponent } from './application/app-navigation/more/import/import-confirmation/import-confirmation.component';
 import { DeleteDataConfirmationComponent } from './application/app-navigation/more/delete-data/delete-data-confirmation/delete-data-confirmation.component';
+import { PrivacyComponent } from './application/app-navigation/more/privacy/privacy.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { DeleteDataConfirmationComponent } from './application/app-navigation/mo
     ExportComponent,
     ImportComponent,
     ImportConfirmationComponent,
-    DeleteDataConfirmationComponent
+    DeleteDataConfirmationComponent,
+    PrivacyComponent
   ],
   imports: [
     BrowserModule,
