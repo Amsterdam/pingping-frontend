@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../../services/app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-what-is-pingping',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WhatIsPingpingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appService: AppService,
+              private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  requestDefaultRoute() {
+    this.appService.requestDefaultRoute().subscribe((response: any) => {
+      localStorage.setItem('ppUserID', JSON.stringify(response.user_user_key.user_key));
+
+      this.router.navigate(['/route-confirmation']);
+    });
   }
-
 }

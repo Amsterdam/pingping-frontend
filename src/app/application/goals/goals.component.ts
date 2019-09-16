@@ -16,8 +16,6 @@ export class GoalsComponent implements OnInit {
   ngOnInit() {
     this.appService.getGoals().subscribe(response => {
       this.goals = response;
-
-      console.log(this.goals);
     });
   }
 
