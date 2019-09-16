@@ -1,0 +1,40 @@
+#delete-data {
+  padding: 30px;
+
+  #delete-data-title {
+    #back-button {
+      background: none;
+      border: none;
+      margin: 0;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    h1 {
+      font-family: 'Heavitas', Arial;
+      font-size: 1.7em;
+      margin: 19px 0 5px 0;
+    }
+  }
+
+  .text-center {
+    font-size: 1.7em;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  p {
+    margin-bottom: 20px;
+    font-size: 1em;
+  }
+
+  .button {
+    width: 100%;
+    font-family: 'Raleway', Arial;
+    font-size: 1.1em;
+  }
+
+  .button-red {
+    background: #f8434e;
+  }
+}
