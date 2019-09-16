@@ -1,0 +1,22 @@
+<app-delete-data-popup *ngIf="showPopUp" (showPopup)="closePopup()"></app-delete-data-popup>
+<div id="app-container">
+  <div id="delete-data">
+    <div id="delete-data-title">
+      <button id="back-button" routerLink="/more"><img src="./assets/img/application/back.svg" alt="Back"></button>
+      <h1>Jou eigen gegevens</h1>
+      <div class="text-center">
+        ☝️😌
+      </div>
+    </div>
+    <div id="delete-data-content">
+      <p>
+        Wij van PingPing gebruiken de door jou ingevulde gegevens alleen om jou route te bepalen en de app te verbeteren. Wij zullen nooit jouw gevens verkopen aan andere partijen.
+      </p>
+      <p>
+        Wil je toch graag je inloggegevens verwijderen? Druk simpelweg op de knop hieronder om je gegevens uit ons systeem te halen. Hierdoor gaat je voortgang verloren.
+      </p>
+      <button class="button button-red" (click)="confirmDeletePopup()">Verwijder mijn gegevens</button>
+    </div>
+  </div>
+  <app-app-navigation></app-app-navigation>
+</div>
