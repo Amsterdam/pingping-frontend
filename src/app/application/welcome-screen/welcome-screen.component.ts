@@ -12,16 +12,17 @@ export class WelcomeScreenComponent implements OnInit {
   constructor(private appService: AppService,
               private router: Router) { }
 
-  ngOnInit() { }
-
-  requestDefaultRoute() {
-    this.appService.requestDefaultRoute().subscribe((response: any) => {
-      localStorage.setItem('ppUserID', JSON.stringify(response.user_user_key.user_key));
-
-      this.router.navigate(['/route-confirmation']);
-    });
+  ngOnInit() {
+    if (localStorage.getItem('defaultRoute')) {
+      localStorage.removeItem('defaultRoute');
+    }
   }
 
+  requestDefaultRoute() {
+    localStorage.setItem('defaultRoute', '1');
+
+    this.router.navigate(['/privacy']);
+  }
 
   import() {
     this.router.navigate(['/import']);
