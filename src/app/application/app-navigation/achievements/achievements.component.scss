@@ -39,7 +39,7 @@
     & > div {
       width: 50%;
       float: left;
-      margin-bottom: 30px;
+      margin-bottom: 60px;
       box-sizing: border-box;
       height: 130px;
     }
@@ -53,6 +53,7 @@
     }
 
     .achievement {
+      height: 100%;
       border-radius: 5px;
       border: 1px solid #d3d6e0;
       text-align: center;
