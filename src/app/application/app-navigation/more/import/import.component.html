@@ -1,7 +1,8 @@
 <div id="app-container">
   <div id="import">
     <div id="import-title">
-      <button id="back-button" routerLink="/more"><img src="./assets/img/application/back.svg" alt="Back"></button>
+      <button *ngIf="isLoggedIn" class="back-button" routerLink="/more"><img src="./assets/img/application/back.svg" alt="Back"></button>
+      <button *ngIf="!isLoggedIn" class="back-button" routerLink="/welcome"><img src="./assets/img/application/back.svg" alt="Back"></button>
       <h1>Gegevens Importeren</h1>
     </div>
     <div id="import-content">

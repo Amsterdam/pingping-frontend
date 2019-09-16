@@ -11,14 +11,19 @@ import { Router } from '@angular/router';
 export class ImportComponent implements OnInit {
   @ViewChild('importUserData', {static: false}) importUserData: ElementRef;
   importForm: FormGroup;
+  isLoggedIn: boolean = false;
 
   constructor(private appService: AppService,
               private router: Router) { }
 
   ngOnInit() {
+    if (localStorage.getItem('ppUserID')) {
+      this.isLoggedIn = true;
+    }
+
     this.importForm = new FormGroup({
       ppUserID: new FormControl('', Validators.required)
-    })
+    });
   }
 
   import() {
