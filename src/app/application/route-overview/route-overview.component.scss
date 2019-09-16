@@ -3,11 +3,10 @@
 }
 
 #route-overview {
-  padding: 30px;
+  padding: 30px 30px 90px 30px;
   font-family: "Raleway", Arial;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
-  height: 100%;
 
   #blue-oval,
   #red-oval {
@@ -60,11 +59,11 @@
 
         .task-path {
           max-width: 30px;
-          height: 68px;
+          height: 100px;
 
           div {
             width: 10px;
-            height: 40px;
+            height: 73px;
             background: #bde9ed;
             margin-left: 10px;
 
@@ -82,7 +81,7 @@
 
         .task-title {
           width: 100%;
-          height: 68px;
+          height: 100px;
           position: relative;
 
           h3 {
@@ -90,7 +89,7 @@
             position: absolute;
             left: 20px;
             bottom: 0;
-            margin: 0 0 2px 0;
+            margin: 0;
           }
         }
       }
