@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RouteQuestionnaireService } from '../../services/route-questionnaire.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatomoTracker } from 'ngx-matomo';
 
 @Component({
   selector: 'app-questions',
@@ -34,6 +35,7 @@ export class RouteQuestionnaireComponent implements OnInit {
   constructor(private questionsService: RouteQuestionnaireService,
               private deviceDetectorService: DeviceDetectorService,
               private route: ActivatedRoute,
+              private matomoTracker: MatomoTracker,
               private router: Router) {}
 
   ngOnInit() {
@@ -135,6 +137,8 @@ export class RouteQuestionnaireComponent implements OnInit {
     }
 
     this.questionsService.sendQuestion(data, this.currentQuestion.currentQuestion).subscribe((response: any) => {
+      this.matomoTracker.trackEvent('question', 'send', this.currentQuestion.currentQuestion, data.answer);
+
       if (!response.user_user_key) {
         this.router.navigate([`/route-questionnaire/${ response.currentQuestion }/`]);
         localStorage.setItem('ppCookie', response.cookie);

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatomoModule } from 'ngx-matomo';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -68,6 +69,7 @@ import { PrivacyComponent } from './application/app-navigation/more/privacy/priv
   ],
   imports: [
     BrowserModule,
+    MatomoModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
