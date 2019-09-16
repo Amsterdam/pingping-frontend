@@ -12,8 +12,7 @@ export class WelcomeScreenComponent implements OnInit {
   constructor(private appService: AppService,
               private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   requestDefaultRoute() {
     this.appService.requestDefaultRoute().subscribe((response: any) => {
@@ -21,5 +20,10 @@ export class WelcomeScreenComponent implements OnInit {
 
       this.router.navigate(['/route-confirmation']);
     });
+  }
+
+
+  import() {
+    this.router.navigate(['/import']);
   }
 }
