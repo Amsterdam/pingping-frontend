@@ -1,11 +1,14 @@
 #app-container {
   margin-bottom: 0;
+  height: 100%;
 }
 
 #privacy {
   padding: 20px 20px 80px 20px;
   position: relative;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
 
   #blue-oval,
   #red-oval {
