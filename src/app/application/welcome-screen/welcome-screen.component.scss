@@ -35,7 +35,6 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    margin-bottom: 20px;
     box-sizing: border-box;
     padding: 30px;
     z-index: 2;
@@ -55,13 +54,11 @@
     }
 
     a:not(.button) {
-      color: #0d2036;
       font-family: "Raleway";
       display: inline-block;
       margin-top: 15px;
-      font-size: 1em;
+      font-size: 0.9em;
       color: #ffffff;
-      font-size: 1em;
       cursor: pointer;
     }
 

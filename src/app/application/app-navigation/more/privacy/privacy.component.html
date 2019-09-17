@@ -4,7 +4,8 @@
     <img id="red-oval" src="./assets/img/application/oval-red.svg" alt="Red oval">
     <div id="top-bg"></div>
     <div id="privacy-content">
-      <button id="back-button" routerLink="/more"><img src="./assets/img/application/back-white.svg" alt="Back"></button>
+      <button *ngIf="isLoggedIn" class="back-button" routerLink="/more"><img src="./assets/img/application/back-white.svg" alt="Back"></button>
+      <button *ngIf="!isLoggedIn" class="back-button" routerLink="/welcome"><img src="./assets/img/application/back-white.svg" alt="Back"></button>
       <h1>P R I V A C Y</h1>
       <div id="icon">
         <img src="../../assets/img/application/privacy.png" alt="Privacy">
@@ -26,16 +27,14 @@
           <p class="text-strong">4. Wat gebeurt er verder met die gegevens?</p>
           <p>Helemaal niets. Als je de app niet meer gebruikt wissen we jouw gegevens na 3 maanden.</p>
           <p class="text-strong">5. Kan ik mijn gegevens wijzigen of verwijderen?</p>
-          <p>Ja, dat kan (maar soms ook niet). Klik op de link  voor meer informatie: https://www.amsterdam.nl/privacy/</p>
+          <p>Ja, dat kan (maar soms ook niet). Klik op de link  voor meer informatie: <a href="https://www.amsterdam.nl/privacy/">https://www.amsterdam.nl/privacy/</a>.</p>
           <p class="text-strong">6. Wie kan ik bellen met vragen over mijn gegevens?</p>
-          <p>Bellen gatver ;). Je kunt wel mailen naar Robert Jan Taling, onze TADA inspirator: r.j.taling@amsterdam.nl.</p>
+          <p>Bellen gatver ;). Je kunt wel mailen naar Robert Jan Taling, onze TADA inspirator: <a href="mailto:r.j.taling@amsterdam.nl">r.j.taling@amsterdam.nl</a>.</p>
           <p class="text-strong">7. TADA? Wat is dat?</p>
           <p>De gemeente Amsterdam past bij het gebruik van jouw persoonsgegevens 6 principes toe. Klik op de link  om daar meer over te weten: <a href="https://tada.city/" target="_blank">https://tada.city/</a></p>
         </div>
       </div>
-    </div>
-    <div class="progress-bar">
-      <div></div>
+      <button *ngIf="!isLoggedIn" class="button button-orange" (click)="proceedRoute()">Accepteer</button>
     </div>
   </div>
   <app-app-navigation></app-app-navigation>
