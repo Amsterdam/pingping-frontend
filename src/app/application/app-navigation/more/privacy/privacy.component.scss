@@ -1,13 +1,13 @@
 #app-container {
   margin-bottom: 0;
   height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #privacy {
   padding: 20px 20px 80px 20px;
   position: relative;
-  overflow-y: scroll;
-  overflow-x: hidden;
   height: 100%;
 
   #blue-oval,
@@ -61,6 +61,7 @@
   #privacy-content {
     position: relative;
     z-index: 2;
+    padding-bottom: 30px;
 
     & > p {
       padding: 0 20px;
