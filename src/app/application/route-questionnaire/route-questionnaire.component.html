@@ -56,6 +56,22 @@
           <label for="radio2">{{ currentQuestion.answer.noText }}</label>
         </div>
       </div>
+      
+      <!-- Multiple question type -->
+      <div *ngIf="currentQuestion.questionType == 'multipleOne'" class="question-content text-center">
+        <div class="select-option">
+          <div *ngFor="let radio of currentQuestion.multiple; let i = index">
+            <input id="radio{{ i + 3 }}"
+                   type="radio"
+                   name="answer"
+                   formControlName="answer"
+                   value="{{ currentQuestion.multiple[i] }}"
+                   required
+                   class="text-center">
+            <label for="radio{{ i + 3 }}">{{ currentQuestion.multiple[i] }}</label>
+          </div>
+        </div>
+      </div>
       <div class="question-navigation navigation-next text-right">
         <button class="next-button"
                 (click)="sendQuestion()"
