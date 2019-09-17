@@ -10,6 +10,8 @@ export class RouteConfirmationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (localStorage.getItem('defaultRoute')) {
+      localStorage.removeItem('defaultRoute');
+    }
   }
-
 }

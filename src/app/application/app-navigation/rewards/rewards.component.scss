@@ -21,6 +21,19 @@
     .align-center {
       display: flex;
       align-items: center;
+      position: relative;
+
+      .button-border {
+        font-size: 0.8em;
+        position: absolute;
+        right: 0;
+        padding: 10px 20px 8px 20px;
+        border: solid 2px #ffffff;
+        border-radius: 9px;
+        color: #ffffff;
+        background: none;
+        font-family: 'Heavitas', Arial;
+      }
     }
 
     span {

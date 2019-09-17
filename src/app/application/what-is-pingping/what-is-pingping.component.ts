@@ -12,13 +12,15 @@ export class WhatIsPingpingComponent implements OnInit {
   constructor(private appService: AppService,
               private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (localStorage.getItem('defaultRoute')) {
+      localStorage.removeItem('defaultRoute');
+    }
+  }
 
   requestDefaultRoute() {
-    this.appService.requestDefaultRoute().subscribe((response: any) => {
-      localStorage.setItem('ppUserID', JSON.stringify(response.user_user_key.user_key));
+    localStorage.setItem('defaultRoute', '1');
 
-      this.router.navigate(['/route-confirmation']);
-    });
+    this.router.navigate(['/privacy']);
   }
 }

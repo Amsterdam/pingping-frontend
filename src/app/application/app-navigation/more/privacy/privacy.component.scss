@@ -23,7 +23,7 @@
     right: -274px;
   }
 
-  #back-button {
+  .back-button {
     background: none;
     border: none;
     margin: 0;
@@ -101,7 +101,7 @@
       padding: 20px;
 
       a {
-        color: #0d2036;
+        color: #60aaff;
       }
 
       h3 {
@@ -121,5 +121,10 @@
   .button {
     margin-top: 75px;
     box-shadow: 0 2px 6px 0 rgba(203, 203, 203, 0.4);
+  }
+
+  .button-orange {
+    width: 100%;
+    margin-top: 30px;
   }
 }
