@@ -1,7 +1,7 @@
 #task-popup-container {
   width: 100vw;
   height: 100vh;
-  z-index: 3;
+  z-index: 11;
   padding: 30px;
   position: fixed;
   box-sizing: border-box;
@@ -81,7 +81,7 @@
       display: block;
       position: absolute;
       left: 0;
-      //bottom: 0;
+      bottom: 0;
       color: #ffffff;
       padding: 20px;
       text-align: center;
