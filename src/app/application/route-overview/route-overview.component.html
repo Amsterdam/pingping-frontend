@@ -19,6 +19,21 @@
             <h3>{{ task.card_description }}</h3>
           </div>
         </div>
+        <div class="reward task">
+          <div class="task-path">
+            <div></div>
+            <img src="../../../assets/img/application/badge.svg" alt="Badge">
+          </div>
+          <div class="task-title">
+            <h3>100 City Points</h3>
+          </div>
+        </div>
+        <div *ngIf="!tasks.length" id="final-message">
+          <h3 class="text-center">Nice!</h3>
+          <p>
+            Het lijkt erop dat je alle stappen doorlopen hebt, jouw basis is gefikst, lekker bezig!
+          </p>
+        </div>
       </div>
     </div>
   </div>

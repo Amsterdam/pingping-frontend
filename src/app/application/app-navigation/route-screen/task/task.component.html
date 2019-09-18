@@ -7,12 +7,7 @@
     </div>
     <div id="task-description">
       <h1>{{ task.name }}</h1>
-      <p>
-        {{ task.description }}
-      </p>
-      <ul *ngIf="task.steps">
-        <li *ngFor="let step of task.steps">{{ step }}</li>
-      </ul>
+      <div id="task-description-content" [innerHTML]="task.description"></div>
       <button (click)="completeTask()" [disabled]="disableAction" class="button button-orange">{{ task.check_task }}</button>
     </div>
   </div>
