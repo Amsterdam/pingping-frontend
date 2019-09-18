@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../../services/app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-route-screen',
@@ -18,7 +19,8 @@ export class RouteScreenComponent implements OnInit {
   }];
   currentTask: number = 0;
 
-  constructor(private AppService: AppService) {}
+  constructor(private AppService: AppService,
+              private router: Router) {}
 
   ngOnInit() {
     if (localStorage.getItem('ppCookie')) {
@@ -54,5 +56,9 @@ export class RouteScreenComponent implements OnInit {
     for (let i = (this.currentTask + 1) ; i < tasks.length ; i++) {
       tasks[i].status = 'upcoming';
     }
+  }
+
+  goToTips() {
+    this.router.navigate(['/tips']);
   }
 }
