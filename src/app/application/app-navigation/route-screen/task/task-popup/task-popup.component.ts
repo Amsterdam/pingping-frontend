@@ -21,4 +21,8 @@ export class TaskPopupComponent implements OnInit {
   goToRewards() {
     this.router.navigate(['/rewards']);
   }
+
+  goToRoute() {
+    this.router.navigate(['/route-screen']);
+  }
 }
