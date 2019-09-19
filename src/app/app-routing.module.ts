@@ -9,10 +9,10 @@ import { RouteConfirmationComponent } from './application/route-confirmation/rou
 import { TaskComponent } from './application/app-navigation/route-screen/task/task.component';
 import { RewardsComponent } from './application/app-navigation/rewards/rewards.component';
 import { WhatIsPingpingComponent } from './application/what-is-pingping/what-is-pingping.component';
-import { GoalsComponent } from './application/goals/goals.component';
-import { CreateGoalComponent } from './application/goals/create-goal/create-goal.component';
+import { GoalsComponent } from './application/app-navigation/goals/goals.component';
+import { CreateGoalComponent } from './application/app-navigation/goals/create-goal/create-goal.component';
 import { RouteOverviewComponent } from './application/route-overview/route-overview.component';
-import { AchievementsComponent } from './application/app-navigation/achievements/achievements.component';
+import { AchievementsComponent } from './application/app-navigation/rewards/achievements/achievements.component';
 import { DeleteDataComponent } from './application/app-navigation/more/delete-data/delete-data.component';
 import { MoreComponent } from './application/app-navigation/more/more.component';
 import { ExportComponent } from './application/app-navigation/more/export/export.component';
