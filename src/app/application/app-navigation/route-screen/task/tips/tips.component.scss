@@ -1,0 +1,55 @@
+#app-container {
+  height: 100%;
+}
+
+#tips {
+  padding: 30px 30px 90px 30px;
+  font-family: "Raleway", Arial;
+  overflow-x: hidden;
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+
+  #blue-oval,
+  #red-oval {
+    position: absolute;
+    z-index: -1;
+  }
+
+  #blue-oval {
+    top: -200px;
+    left: -240px;
+  }
+
+  #red-oval {
+    top: 130px;
+    right: -240px;
+  }
+
+  #tips-title {
+    margin-bottom: 30px;
+
+    #back-button {
+      background: none;
+      border: none;
+      margin: 0;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    h1 {
+      font-size: 3em;
+      font-family: 'Heavitas', Arial;
+    }
+  }
+
+  #tips-content {
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Heavitas', Arial;
+    }
+
+    #message {
+      margin-top: 84px;
+    }
+  }
+}

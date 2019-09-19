@@ -39,7 +39,7 @@
       </div>
     </div>
     <div id="task-description">
-      <h2>{{ tasks[currentTask].card_description }}</h2>
+      <h2>{{ tasks[currentTask].card_description }} <i (click)="goToTips()" class="fas fa-lightbulb"></i></h2>
       <p>
         {{ tasks[currentTask].brief_description }}
       </p>

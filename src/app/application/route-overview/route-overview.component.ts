@@ -7,14 +7,17 @@ import { AppService } from '../../services/app.service';
   styleUrls: ['./route-overview.component.scss']
 })
 export class RouteOverviewComponent implements OnInit {
-  tasks: any;
+  tasks: any[] = [];
 
   constructor(private appService: AppService) { }
 
   ngOnInit() {
-    this.appService.getRoute().subscribe(response => {
-      this.tasks = response;
+    this.appService.getRoute().subscribe((response: any) => {
+      for (let task of response) {
+        if (!task.complete) {
+          this.tasks.push(task);
+        }
+      }
     });
   }
-
 }

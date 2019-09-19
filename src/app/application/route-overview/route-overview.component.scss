@@ -92,7 +92,39 @@
             margin: 0;
           }
         }
+
+        &.reward {
+          .task-path {
+            img {
+              max-width: initial;
+              width: 40px;
+              left: -5px;
+            }
+          }
+
+          .task-title {
+            h3 {
+              bottom: -5px;
+            }
+          }
+        }
       }
+    }
+  }
+
+  #final-message {
+    h3 {
+      font-family: "Heavitas", Arial;
+      font-size: 2.5em;
+      background: none;
+      border-radius: 0;
+      color: initial;
+      margin-top: 66px;
+    }
+
+    p {
+      margin-top: 40px;
+      font-family: "Raleway", Arial;
     }
   }
 }
