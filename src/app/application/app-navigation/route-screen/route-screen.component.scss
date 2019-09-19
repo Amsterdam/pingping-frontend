@@ -197,6 +197,22 @@
       color: #0d2036;
       margin-bottom: 15px;
       letter-spacing: 1px;
+
+      .fas {
+        background: #8e8e8e;
+        border-radius: 30px;
+        float: right;
+        width: 25px;
+        box-sizing: border-box;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: -3px;
+        color: #fff;
+        font-size: 0.8em;
+      }
     }
   }
 }
