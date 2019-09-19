@@ -40,7 +40,7 @@ RUN npm install \
   && npm cache clean --force
 
 # RUN npm run build
-RUN npx ng build
+RUN npx ng build --prod
 #RUN echo "build= `date`" > /app/build/version.txt
 
 # Web server image
