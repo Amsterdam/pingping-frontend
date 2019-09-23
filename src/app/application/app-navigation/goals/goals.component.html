@@ -5,7 +5,7 @@
       <h1>Zet je goals, waar ga jij voor?</h1>
       <div id="goals-summary">
         <p id="total-goals">{{ goals.length }} Goals</p>
-        <p>
+        <p *ngIf="!goals.length">
           Je hebt nog geen goals opgesteld
         </p>
         <div id="goals-details">
