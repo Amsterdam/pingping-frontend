@@ -32,7 +32,7 @@ node {
 
     stage("Build image") {
         tryStep "build", {
-                def image = docker.build("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}")
+                def image = docker.build("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}". "--build-arg ENVIRONMENT=acceptance .")
                 image.push()
         }
     }
