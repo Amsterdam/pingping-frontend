@@ -32,8 +32,13 @@ node {
 
     stage("Build image") {
         tryStep "build", {
-                def image = docker.build("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}". "--build-arg ENVIRONMENT=acceptance .")
-                image.push()
+             sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER} " +
+                "--shm-size 1G " +
+                "--build-arg ENVIRONMENT=acceptance " +
+                "."
+             sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}"
+                // def image = docker.build("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}". "--build-arg ENVIRONMENT=acceptance .")
+                // image.push()
         }
     }
 }
