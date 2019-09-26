@@ -13,6 +13,8 @@ export class AppComponent {
   constructor(
     private matomoInjector: MatomoInjector
   ) {
-    this.matomoInjector.init(environment.matomoUrl, environment.matomoSiteId);
+	if(environment.production){
+		this.matomoInjector.init(environment.matomoUrl, environment.matomoSiteId);
+	}
   }
 }
