@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: 'http://api.pingping.amsterdam.test/api',
-  matomoUrl: false,
-  matomoSiteId: false
+  matomoUrl: '',
+  matomoSiteId: '',
 };
 
 /*
