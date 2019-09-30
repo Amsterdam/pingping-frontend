@@ -10,8 +10,8 @@ help:
 	@echo 'Usage: make [TARGET] [EXTRA_ARGUMENTS]'
 	@echo 'Targets:'
 	@echo '  build-prod build docker for production'
-	@echo '  build-prod build docker for accepatance'
-	@echo '  build-acc  build docker target=latest'
+	@echo '  build-acc  build docker for accepatance'
+	@echo '  build	 	build docker target=latest'
 	@echo '  pull    	pull from git'
 	@echo '  help    	this message'
 
@@ -24,6 +24,5 @@ build-acc:
 build:
 	@echo  'Building docker image'
 	docker build --build-arg ENVIRONMENT=acceptance -t pp-fe:$(target) .	
-
 pull:
 	git pull
