@@ -16,21 +16,51 @@
       <div class="dropdown">
         <span (click)="openDropdown()">Privacy policy <img src="../../assets/img/application/arrow-left.svg" alt="Left arrow"></span>
         <div class="dropdown-content" *ngIf="open">
-          <p>We staan voor gelijkwaardigheid en gelijke kansen voor alle jongeren.</p>
-          <p>Saamhorigheid is ons uitgangspunt.</p>
-          <p>Dit betekent dat we elkaar kunnen en willen helpen.</p>
-          <p>We spreken dan over samenredzaamheid.</p>
-          <p>We pakken sociaal belangrijke maatschappelijke vragen op.</p>
-          <p>De oplossing voor deze vraagstukken vinden we in de mensen zelf.</p>
-          <p>Code, data en tech kunnen oplossingen voor deze vraagstukken sneller realiseren.</p>
-          <p>Als we daarvoor jouw gegevens nodig hebben, zijn dat nooit meer gegevens dan noodzakelijk.</p>
-          <p>Natuurlijk heb je het recht om jouw gegevens te verwijderen en kunnen we je altijd vertellen waarom de app een bepaalde route voor jou adviseert.</p>
-          <p>We slaan zo weinig mogelijk gegevens op en alleen met jouw toestemming (die je altijd weer gewoon kan intrekken natuurlijk).</p>
-          <p>Jouw toestemming geef je door het gebruik van de app.</p>
-          <p>Maar je kan de app ook gebruiken zonder persoonlijke gegevens te delen.</p>
-          <p>Je krijgt dan geen persoonlijke route. Logisch toch? Oh ja, we verkopen of geven je gegevens niet aan een derde.</p>
-          <p>Natuurlijk willen we de APP steeds verbeteren en willen we weten of Ping Ping jouw inderdaad helpt om je financiële zaken te regelen. Zo niet: dan moeten we iets anders bedenken.</p>
-          <p>Hiervoor analyseren we jouw gebruik. We bekijken bijvoorbeeld hoe vaak je de app gebruikt en of het lukt om de route af te maken. Zo proberen wij te begrijpen of de app werkt en als het nodig is te verbeteren. Deze gegevens slaan we zonder jouw persoonsgegevens op.</p>
+          <p>
+              We staan voor gelijkwaardigheid en <span class="large">gelijke kansen</span> voor alle jongeren. Saamhorigheid is ons uitgangspunt.
+              Dit betekent dat we elkaar kunnen en willen helpen. We spreken dan over <span class="large">samenredzaamheid</span>.
+              We pakken sociaal belangrijke maatschappelijke vragen op. De oplossing voor deze vraagstukken vinden we in de mensen zelf.
+              Code, data en tech kunnen oplossingen voor deze vraagstukken <span class="large bold">sneller</span> realiseren.
+              Als we daarvoor jouw gegevens nodig hebben, zijn dat nooit meer gegevens dan noodzakelijk.
+              Natuurlijk heb je het recht om jouw gegevens te verwijderen en kunnen we je altijd vertellen waarom de app een bepaalde route voor jou adviseert.
+              We slaan zo weinig mogelijk gegevens op en <span class="large">alleen met jouw </span><span class="large bold">toestemming</span> (die je altijd weer gewoon kan intrekken).
+              Jouw toestemming geef je door het gebruik van de app. Maar je kan de app ook gebruiken zonder persoonlijke gegevens te delen.
+              Je krijgt dan geen persoonlijke route. Logisch toch? Oh ja, we verkopen of geven je gegevens niet aan een derde.
+              Natuurlijk willen we de  app steeds <span class="large">verbeteren en willen we weten</span> of ping ping jouw inderdaad helpt om je financiële zaken te regelen.
+              Zo niet: dan moeten we iets  anders bedenken. Hiervoor <span class="bold">analyseren</span> we jouw gebruik. 
+              We bekijken bijvoorbeeld hoe vaak je de app gebruikt en of het lukt om de route af te maken.
+              Zo proberen wij te begrijpen of de app werkt en als het nodig is te verbeteren. Deze gegevens slaan we <span class="large bold">zonder</span> jouw persoonsgegevens op.
+          </p>
+          <p>Praktische vragen over jouw privacy:</p>
+          <ol type="1">
+            <li>
+              <b>Welke gegevens van mij gebruiken jullie voor het advies over mijn route?</b><br />
+              Geboortemaand/jaar, adres, bankrekening, DigiD, Zorgverzekering, Zorgtoeslag, Inschrijving Woningnet.
+            </li>
+            <li>
+              <b>Waarom slaan wij jouw gegevens op?</b><br />
+              Omdat dit makkelijker is voor jou om de app te gebruiken. Dan hoef je niet elke keer alles opnieuw in te vullen.</li>
+            <li>
+              <b>Waar slaan jullie mijn gegevens op ?</b><br />
+              We slaan jouw gegevens veilig op bij het datapunt van de gemeente Amsterdam. 
+            </li>
+            <li>
+              <b>Wat gebeurt er verder met die gegevens?</b><br />
+              Helemaal niets. Als je de app niet meer gebruikt wissen we jouw gegevens na 3 maanden. 
+            </li>
+            <li>
+              <b>Kan ik mijn gegevens wijzigen of verwijderen?</b><br />
+              Ja, dat kan (maar soms ook niet). Klik op de link  voor meer informatie: <a href="https://www.amsterdam.nl/privacy/">amsterdam.nl/privacy</a>
+            </li>
+            <li>
+              <b>Wie kan ik bellen met vragen over mijn gegevens?</b><br />
+              Bellen gatver ;). Je kunt wel mailen naar Robert Jan Taling, onze TADA inspirator: <a href="mailto: r.j.taling@amsterdam.nl">r.j.taling@amsterdam.nl</a>.
+            </li>
+            <li>
+              <b>TADA? Wat is dat?</b><br />
+              De gemeente Amsterdam past bij het gebruik van jouw persoonsgegevens 6 principes toe. Klik op de link  om daar meer over te weten: <a href="https://tada.city/">tada.city</a>
+            </li>
+          </ol>
         </div>
       </div>
       <button *ngIf="!isLoggedIn" class="button button-orange" (click)="proceedRoute()">Accepteer</button>
