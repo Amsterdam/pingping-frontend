@@ -137,7 +137,7 @@ export class RouteQuestionnaireComponent implements OnInit {
     }
 
     this.questionsService.sendQuestion(data, this.currentQuestion.currentQuestion).subscribe((response: any) => {
-      this.matomoTracker.trackEvent('question', 'send', this.currentQuestion.currentQuestion, data.answer);
+      this.matomoTracker.trackEvent('question', this.currentQuestion.question, data.answer);
 
       if (!response.user_user_key) {
         this.router.navigate([`/route-questionnaire/${ response.currentQuestion }/`]);
