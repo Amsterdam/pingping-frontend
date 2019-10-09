@@ -35,8 +35,8 @@ RUN npx ng build --c $ENVIRONMENT
 # Web server image
 FROM nginx:stable-alpine
 
-COPY conf/nginx-server-default.template.conf /tmp/nginx-server-default.template.conf
 COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY conf/nginx-server-default.template.conf /etc/nginx/conf.d/default.conf
 
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
