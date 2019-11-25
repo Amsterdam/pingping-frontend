@@ -68,4 +68,33 @@ if (BRANCH == "master") {
             }
         }
     }
+
+
+    stage('Waiting for approval') {
+        slackSend channel: '#ci-channel', color: 'warning', message: 'pingping_frontend is waiting for Production Release - please confirm'
+        input "Deploy to Production?"
+    }
+
+    node {
+        stage('Push production image') {
+        tryStep "image tagging", {
+                def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}")
+                image.pull()
+                    image.push("production")
+                    image.push("latest")
+            }
+        }
+    }
+
+    node {
+        stage("Deploy") {
+            tryStep "deployment", {
+                build job: 'Subtask_Openstack_Playbook',
+                parameters: [
+                    [$class: 'StringParameterValue', name: 'INVENTORY', value: 'production'],
+                    [$class: 'StringParameterValue', name: 'PLAYBOOK', value: 'deploy-pingping-frontend.yml'],
+                ]
+            }
+        }
+    }
 }
