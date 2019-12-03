@@ -76,7 +76,7 @@ if (BRANCH == "master") {
 
     node {
         stage("Build production image") {
-            tryStep "build", {
+            tryStep "build", {<<<<<<< HEAD
                 sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-prod " +
                     "--shm-size 1G " +
                     "--build-arg ENVIRONMENT=production " +
