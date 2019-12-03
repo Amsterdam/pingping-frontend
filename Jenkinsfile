@@ -32,14 +32,24 @@ node {
 
     stage("Build image") {
         tryStep "build", {
-             sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUNBER} " +
+             sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-acc " +
                 "--shm-size 1G " +
                 "--build-arg ENVIRONMENT=acceptance " +
                 "--no-cache " +
                 "."
-             sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUNBER}"
+             sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-acc"
                 // def image = docker.build("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}". "--build-arg ENVIRONMENT=acceptance .")
                 // image.push()
+        }
+    }
+}
+
+node {
+    stage('Push acceptance image') {
+        tryStep "image tagging", {
+                def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-acc")
+                image.pull()
+                image.push("acceptance")
         }
     }
 }
@@ -47,15 +57,15 @@ node {
 String BRANCH = "${env.BRANCH_NAME}"
 
 if (BRANCH == "master") {
-    node {
-        stage('Push acceptance image') {
-            tryStep "image tagging", {
-                    def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}")
-                    image.pull()
-                    image.push("acceptance")
-            }
-        }
-    }
+    // node {
+    //     stage('Push acceptance image') {
+    //         tryStep "image tagging", {
+    //                 def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-acc")
+    //                 image.pull()
+    //                 image.push("acceptance")
+    //         }
+    //     }
+    // }
 
     node {
         stage("Deploy to ACC") {
