@@ -44,16 +44,6 @@ node {
     }
 }
 
-node {
-    stage('Push acceptance image') {
-        tryStep "image tagging", {
-                def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_ID}")
-                image.pull()
-                image.push("acceptance")
-        }
-    }
-}
-
 String BRANCH = "${env.BRANCH_NAME}"
 
 if (BRANCH == "master") {
@@ -86,8 +76,18 @@ if (BRANCH == "master") {
     }
 
     node {
+        stage("Build production image") {
+            tryStep "build", {
+                sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_ID} " +
+                    "--shm-size 1G " +
+                    "--build-arg ENVIRONMENT=production " +
+                    "--no-cache " +
+                    "."
+                sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_ID}"
+            }
+        }
         stage('Push production image') {
-        tryStep "image tagging", {
+            tryStep "image tagging", {
                 def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}")
                 image.pull()
                     image.push("production")
