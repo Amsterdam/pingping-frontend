@@ -16,7 +16,6 @@ def tryStep(String message, Closure block, Closure tearDown = null) {
     }
 }
 
-String BRANCH = "${env.BRANCH_NAME}"
 
 node {
     stage("Checkout") {
@@ -33,29 +32,21 @@ node {
 
     stage("Build image") {
         tryStep "build", {
-             sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BRANCH_NAME}-${env.BUILD_NUMBER} " +
+             sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER} " +
                 "--shm-size 1G " +
                 "--build-arg ENVIRONMENT=acceptance " +
                 "."
-             sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+             sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}"
+             sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:acceptance"
                 // def image = docker.build("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}". "--build-arg ENVIRONMENT=acceptance .")
                 // image.push()
         }
     }
 }
 
- node {
-    stage('Push acceptance image') {
-        tryStep "image tagging", {
-                def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BRANCH_NAME}-${env.BUILD_NUMBER}")
-                image.pull()
-                image.push("acceptance")
-        }
-    }
-}
+String BRANCH = "${env.BRANCH_NAME}"
 
 if (BRANCH == "master") {
-
     node {
         stage('Push acceptance image') {
             tryStep "image tagging", {
