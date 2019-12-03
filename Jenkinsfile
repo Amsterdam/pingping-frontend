@@ -79,7 +79,7 @@ if (BRANCH == "master") {
         tryStep "build", {
              sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER} " +
                 "--shm-size 1G " +
-                "--build-arg ENVIRONMENT=acceptance " +
+                "--build-arg ENVIRONMENT=production " +
                 "."
              sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}"
         }
