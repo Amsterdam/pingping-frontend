@@ -30,23 +30,15 @@ node {
 //    }
 
 
-    stage("Build acceptance image") {
+    stage("Build image") {
         tryStep "build", {
              sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER} " +
                 "--shm-size 1G " +
                 "--build-arg ENVIRONMENT=acceptance " +
                 "."
-             sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}:latest"
+             sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}"
                 // def image = docker.build("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}". "--build-arg ENVIRONMENT=acceptance .")
                 // image.push()
-        }
-    }
-
-    stage('Push acceptance image') {
-        tryStep "image tagging", {
-                def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}")
-                image.pull()
-                image.push("acceptance")
         }
     }
 }
@@ -55,15 +47,15 @@ String BRANCH = "${env.BRANCH_NAME}"
 
 if (BRANCH == "master") {
 
-    // node {
-    //     stage('Push acceptance image') {
-    //         tryStep "image tagging", {
-    //                 def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}")
-    //                 image.pull()
-    //                 image.push("acceptance")
-    //         }
-    //     }
-    // }
+    node {
+        stage('Push acceptance image') {
+            tryStep "image tagging", {
+                    def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}")
+                    image.pull()
+                    image.push("acceptance")
+            }
+        }
+    }
 
     node {
         stage("Deploy to ACC") {
@@ -84,15 +76,8 @@ if (BRANCH == "master") {
     }
 
     node {
-        tryStep "build", {
-             sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER} " +
-                "--shm-size 1G " +
-                "--build-arg ENVIRONMENT=production " +
-                "."
-             sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}"
-        }
         stage('Push production image') {
-            tryStep "image tagging", {
+        tryStep "image tagging", {
                 def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}")
                 image.pull()
                     image.push("production")
