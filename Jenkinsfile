@@ -43,19 +43,19 @@ node {
     }
 }
 
- node {
-    stage('Push acceptance image') {
-        tryStep "image tagging", {
-                def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-acc")
-                image.pull()
-                image.push("acceptance")
-        }
-    }
-}
-
 String BRANCH = "${env.BRANCH_NAME}"
 
 if (BRANCH == "master") {
+    node {
+        stage('Push acceptance image') {
+            tryStep "image tagging", {
+                    def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-acc")
+                    image.pull()
+                    image.push("acceptance")
+            }
+        }
+    }
+
     node {
         stage("Deploy to ACC") {
             tryStep "deployment", {
