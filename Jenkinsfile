@@ -31,7 +31,7 @@ node {
 
 
     stage("Build image") {
-        tryStep "build", {
+        tryStep "build acceptance", {
              sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER} " +
                 "--shm-size 1G " +
                 "--build-arg ENVIRONMENT=acceptance " +
@@ -76,8 +76,15 @@ if (BRANCH == "master") {
     }
 
     node {
+        tryStep "build", {
+             sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER} " +
+                "--shm-size 1G " +
+                "--build-arg ENVIRONMENT=acceptance " +
+                "."
+             sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}"
+        }
         stage('Push production image') {
-        tryStep "image tagging", {
+            tryStep "image tagging", {
                 def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}")
                 image.pull()
                     image.push("production")
