@@ -36,7 +36,7 @@ node {
                 "--shm-size 1G " +
                 "--build-arg ENVIRONMENT=acceptance " +
                 "."
-             sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}"
+             sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}:latest"
                 // def image = docker.build("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}". "--build-arg ENVIRONMENT=acceptance .")
                 // image.push()
         }
