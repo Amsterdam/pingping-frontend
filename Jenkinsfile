@@ -77,11 +77,11 @@ if (BRANCH == "master") {
     node {
         stage("Build production image") {
             tryStep "build", {
-                sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUNBER}-prod " +
+                sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-prod " +
                     "--shm-size 1G " +
                     "--build-arg ENVIRONMENT=production " +
                     "."
-                sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUNBER}-prod"
+                sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-prod"
             }
         }
         stage('Push production image') {
