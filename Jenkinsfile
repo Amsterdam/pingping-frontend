@@ -35,6 +35,7 @@ node {
              sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_ID} " +
                 "--shm-size 1G " +
                 "--build-arg ENVIRONMENT=acceptance " +
+                "--no-cache " +
                 "."
              sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_ID}"
                 // def image = docker.build("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}". "--build-arg ENVIRONMENT=acceptance .")
