@@ -32,12 +32,12 @@ node {
 
     stage("Build image") {
         tryStep "build", {
-             sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_ID} " +
+             sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUNBER} " +
                 "--shm-size 1G " +
                 "--build-arg ENVIRONMENT=acceptance " +
                 "--no-cache " +
                 "."
-             sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_ID}"
+             sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUNBER}"
                 // def image = docker.build("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}". "--build-arg ENVIRONMENT=acceptance .")
                 // image.push()
         }
@@ -78,12 +78,12 @@ if (BRANCH == "master") {
     node {
         stage("Build production image") {
             tryStep "build", {
-                sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_ID} " +
+                sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUNBER} " +
                     "--shm-size 1G " +
                     "--build-arg ENVIRONMENT=production " +
                     "--no-cache " +
                     "."
-                sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_ID}"
+                sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUNBER}"
             }
         }
         stage('Push production image') {
