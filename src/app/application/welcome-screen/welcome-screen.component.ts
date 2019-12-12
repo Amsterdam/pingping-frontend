@@ -9,19 +9,28 @@ import { Router } from '@angular/router';
 })
 export class WelcomeScreenComponent implements OnInit {
 
+  isLoggedIn: boolean = false;	
   constructor(private appService: AppService,
               private router: Router) { }
 
   ngOnInit() {
     if (localStorage.getItem('defaultRoute')) {
       localStorage.removeItem('defaultRoute');
-    }
+	}
+	
+	if( localStorage.getItem('ppUserID')){
+		this.isLoggedIn = true;
+	}
   }
 
-  requestDefaultRoute() {
-    localStorage.setItem('defaultRoute', '1');
-
-    this.router.navigate(['/privacy']);
+  requestRoute() {
+	localStorage.setItem('defaultRoute', '1');
+	if (this.isLoggedIn){
+		this.router.navigate(['/route-screen']);
+	} else {
+		this.router.navigate(['/privacy']);
+	}
+    
   }
 
   import() {
