@@ -23,19 +23,24 @@ export class RouteScreenComponent implements OnInit {
               private router: Router) {}
 
   ngOnInit() {
-    if (localStorage.getItem('ppCookie')) {
-      localStorage.removeItem('ppCookie');
-    }
-
-    if (localStorage.getItem('tempID')) {
-      localStorage.removeItem('tempID');
-    }
-
-    this.AppService.getRoute().subscribe(response => {
-      this.tasks = response;
-
-      this.setTasksStatus(this.tasks);
-    });
+	if(localStorage.getItem('ppUserID')) {
+		if (localStorage.getItem('ppCookie')) {
+			localStorage.removeItem('ppCookie');
+		  }
+	  
+		  if (localStorage.getItem('tempID')) {
+			localStorage.removeItem('tempID');
+		  }
+	  
+		  this.AppService.getRoute().subscribe(response => {
+			this.tasks = response;
+	  
+			this.setTasksStatus(this.tasks);
+		  });
+	} else {
+		this.router.navigate(['welcome']);
+	}
+    
   }
 
   setTasksStatus(tasks: any[]) {
