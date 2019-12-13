@@ -9,15 +9,15 @@ import { Router } from '@angular/router';
 })
 export class PrivacyComponent implements OnInit {
   open: boolean = false;
-  isLoggedIn: boolean = false;
+  defaultRoute: boolean = false;
 
   constructor(private appService: AppService,
               private router: Router) { }
 
   ngOnInit() {
-    if (localStorage.getItem('ppUserID')) {
-      this.isLoggedIn = true;
-    }
+    if (localStorage.getItem('defaultRoute') == '1') {
+      this.defaultRoute = true;
+	} 
   }
 
   openDropdown() {
@@ -29,15 +29,14 @@ export class PrivacyComponent implements OnInit {
   }
 
   proceedRoute() {
-    if (localStorage.getItem('defaultRoute')) {
-      this.appService.requestDefaultRoute().subscribe((response: any) => {
-        localStorage.setItem('ppUserID', JSON.stringify(response.user_user_key.user_key));
-
-        this.router.navigate(['/route-confirmation']);
-      });
-
-    } else {
-      this.router.navigate(['/route-questionnaire']);
-    }
-  }
+	if (this.defaultRoute) {
+		this.appService.requestDefaultRoute().subscribe((response: any) => {
+			localStorage.setItem('ppUserID', JSON.stringify(response.user_user_key.user_key));
+			this.router.navigate(['/route-confirmation']);
+		});
+	} else {
+		this.router.navigate(['route-questionnaire']);
+	}
+}
+  
 }

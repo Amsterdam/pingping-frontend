@@ -14,25 +14,23 @@ export class WelcomeScreenComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    if (localStorage.getItem('defaultRoute')) {
-      localStorage.removeItem('defaultRoute');
-	}
-	
-	if( localStorage.getItem('ppUserID')){
+	if(localStorage.getItem('ppUserID')) {
 		this.isLoggedIn = true;
 	}
   }
 
-  requestRoute() {
-	localStorage.setItem('defaultRoute', '1');
+  requestRoute(route: string) {
 	if (this.isLoggedIn){
 		this.router.navigate(['/route-screen']);
 	} else {
+		if(route == 'default') {
+			localStorage.setItem('defaultRoute', '1');
+		} else {
+			localStorage.removeItem('defaultRoute');
+		}
 		this.router.navigate(['/privacy']);
 	}
-    
   }
-
   import() {
     this.router.navigate(['/import']);
   }
