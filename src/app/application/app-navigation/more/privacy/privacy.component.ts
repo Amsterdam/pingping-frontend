@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class PrivacyComponent implements OnInit {
   open: boolean = false;
   defaultRoute: boolean = false;
+  isLoggedIn: boolean = false;
 
   constructor(private appService: AppService,
               private router: Router) { }
@@ -18,6 +19,9 @@ export class PrivacyComponent implements OnInit {
     if (localStorage.getItem('defaultRoute') == '1') {
       this.defaultRoute = true;
 	} 
+	if(localStorage.getItem('ppUserID')) {
+		this.isLoggedIn = true;
+	}
   }
 
   openDropdown() {
