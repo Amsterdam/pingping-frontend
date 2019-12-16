@@ -149,4 +149,21 @@ export class RouteQuestionnaireComponent implements OnInit {
   updateProgressBar(question: any) {
     this.progressPercentage = (100 * question.order) / question.numberOfQuestions;
   }
+
+  prevQuestion(id: any) {
+	const data: any = {  };
+    const ppCookie = localStorage.getItem('ppCookie');
+	data.cookie = ppCookie;
+	
+
+	if(id == 4) {
+		this.router.navigate([`/route-questionnaire/6`])
+	} else {
+		console.log(id);
+		this.questionsService.prevQuestion(data, id).subscribe( (prev: any) => {
+			console.log('Last question: ', prev);
+			this.router.navigate([`/route-questionnaire/${ prev.id }`])
+		});
+	}
+  }
 }

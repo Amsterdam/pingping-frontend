@@ -12,7 +12,22 @@ export class RouteQuestionnaireService {
     })
   };
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+	if (localStorage.getItem('tempID')) {
+		this.headers.headers = new HttpHeaders({
+		  'Content-Type': 'application/json',
+		  'temp-id': JSON.parse(localStorage.getItem('tempID'))
+		});
+	  } else {
+		localStorage.setItem('tempID', JSON.stringify(this.createTempID()));
+		let tempID = localStorage.getItem('tempID');
+  
+		this.headers.headers = new HttpHeaders({
+		  'Content-Type': 'application/json',
+		  'temp-id': tempID
+		});
+	  }
+  }
 
   createTempID() {
     var dt = new Date().getTime();
@@ -36,23 +51,14 @@ export class RouteQuestionnaireService {
   }
 
   sendQuestion(data: any, currentQuestion: number) {
+
     data = JSON.stringify(data);
+	return this.httpClient.post(`${ environment.apiUrl }/question/${ currentQuestion }/next/`, data, this.headers);
+	
+  }
 
-    if (localStorage.getItem('tempID')) {
-      this.headers.headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'temp-id': JSON.parse(localStorage.getItem('tempID'))
-      });
-    } else {
-      localStorage.setItem('tempID', JSON.stringify(this.createTempID()));
-      let tempID = localStorage.getItem('tempID');
-
-      this.headers.headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'temp-id': tempID
-      });
-    }
-
-    return this.httpClient.post(`${ environment.apiUrl }/question/${ currentQuestion }/next/`, data, this.headers);
+  prevQuestion(data: any, id: number) { 
+	data = JSON.stringify(data);
+	return this.httpClient.post(`${ environment.apiUrl }/question/${id}/prev/`,  data, this.headers);
   }
 }
