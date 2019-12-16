@@ -36,7 +36,6 @@ export class RouteScreenComponent implements OnInit {
 	  
 		  
 		  this.AppService.getRoute().subscribe(response => {
-			console.log(response);
 			this.tasks = response;
 			this.setTasksStatus(this.tasks);
 			this.pendingTasks = this.tasks.forEach(task => {
