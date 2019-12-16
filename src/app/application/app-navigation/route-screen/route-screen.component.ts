@@ -38,11 +38,13 @@ export class RouteScreenComponent implements OnInit {
 		  this.AppService.getRoute().subscribe(response => {
 			this.tasks = response;
 			this.setTasksStatus(this.tasks);
-			this.pendingTasks = this.tasks.forEach(task => {
-				if(task.status != 'completed') {
-					return true;
+			this.tasks.forEach(task => {
+				if(!task.complete) {
+					this.pendingTasks = true;
 				}
 			});
+
+			console.log(this.tasks.length == 0, !this.pendingTasks)
 			if(this.tasks.length == 0 || !this.pendingTasks) {
 				this.router.navigate(['route-overview']);
 			}
