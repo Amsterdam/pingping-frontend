@@ -18,11 +18,13 @@ export class RouteScreenComponent implements OnInit {
     task: null
   }];
   currentTask: number = 0;
+  pendingTasks: boolean = false;
 
   constructor(private AppService: AppService,
               private router: Router) {}
 
   ngOnInit() {
+	
 	if(localStorage.getItem('ppUserID')) {
 		if (localStorage.getItem('ppCookie')) {
 			localStorage.removeItem('ppCookie');
@@ -32,10 +34,19 @@ export class RouteScreenComponent implements OnInit {
 			localStorage.removeItem('tempID');
 		  }
 	  
+		  
 		  this.AppService.getRoute().subscribe(response => {
+			console.log(response);
 			this.tasks = response;
-	  
 			this.setTasksStatus(this.tasks);
+			this.pendingTasks = this.tasks.forEach(task => {
+				if(task.status != 'completed') {
+					return true;
+				}
+			});
+			if(this.tasks.length == 0 || !this.pendingTasks) {
+				this.router.navigate(['route-overview']);
+			}
 		  });
 	} else {
 		this.router.navigate(['welcome']);
