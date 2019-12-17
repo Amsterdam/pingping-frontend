@@ -9,8 +9,8 @@
     <h3>Welkom op</h3><br>
     <h3>Ping Ping!</h3>
     <a class="button button-orange button-white" routerLink="/what-is-pingping">Wat is Ping Ping?</a>
-    <a class="button button-orange" routerLink="/privacy">Fiks je eigen route</a>
-    <a (click)="requestDefaultRoute()">Start zonder eigen route</a>
+    <a class="button button-orange" (click)="requestRoute('custom')">Fiks je eigen route</a>
+    <a (click)="requestRoute('default')">Start zonder eigen route</a>
     <a (click)="import()">Heb je al een route? Importeer je gegevens</a>
   </div>
   <div id="gradient"></div>

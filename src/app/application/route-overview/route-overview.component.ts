@@ -8,6 +8,7 @@ import { AppService } from '../../services/app.service';
 })
 export class RouteOverviewComponent implements OnInit {
   tasks: any[] = [];
+  pendingTasks: boolean = false;
 
   constructor(private appService: AppService) { }
 
@@ -15,9 +16,10 @@ export class RouteOverviewComponent implements OnInit {
     this.appService.getRoute().subscribe((response: any) => {
       for (let task of response) {
         if (!task.complete) {
-          this.tasks.push(task);
+		  this.tasks.push(task);
+		  this.pendingTasks = true;
         }
-      }
+	  }
     });
   }
 }

@@ -80,3 +80,8 @@ h1, h2, h3, h4, h5, h6 {
     transition: width 0.3s ease;
   }
 }
+
+#purechat-container .purechat-launcher-frame.purechat-launcher-frame-bottom-right {
+  bottom: 60px !important;
+  right: 5px !important;
+}

@@ -3,7 +3,7 @@
     <img id="blue-oval" src="./assets/img/application/oval-blue.svg" alt="Blue oval">
     <img id="red-oval" src="./assets/img/application/oval-red.svg" alt="Red oval">
     <div id="route-overview-title">
-      <button id="back-button" routerLink="/route-screen"><img src="./assets/img/application/back.svg" alt="Back"></button>
+      <button *ngIf="pendingTasks" id="back-button" routerLink="/route-screen"><img src="./assets/img/application/back.svg" alt="Back"></button>
       <h1>Je route!</h1>
     </div>
     <div id="route-overview-list">
