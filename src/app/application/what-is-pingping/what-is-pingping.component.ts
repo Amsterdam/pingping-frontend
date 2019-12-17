@@ -8,19 +8,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./what-is-pingping.component.scss']
 })
 export class WhatIsPingpingComponent implements OnInit {
+  isLoggedIn: boolean;
 
   constructor(private appService: AppService,
               private router: Router) { }
 
-  ngOnInit() {
-    if (localStorage.getItem('defaultRoute')) {
-      localStorage.removeItem('defaultRoute');
-    }
-  }
+	ngOnInit() {
+	if(localStorage.getItem('ppUserID')) {
+		this.isLoggedIn = true;
+	}
+	}
 
-  requestDefaultRoute() {
-    localStorage.setItem('defaultRoute', '1');
-
-    this.router.navigate(['/privacy']);
-  }
+	requestRoute(route: string) {
+	if (this.isLoggedIn){
+		this.router.navigate(['/route-screen']);
+	} else {
+		if(route == 'default') {
+			localStorage.setItem('defaultRoute', '1');
+		} else {
+			localStorage.removeItem('defaultRoute');
+		}
+		this.router.navigate(['/privacy']);
+	}
+	}
+	import() {
+	this.router.navigate(['/import']);
+	}
 }

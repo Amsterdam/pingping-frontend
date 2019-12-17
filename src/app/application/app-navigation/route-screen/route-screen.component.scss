@@ -150,7 +150,8 @@
             font-size: 0.9em;
             color: #0d2036;
             margin: 0;
-          }
+		  }
+		  
         }
       }
 
@@ -191,6 +192,7 @@
   }
 
   #task-description {
+	  padding-bottom: 60px;
     h2 {
       font-family: "Heavitas", Arial;
       font-size: 1.1em;
@@ -213,6 +215,6 @@
         color: #fff;
         font-size: 0.8em;
       }
-    }
+	}
   }
 }
