@@ -23,7 +23,7 @@ import { PrivacyComponent } from './application/app-navigation/more/privacy/priv
 import { TipsComponent } from './application/app-navigation/route-screen/task/tips/tips.component';
 
 const routes: Routes = [
-  { path: '', component: SplashScreenComponent },
+  { path: 'app', component: SplashScreenComponent },
   { path: 'welcome', component: WelcomeScreenComponent },
   { path: 'what-is-pingping', component: WhatIsPingpingComponent },
   { path: 'route-questionnaire', component: RouteQuestionnaireComponent },

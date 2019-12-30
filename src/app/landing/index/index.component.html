@@ -1,25 +1,53 @@
-<div class="container">
-  <app-header></app-header>
-  <div id="featured" class="fade-in">
-    <div class="left">
-      <img class="phone1" src="./assets/img/iPhone_X1.png">
-      <img class="phone2" src="./assets/img/iPhone_X2.png">
+<div class="background">
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <a href="/"><img src="../../../assets/img/logo.png"/></a>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><a href="/watishet">Wat is het?</a></li>
+        </ul>
+      </div>
+
+      <div class="hamburger show-on-mobile">
+        <i class="fas fa-bars" onclick="openNav()"></i>
+      </div>
     </div>
-    <div class="right">
-      <div>
-        <h2 class="show-on-mobile title">WELKOM OP</h2>
-        <img class="ping-ping-logo-long" src="./assets/img/ping-ping-logo-long.svg" alt="Ping Ping">
-        <p>
-          Welkom op Ping Ping, op deze website gaan we er samen voor
-          zorgen dat jij nog wat centen aan het einde van de maand overhoudt
-          om leuke dingen te doen!
-        </p>
-        <div id="actions">
-          <a class="button button-orange button-lg" href="https://sketch.cloud/s/49zPo/4aPa24A/play" target="_blank">Aan de slag</a>
-          <a class="cta-video text-center" href="https://www.youtube.com/watch?v=UnNXgRd8Ze0" target="_blank">
-            <img src="./assets/img/Shape.svg">
-            <span>Kijk hoe het werkt!</span>
-          </a>
+
+    <div class="body">
+      <div class="left">
+        <img class="phone1" src="../../../assets/img/mockupfront.png" />
+        <img class="phone2" src="../../../assets/img/mockupback.png" />
+      </div>
+      <div class="right">
+        <div class="content">
+          <h1 class="show-on-mobile title welkom">WELKOM OP</h1>
+          <h1 class="title ping-ping">
+            <span class="red">P</span>
+            <span class="yellow">i</span>
+            <span class="blue">n</span>
+            <span class="red">g</span>
+            ping
+            <span class="show-on-mobile">!</span>
+          </h1>
+
+          <p>
+            Op deze website gaan we er samen voor zorgen dat jij je basis op
+            orde hebt. Dan hoef je daar geen zorgen meer over te maken en kan je
+            leuke dingen gaan doen.
+          </p>
+
+          <div class="actions">
+            <div>
+              <a href="/watishet"
+                ><button class="video">Kijk hoe het werkt</button></a
+              >
+            </div>
+            <div>
+              <a href="/app"><button>Probeer de app</button></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
