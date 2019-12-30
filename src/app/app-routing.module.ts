@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './landing/index/index.component';
+import { WhatIsItComponent } from './landing/what-is-it/what-is-it.component';
 import { RouteQuestionnaireComponent } from './application/route-questionnaire/route-questionnaire.component';
 import { SplashScreenComponent } from './application/splash-screen/splash-screen.component';
 import { WelcomeScreenComponent } from './application/welcome-screen/welcome-screen.component';
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'delete-data', component: DeleteDataComponent },
   { path: 'delete-data-confirmation', component: DeleteDataConfirmationComponent },
   { path: 'privacy', component: PrivacyComponent },
+  { path: 'watishet', component: WhatIsItComponent },
   { path: '**', pathMatch: 'full', component: IndexComponent }
 ];
 
