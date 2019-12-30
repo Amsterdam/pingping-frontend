@@ -83,6 +83,11 @@
   border-top: 7px solid #fa4f59;
 }
 
+.test-header-button { 
+	padding: 10px;
+	font-size: 1em;
+}
+
 .body {
   width: 100%;
   height: calc(100% - 110px);
@@ -170,28 +175,17 @@ a {
 }
 
 @media only screen and (max-width: 1050px) {
-  .what-is-it-container {
-    flex-wrap: wrap;
-  }
-
   .container {
 	  margin: 0 50px;
   }
 
   .title {
-    font-size: 25px;
+    font-size: 25px; 
     line-height: 1.2;
   }
 
   .what-is-it-container {
-    flex-wrap: wrap;
-    width: 100%;
-    height: 100%;
-    width: 300;
-    height: 250px;
-    float: none;
-    clear: both;
-    margin: 2px auto;
+	flex-wrap: wrap;
   }
 
   .video object {
@@ -201,7 +195,16 @@ a {
   .test-header-button {
 	  padding: 5px
   }
+
   .header .logo img {
 	height: 20px;
+  }
+
+  .actions button {
+	margin-bottom: 100px;
+  }
+
+  .header .menu li {
+	margin-left: 25px;
   }
 }
