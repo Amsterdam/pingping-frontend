@@ -45,6 +45,34 @@ node {
 
 String BRANCH = "${env.BRANCH_NAME}"
 
+if (BRANCH != "master") {
+    stage('Waiting for approval') {
+        input "Deploy to Acceptance?"
+    }
+
+    node {
+        stage('Push acceptance image') {
+            tryStep "image tagging", {
+                    def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-acc")
+                    image.pull()
+                    image.push("acceptance")
+            }
+        }
+    }
+
+    node {
+        stage("Deploy to Acceptance") {
+            tryStep "deployment", {
+                build job: 'Subtask_Openstack_Playbook',
+                parameters: [
+                    [$class: 'StringParameterValue', name: 'INVENTORY', value: 'acceptance'],
+                    [$class: 'StringParameterValue', name: 'PLAYBOOK', value: 'deploy-pingping-frontend.yml'],
+                ]
+            }
+        }
+    }
+}
+
 if (BRANCH == "master") {
     node {
         stage('Push acceptance image') {
