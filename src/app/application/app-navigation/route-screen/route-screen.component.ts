@@ -20,8 +20,6 @@ export class RouteScreenComponent implements OnInit {
 	currentTask: number = 0;
 	pendingTasks: boolean = false;
 
-	navigationExtras: NavigationExtras;
-
 	constructor(private AppService: AppService,
 		private router: Router) { }
 
@@ -54,7 +52,7 @@ export class RouteScreenComponent implements OnInit {
 			this.router.navigate(['welcome']);
 		}
 
-		
+
 
 	}
 
@@ -83,12 +81,11 @@ export class RouteScreenComponent implements OnInit {
 	}
 
 	goToTask(task: any) {
-		this.navigationExtras = {
-			queryParams: {
-				currentTask: this.tasks[this.currentTask].task == task
-			}
-		}
-
-		this.router.navigate([`/task/${task}`], this.navigationExtras );
+		this.router.navigate(
+			[`/task/${task}`],
+			{
+				queryParams:
+					{ currentTask: this.tasks[this.currentTask].task }
+			});
 	}
 }
