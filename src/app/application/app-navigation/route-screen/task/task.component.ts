@@ -4,42 +4,48 @@ import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-task',
-  templateUrl: './task.component.html',
-  styleUrls: ['./task.component.scss']
+	selector: 'app-task',
+	templateUrl: './task.component.html',
+	styleUrls: ['./task.component.scss']
 })
 export class TaskComponent implements OnInit {
-  task: any = {
-    id: null,
-    city_points_value: null,
-    description: null,
-    name: null,
-    media: null,
-    steps: null
-  };
-  showPopUp: boolean = false;
-  disableAction: boolean = false;
+	task: any = {
+		id: null,
+		city_points_value: null,
+		description: null,
+		name: null,
+		media: null,
+		steps: null
+	};
+	showPopUp: boolean = false;
+	disableAction: boolean = false;
+	currentTaskId: number;
 
-  constructor(private appService: AppService,
-              private route: ActivatedRoute,
-              private sanitizer: DomSanitizer) {
-    this.appService.getTask(this.route.snapshot.paramMap.get('task')).subscribe((response: any) => {
-      this.task = response;
+	constructor(private appService: AppService,
+		private route: ActivatedRoute,
+		private sanitizer: DomSanitizer) {
+		this.appService.getTask(this.route.snapshot.paramMap.get('task')).subscribe((response: any) => {
+			this.task = response;
+			this.task.media = this.sanitizer.bypassSecurityTrustResourceUrl(response.media);
+		});
+		this.route.queryParams.subscribe(params => {
+			this.currentTaskId = params.currentTask
+			console.log(this.currentTaskId);
+		})
+	}
 
-      this.task.media = this.sanitizer.bypassSecurityTrustResourceUrl(response.media);
-    });
-  }
+	ngOnInit() {
+		
+	}
 
-  ngOnInit() { }
+	closePopup() {
+		this.showPopUp = false;
+	}
 
-  closePopup() {
-    this.showPopUp = false;
-  }
-
-  completeTask() {
-    this.appService.completeTask(this.task.id).subscribe(response => {
-      this.showPopUp = true;
-      this.disableAction = true;
-    });
-  }
+	completeTask() {
+		this.appService.completeTask(this.task.id).subscribe(response => {
+			this.showPopUp = true;
+			this.disableAction = true;
+		});
+	}
 }

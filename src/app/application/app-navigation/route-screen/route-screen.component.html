@@ -15,7 +15,7 @@
                'current-task': currentTask == index,
                'upcoming-task': task.status == 'upcoming'
                }">
-          <div class="route-card">
+          <div class="route-card" (click)="goToTask(task.task)">
             <div class="task-header">
               <div class="task-icon">
                 <img src="{{ task.card_icon }}">
@@ -43,7 +43,7 @@
       <p>
         {{ tasks[currentTask].brief_description }}
       </p>
-      <a class="button button-orange" href="/task/{{ tasks[currentTask].task }}">{{ tasks[currentTask].info_b }}</a>
+      <a class="button button-orange" (click)="goToTask(tasks[currentTask].task)">{{ tasks[currentTask].info_b }}</a>
     </div>
   </div>
   <app-app-navigation></app-app-navigation>

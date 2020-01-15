@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../../services/app.service';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
 	selector: 'app-route-screen',
@@ -19,6 +19,8 @@ export class RouteScreenComponent implements OnInit {
 	}];
 	currentTask: number = 0;
 	pendingTasks: boolean = false;
+
+	navigationExtras: NavigationExtras;
 
 	constructor(private AppService: AppService,
 		private router: Router) { }
@@ -52,6 +54,8 @@ export class RouteScreenComponent implements OnInit {
 			this.router.navigate(['welcome']);
 		}
 
+		
+
 	}
 
 	setTasksStatus(tasks: any[]) {
@@ -76,5 +80,15 @@ export class RouteScreenComponent implements OnInit {
 
 	goToTips() {
 		this.router.navigate(['/tips']);
+	}
+
+	goToTask(task: any) {
+		this.navigationExtras = {
+			queryParams: {
+				currentTask: this.tasks[this.currentTask].task == task
+			}
+		}
+
+		this.router.navigate([`/task/${task}`], this.navigationExtras );
 	}
 }
