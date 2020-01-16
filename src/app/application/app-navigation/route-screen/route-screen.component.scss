@@ -43,7 +43,8 @@
     margin-left: -30px;
     margin-right: -30px;
     padding-bottom: 20px;
-    overflow-x: scroll;
+	overflow-x: scroll;
+	scroll-behavior: smooth;
 
     #route-cards-container {
       width: max-content;
@@ -66,9 +67,9 @@
       }
 
       /* Current task*/
-
       &.current-task .route-card {
-        background-color: #fb9f4b;
+		background-color: #fb9f4b;
+		
       }
 
       &.current-task .task-points {

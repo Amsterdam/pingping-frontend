@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ViewChildren, QueryList, ViewChild, ElementRef } from '@angular/core';
 import { AppService } from '../../../services/app.service';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router, ChildActivationStart } from '@angular/router';
 
 @Component({
 	selector: 'app-route-screen',
@@ -8,6 +8,10 @@ import { Router, NavigationExtras } from '@angular/router';
 	styleUrls: ['./route-screen.component.scss']
 })
 export class RouteScreenComponent implements OnInit {
+
+	@ViewChildren('routeCards') routeCards: QueryList<any>;
+	@ViewChild('horizontalScroll', {static: false}) horizontalScroll: ElementRef;
+
 	tasks: any = [{
 		brief_description: null,
 		card_description: null,
@@ -19,9 +23,12 @@ export class RouteScreenComponent implements OnInit {
 	}];
 	currentTask: number = 0;
 	pendingTasks: boolean = false;
+	currentTaskElement: any; 
 
-	constructor(private AppService: AppService,
-		private router: Router) { }
+	constructor(
+		private AppService: AppService,
+		private router: Router
+		) { }
 
 	ngOnInit() {
 
@@ -35,7 +42,8 @@ export class RouteScreenComponent implements OnInit {
 			}
 
 
-			this.AppService.getRoute().subscribe(response => {
+			this.AppService.getRoute().subscribe(response => {		
+
 				this.tasks = response;
 				this.setTasksStatus(this.tasks);
 				this.tasks.forEach(task => {
@@ -47,13 +55,15 @@ export class RouteScreenComponent implements OnInit {
 				if (this.tasks.length == 0 || !this.pendingTasks) {
 					this.router.navigate(['route-overview']);
 				}
+
+				setTimeout( () => {
+					this.alignCurrentTask();
+				}, 0);
 			});
+		
 		} else {
 			this.router.navigate(['welcome']);
 		}
-
-
-
 	}
 
 	setTasksStatus(tasks: any[]) {
@@ -87,5 +97,13 @@ export class RouteScreenComponent implements OnInit {
 				queryParams:
 					{ currentTask: this.tasks[this.currentTask].task }
 			});
+	}
+
+	alignCurrentTask() {
+		const middleElement = this.routeCards.toArray()[this.currentTask].nativeElement;;
+		const wrapperElement = this.horizontalScroll.nativeElement;
+		const absoluteElementLeft = middleElement.offsetLeft + (middleElement.clientWidth / 2);
+		const middle = absoluteElementLeft - (wrapperElement.clientWidth / 2);
+		wrapperElement.scrollTo(middle, 0);
 	}
 }

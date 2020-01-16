@@ -5,36 +5,36 @@
     <div id="route-screen-title">
       <h1>Je route!</h1>
       <a href="/route-overview">Bekijk je route</a>
-    </div>
-    <div id="route-cards">
-      <div id="route-cards-container">
-        <div *ngFor="let task of tasks; let index = index"
+	</div>
+    <div #horizontalScroll id="route-cards">
+      <div  id="route-cards-container">
+		<div #routeCards *ngFor="let task of tasks; let index = index"
              class="route-card-container"
              [ngClass]="{
                'completed-task': task.status == 'completed',
                'current-task': currentTask == index,
                'upcoming-task': task.status == 'upcoming'
-               }">
-          <div class="route-card" (click)="goToTask(task.task)">
-            <div class="task-header">
-              <div class="task-icon">
-                <img src="{{ task.card_icon }}">
-              </div>
-              <div class="task-points">
-                {{ task.city_points_value }} City pings
-              </div>
-            </div>
-            <div class="task-description">
-              <h2>{{ task.card_description }}</h2>
-            </div>
-          </div>
-          <div class="task-bullet">
-            <div></div>
-            <div class="bullet" [ngClass]="{ 'active': currentTask == index }">
-              <img src="./assets/img/application/task-bullet.svg" alt="Task bullet">
-            </div>
-            <div></div>
-          </div>
+			   }">
+				<div  class="route-card" (click)="goToTask(task.task)">
+					<div class="task-header">
+					<div class="task-icon">
+						<img src="{{ task.card_icon }}">
+					</div>
+					<div class="task-points">
+						{{ task.city_points_value }} City pings
+					</div>
+					</div>
+					<div class="task-description">
+					<h2>{{ task.card_description }}</h2>
+					</div>
+				</div>
+				<div class="task-bullet">
+					<div></div>
+					<div class="bullet" [ngClass]="{ 'active': currentTask == index }">
+					<img src="./assets/img/application/task-bullet.svg" alt="Task bullet">
+					</div>
+					<div></div>
+				</div>
         </div>
       </div>
     </div>
