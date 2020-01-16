@@ -57,8 +57,7 @@ export class RouteScreenComponent implements OnInit {
 				}
 
 				setTimeout( () => {
-					this.currentTaskElement = this.routeCards.toArray()[this.currentTask].nativeElement;
-					this.currentTaskElement.scrollIntoView(true);
+					this.alignCurrentTask();
 				}, 0);
 			});
 		
@@ -101,6 +100,10 @@ export class RouteScreenComponent implements OnInit {
 	}
 
 	alignCurrentTask() {
-	
+		const middleElement = this.routeCards.toArray()[this.currentTask].nativeElement;;
+		const wrapperElement = this.horizontalScroll.nativeElement;
+		const absoluteElementLeft = middleElement.offsetLeft + (middleElement.clientWidth / 2);
+		const middle = absoluteElementLeft - (wrapperElement.clientWidth / 2);
+		wrapperElement.scrollTo(middle, 0);
 	}
 }
