@@ -1,12 +1,12 @@
 <div id="app-container">
-  <div #routeScreen id="route-screen">
+  <div  id="route-screen">
     <img id="blue-oval" src="./assets/img/application/oval-blue.svg" alt="Blue oval">
     <img id="red-oval" src="./assets/img/application/oval-red.svg" alt="Red oval">
     <div id="route-screen-title">
       <h1>Je route!</h1>
       <a href="/route-overview">Bekijk je route</a>
 	</div>
-    <div #horizontalScroll id="route-cards">
+    <div  #horizontalScroll id="route-cards">
       <div  id="route-cards-container">
 		<div #routeCards *ngFor="let task of tasks; let index = index"
              class="route-card-container"
