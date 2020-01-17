@@ -62,7 +62,7 @@
         <div class="select-option">
           <div *ngFor="let radio of currentQuestion.multiple; let i = index">
             <input id="radio{{ i + 3 }}"
-                   type="radio"
+                   type="checkbox"
                    name="answer"
                    formControlName="answer"
                    value="{{ currentQuestion.multiple[i] }}"
