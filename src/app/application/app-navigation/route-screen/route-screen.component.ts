@@ -1,6 +1,6 @@
-import { Component, OnInit, Renderer2, ViewChildren, QueryList, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList, ViewChild, ElementRef } from '@angular/core';
 import { AppService } from '../../../services/app.service';
-import { Router, ChildActivationStart } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-route-screen',
@@ -10,7 +10,7 @@ import { Router, ChildActivationStart } from '@angular/router';
 export class RouteScreenComponent implements OnInit {
 
 	@ViewChildren('routeCards') routeCards: QueryList<any>;
-	@ViewChild('horizontalScroll', {static: false}) horizontalScroll: ElementRef;
+	@ViewChild('routeScreen', {static: false}) routeScreen: ElementRef;
 
 	tasks: any = [{
 		brief_description: null,
@@ -23,7 +23,6 @@ export class RouteScreenComponent implements OnInit {
 	}];
 	currentTask: number = 0;
 	pendingTasks: boolean = false;
-	currentTaskElement: any; 
 
 	constructor(
 		private AppService: AppService,
@@ -100,10 +99,18 @@ export class RouteScreenComponent implements OnInit {
 	}
 
 	alignCurrentTask() {
-		const middleElement = this.routeCards.toArray()[this.currentTask].nativeElement;;
-		const wrapperElement = this.horizontalScroll.nativeElement;
-		const absoluteElementLeft = middleElement.offsetLeft + (middleElement.clientWidth / 2);
-		const middle = absoluteElementLeft - (wrapperElement.clientWidth / 2);
-		wrapperElement.scrollTo(middle, 0);
+		const currentElement = this.routeCards.toArray()[this.currentTask].nativeElement;;
+		
+		currentElement.scrollIntoView({
+			behavior: "smooth",
+			block: "end",
+			inline: "start"
+		})
+
+		
+		// const wrapperElement = this.horizontalScroll.nativeElement;
+		// const absoluteElementLeft = middleElement.offsetLeft + (middleElement.clientWidth / 2);
+		// const middle = absoluteElementLeft - (wrapperElement.clientWidth / 2);
+		// wrapperElement.scrollTo(middle, 0);
 	}
 }
