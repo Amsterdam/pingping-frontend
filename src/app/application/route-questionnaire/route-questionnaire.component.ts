@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RouteQuestionnaireService } from '../../services/route-questionnaire.service';
-import { DeviceDetectorService } from 'ngx-device-detector';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatomoTracker } from 'ngx-matomo';
 
@@ -13,6 +12,7 @@ import { MatomoTracker } from 'ngx-matomo';
 export class RouteQuestionnaireComponent implements OnInit {
 	questionForm: FormGroup;
 	currentQuestion: any = {};
+	multipleChoiceAnswer: any[] = [];
 	questionPosition: any;
 	progressPercentage = 0;
 	days: number[];
@@ -33,7 +33,6 @@ export class RouteQuestionnaireComponent implements OnInit {
 	years: number[] = [];
 
 	constructor(private questionsService: RouteQuestionnaireService,
-		private deviceDetectorService: DeviceDetectorService,
 		private route: ActivatedRoute,
 		private router: Router) { }
 
@@ -48,7 +47,7 @@ export class RouteQuestionnaireComponent implements OnInit {
 				birthMonth: new FormControl(''),
 				birthYear: new FormControl(''),
 
-				answer: new FormControl('')
+				answer: new FormControl(null)
 			});
 
 			if (this.questionPosition) {
@@ -67,6 +66,7 @@ export class RouteQuestionnaireComponent implements OnInit {
 				});
 			}
 		});
+
 	}
 
 	showInfoInConsole() {
@@ -127,12 +127,13 @@ export class RouteQuestionnaireComponent implements OnInit {
 		const data: any = { answer: null };
 		const ppCookie = localStorage.getItem('ppCookie');
 
+		
+		data.cookie = ppCookie;
+
 		if (this.questionForm.value.answer) {
 			data.answer = this.questionForm.value.answer;
-			data.cookie = ppCookie;
 		} else {
 			data.answer = this.questionForm.value;
-			data.cookie = ppCookie;
 		}
 
 		this.questionsService.sendQuestion(data, this.currentQuestion.currentQuestion).subscribe((response: any) => {
@@ -144,7 +145,7 @@ export class RouteQuestionnaireComponent implements OnInit {
 
 				this.router.navigate(['/route-confirmation']);
 			}
-		});
+		});	
 	}
 
 	updateProgressBar(question: any) {
@@ -166,4 +167,19 @@ export class RouteQuestionnaireComponent implements OnInit {
 			});
 		}
 	}
+
+
+	onMultipleClick(event: any, answer: any) {
+		if(event.target.checked) {
+			if(!this.multipleChoiceAnswer.includes(answer)) {
+				this.multipleChoiceAnswer.push(answer);
+			}
+		} else {
+			if(this.multipleChoiceAnswer.includes(answer)) {
+				this.multipleChoiceAnswer.splice(this.multipleChoiceAnswer.indexOf(answer), 1);
+			}
+		}
+		this.questionForm.controls["answer"].setValue(this.multipleChoiceAnswer);
+	}
+
 }
