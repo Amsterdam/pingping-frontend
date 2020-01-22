@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList, ViewChild, ElementRef } from '@angular/core';
 import { AppService } from '../../../services/app.service';
 import { Router } from '@angular/router';
 
@@ -8,6 +8,10 @@ import { Router } from '@angular/router';
 	styleUrls: ['./route-screen.component.scss']
 })
 export class RouteScreenComponent implements OnInit {
+
+	@ViewChildren('routeCards') routeCards: QueryList<any>;
+	@ViewChild('horizontalScroll', { static: false }) horizontalScroll: ElementRef;
+
 	tasks: any = [{
 		brief_description: null,
 		card_description: null,
@@ -20,8 +24,10 @@ export class RouteScreenComponent implements OnInit {
 	currentTask: number = 0;
 	pendingTasks: boolean = false;
 
-	constructor(private AppService: AppService,
-		private router: Router) { }
+	constructor(
+		private AppService: AppService,
+		private router: Router
+	) { }
 
 	ngOnInit() {
 
@@ -36,6 +42,7 @@ export class RouteScreenComponent implements OnInit {
 
 
 			this.AppService.getRoute().subscribe(response => {
+
 				this.tasks = response;
 				this.setTasksStatus(this.tasks);
 				this.tasks.forEach(task => {
@@ -47,11 +54,15 @@ export class RouteScreenComponent implements OnInit {
 				if (this.tasks.length == 0 || !this.pendingTasks) {
 					this.router.navigate(['route-overview']);
 				}
+
+				setTimeout(() => {
+					this.alignCurrentTask();
+				}, 0);
 			});
+
 		} else {
 			this.router.navigate(['welcome']);
 		}
-
 	}
 
 	setTasksStatus(tasks: any[]) {
@@ -77,4 +88,30 @@ export class RouteScreenComponent implements OnInit {
 	goToTips() {
 		this.router.navigate(['/tips']);
 	}
-}
+
+
+	goToTask(task: any) {
+		this.router.navigate(
+			[`/task/${task}`],
+			{
+				queryParams:
+					{ currentTask: this.tasks[this.currentTask].task }
+			});
+	}
+
+	alignCurrentTask() {
+		const currentElement = this.routeCards.toArray()[this.currentTask].nativeElement;;
+		const scroll = this.horizontalScroll.nativeElement
+
+		currentElement.scrollIntoView({
+			behavior: "smooth",
+			block: "end",
+			inline: "start"
+		})
+		scroll.scrollTo({
+			top: 0,
+			left: currentElement.getBoundingClientRect().left - 15,
+			behavior: 'smooth'
+		});
+		}
+	}
