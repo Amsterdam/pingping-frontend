@@ -1,0 +1,79 @@
+@import "./variables";
+@import "bootstrap/scss/_functions.scss";
+@import "bootstrap/scss/_variables.scss";
+@import "bootstrap/scss/_mixins.scss";
+
+@font-face {
+  font-family: Heavitas;
+  src: local(Heavitas),
+    // url(/path/to/Heavitas.woff2) format("woff2"),
+    // url(/path/to/Heavitas.woff) format("woff"),
+    url("~assets/fonts/Heavitas.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: Raleway;
+  src: local(Raleway-Medium),
+    // url(/path/to/Raleway-Medium.woff2) format("woff2"),
+    // url(/path/to/Raleway-Medium.woff) format("woff"),
+    url("~assets/fonts/Raleway-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+html {
+  font-family: Raleway;
+  font-size: 1rem;
+  color: $text-color;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.h1 {
+  font-family: Heavitas;
+  font-size: $font-size-title-large;
+  margin-bottom: 0;
+
+  @include media-breakpoint-down(sm) {
+    font-size: $font-size-title-medium;
+  }
+}
+
+.h2 {
+  font-family: Heavitas;
+  font-size: 1.875rem;
+  margin-bottom: 0;
+
+  @include media-breakpoint-down(sm) {
+    font-size: $font-size-title-medium;
+  }
+}
+
+.h3 {
+  font-family: Heavitas;
+  font-size: $font-size-title-medium;
+  margin-bottom: 0;
+
+  @include media-breakpoint-down(sm) {
+    font-size: $font-size-regular;
+  }
+}
+
+.is-secondary-font {
+  font-family: Heavitas;
+}
