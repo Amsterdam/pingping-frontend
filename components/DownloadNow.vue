@@ -12,7 +12,7 @@
         <div class="h2">Download nu de app om jouw doelen te bereiken!</div>
       </div>
       <div class="col-5 action-column">
-        <StoreLogos />
+        <StoreLogos class="text-right" />
       </div>
     </div>
   </CoreActionBox>

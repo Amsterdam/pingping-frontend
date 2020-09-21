@@ -1,5 +1,5 @@
 <template>
-  <p class="store-logos text-right">
+  <p class="store-logos">
     <img
       src="~assets/images/apple.png"
       alt="app store"
@@ -33,7 +33,7 @@ export default {
 }
 
 @include media-breakpoint-down(md) {
-  .logos {
+  .store-logos {
     img {
       max-height: 2.5rem;
       margin-bottom: 1rem;

@@ -1,5 +1,5 @@
 <template>
-  <div class="container-md core-action-box">
+  <div class="container core-action-box">
     <slot></slot>
   </div>
 </template>
@@ -64,12 +64,12 @@ export default {
       @include make-col(12);
       background-color: #fff;
       order: 1;
-      padding: 1rem;
+      // padding: 1rem;
     }
 
     .figure-column {
       order: 2;
-      @include make-col(6);
+      @include make-col(5);
 
       .figure {
         margin-left: 1rem;
@@ -80,7 +80,7 @@ export default {
 
     .action-column {
       order: 3;
-      @include make-col(6);
+      @include make-col(7);
     }
   }
 }

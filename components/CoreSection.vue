@@ -2,15 +2,15 @@
   <section class="core-section">
     <div class="container">
       <div>
-        <p class="h2 text-center">
+        <p class="h2 text-md-center">
           {{ title }}
         </p>
 
-        <p class="text-center">
+        <p class="text-md-center">
           {{ subtitle }}
         </p>
 
-        <div class="mt-5">
+        <div class="mt-5 content-slot">
           <slot></slot>
         </div>
 
@@ -34,5 +34,11 @@ export default {
 
 <style lang="scss">
 .core-section {
+  .content-slot {
+    img {
+      object-fit: contain;
+      max-width: 100%;;
+    }
+  }
 }
 </style>

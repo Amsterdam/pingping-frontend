@@ -1,24 +1,26 @@
 <template>
-  <div class="app-header-menu container-md layout-header">
-    <b-navbar toggleable="sm">
-      <b-navbar-brand href="/">
-        <span class="is-secondary-font brand-title">Ping Ping</span>
-      </b-navbar-brand>
+  <div class="app-header-menu layout-header">
+    <div class="container">
+      <b-navbar toggleable="md">
+        <b-navbar-brand href="/">
+          <span class="is-secondary-font brand-title">Ping Ping</span>
+        </b-navbar-brand>
 
-      <b-navbar-toggle target="navbar-toggle-collapse">
-      </b-navbar-toggle>
+        <b-navbar-toggle target="navbar-toggle-collapse">
+        </b-navbar-toggle>
 
-      <b-collapse
-        id="navbar-toggle-collapse"
-        is-nav
-      >
-        <b-navbar-nav class="ml-auto is-secondary-font">
-          <b-nav-item to="/ontdek-de-app">Ontdek de app</b-nav-item>
-          <b-nav-item to="/voor-partners">Voor Partners</b-nav-item>
-          <b-nav-item to="/blijf-op-de-hoogte">Blijf Op De Hoogte</b-nav-item>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
+        <b-collapse
+          id="navbar-toggle-collapse"
+          is-nav
+        >
+          <b-navbar-nav class="ml-auto is-secondary-font">
+            <b-nav-item to="/ontdek-de-app">Ontdek de app</b-nav-item>
+            <b-nav-item to="/voor-partners">Voor Partners</b-nav-item>
+            <b-nav-item to="/blijf-op-de-hoogte">Blijf Op De Hoogte</b-nav-item>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
+    </div>
   </div>
 </template>
 
@@ -39,8 +41,16 @@ export default {
 }
 
 .app-header-menu {
-  &.page-ontdek-de-app {
+  &.page-ontdek-de-app, &.page-voor-partners, &.page-blijf-op-de-hoogte {
     background-color: rgba(192, 234, 239, 0.5);
+  }
+
+  .nuxt-link-active {
+    text-decoration: underline;
+  }
+
+  button {
+    z-index: 10;
   }
 
   .navbar-light {
@@ -54,6 +64,10 @@ export default {
 
   .nav-link {
     font-size: $font-size-title-small;
+  }
+
+  .nav-item {
+    z-index: 100;
   }
 }
 
