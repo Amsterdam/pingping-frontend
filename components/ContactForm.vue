@@ -27,9 +27,6 @@
           type="email"
           required
         ></b-form-input>
-        <b-form-invalid-feedback :state="validation">
-          Your user ID must be 5-12 characters long.
-        </b-form-invalid-feedback>
       </b-form-group>
 
       <b-form-group

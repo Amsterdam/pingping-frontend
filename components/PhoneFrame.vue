@@ -1,16 +1,38 @@
 <template>
   <div class="phone-frame">
+    <div class="phone-frame__screenshot">
+      <img
+        :srcset="screenshot"
+        :alt="screenshot"
+      />
+    </div>
     <img
       src="~assets/images/frame.png"
       alt="frame"
-      class="phone-frame__img"
+      class="phone-frame__frame"
     />
+
   </div>
 </template>
 
 <script>
+import VueTypes from 'vue-types'
 export default {
-  name: 'PhoneFrame'
+  name: 'PhoneFrame',
+
+  props: {
+    image: VueTypes.string.def('route1')
+  },
+
+  computed: {
+    frame () {
+      return require('~/assets/images/frame.png')
+    },
+
+    screenshot () {
+      return require('~/assets/images/screens/' + this.image + '.png')
+    }
+  }
 }
 </script>
 
@@ -20,18 +42,54 @@ export default {
 @import "bootstrap/scss/_mixins.scss";
 
 .phone-frame {
-  img {
+  position: relative;
+  z-index: 10;
+
+  &__screenshot {
+    z-index: 10;
+    position: absolute;
+    max-width: 100%;
+    overflow: hidden;
+    max-width: 22rem;
+    max-height: 33rem;
+    padding-top: 12px;
+    padding-right: 63px;
+    padding-left: 50px;
+
+    img {
+      object-fit: contain;
+      width: 100%;
+    }
+  }
+
+  &__frame {
+    position: relative;
+    z-index: 20;
     max-width: 24rem;
-    max-height: 38rem;
+    max-height: 37rem;
   }
 
   @include media-breakpoint-down(md) {
     margin: auto;
 
-    img {
-      padding: 2rem;
+    &__frame {
+      padding: 1rem;
       max-width: 90%;
       margin: auto;
+    }
+
+    &__screenshot {
+      padding-top: 24px;
+      padding-right: 68px;
+      padding-left: 60px;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    &__screenshot {
+      padding-top: 27px;
+    padding-right: 77px;
+    padding-left: 75px;
     }
   }
 }

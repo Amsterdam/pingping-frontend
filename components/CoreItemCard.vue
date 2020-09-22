@@ -30,10 +30,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'bootstrap/scss/_functions.scss';
-@import 'bootstrap/scss/_variables.scss';
-@import 'bootstrap/scss/_mixins.scss';
-
 .core-item-card {
   .item-image-wrapper {
     display: flex;
@@ -42,18 +38,6 @@ export default {
       margin: auto;
       margin-bottom: 20px;
     }
-  }
-}
-
-@include media-breakpoint-down(md) {
-  .core-item-card {
-      @include make-col(6);
-  }
-}
-
-@include media-breakpoint-down(sm) {
-  .core-item-card {
-      @include make-col(12);
   }
 }
 </style>

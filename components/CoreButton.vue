@@ -32,8 +32,6 @@ export default {
   border: solid 1px #fb9f4b;
   background-color: #fb9f4b;
   font-weight: bold;
-  // padding-left: 2.5rem;
-  // padding-right: 2.5rem;
   padding: 0.5rem 2.5rem;
 
   span {

@@ -124,6 +124,18 @@ a {
   }
 }
 
+@include media-breakpoint-down(md) {
+  .col-4 {
+      @include make-col(6);
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .col-4 {
+      @include make-col(12);
+  }
+}
+
 @include media-breakpoint-down(sm) {
   .embed-column {
     min-width: 100%;

@@ -64,7 +64,6 @@ export default {
       @include make-col(12);
       background-color: #fff;
       order: 1;
-      // padding: 1rem;
     }
 
     .figure-column {

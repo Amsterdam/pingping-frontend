@@ -13,7 +13,7 @@
         </div>
         <div class="col-5 frame-column text-center">
           <slot name="frame">
-            <PhoneFrame />
+            <PhoneFrame image="route1" />
           </slot>
         </div>
       </div>
