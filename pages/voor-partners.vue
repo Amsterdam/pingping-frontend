@@ -50,6 +50,9 @@ import ContactForm from '~/components/ContactForm'
 
 export default {
   name: 'VoorPartners',
+  head: {
+    title: '- Voor Partners'
+  },
 
   components: {
     CorePageHeader,

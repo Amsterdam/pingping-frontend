@@ -19,14 +19,14 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: process.env.npm_package_name || "",
+    titleTemplate: 'Ping Ping %s',
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         hid: "description",
         name: "description",
-        content: process.env.npm_package_description || ""
+        content: "PINGPING helpt je om je financiële basis op orde te hebben. Zo weet je precies wanneer je wat moet regelen, wat je moet betalen en wat je kunt krijgen."
       }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]

@@ -77,6 +77,9 @@ import Quotes from '~/components/Quotes'
 
 export default {
   name: 'OntdekDeApp',
+  head: {
+    title: '- Ontdek De App'
+  },
 
   components: {
     CorePageHeader,

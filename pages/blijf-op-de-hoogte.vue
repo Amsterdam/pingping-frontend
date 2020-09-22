@@ -16,6 +16,9 @@ import ContactForm from '~/components/ContactForm'
 
 export default {
   name: 'BlijfOpDeHoogte',
+  head: {
+    title: '- Blijf Op De Hoogte'
+  },
 
   components: {
     CorePageHeader,

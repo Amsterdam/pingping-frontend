@@ -2,18 +2,6 @@
   <div>
     <TopBanner />
     <section class="section">
-      <!-- <div class="container">
-        <div class="columns is-gapless is-desktop">
-          <div class="column is-6">
-            <p class="title">
-              Een routeplanner die jongeren opweg gaat helpen!
-            </p>
-            <p>PINGPING helpt je om je financiële basis op orde te hebben. Zo weet je precies wanneer je wat moet regelen, wat je moet betalen en wat je kunt krijgen. </p>
-          </div>
-          <div class="column is-6">b</div>
-        </div>
-      </div> -->
-
       <CoreSection
         class="mt-10 mb-10"
         title="Waarom kies je voor Ping ping"
@@ -98,6 +86,9 @@ import DownloadNow from '~/components/DownloadNow'
 
 export default {
   name: 'HomePage',
+  head: {
+    title: ''
+  },
 
   components: {
     TopBanner,
