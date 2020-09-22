@@ -6,7 +6,7 @@
         <div class="round-bg"></div>
       </div>
     </div>
-    <div class="container row mt-10">
+    <div class="container row mt-10 m-auto">
       <div class="col-7 main-column">
         <div class="h1 mb-3">Een routeplanner die jongeren opweg gaat helpen!</div>
 

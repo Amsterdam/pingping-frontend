@@ -6,7 +6,7 @@ export default {
   mode: "universal",
 
   server: {
-    port: 80
+    // port: 80
   },
 
   /*
