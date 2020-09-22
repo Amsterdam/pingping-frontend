@@ -73,8 +73,8 @@ export default {
     margin: auto;
 
     &__frame {
-      padding: 1rem;
-      max-width: 90%;
+      max-width: 20rem;
+      max-height: 28rem;
       margin: auto;
     }
 
@@ -87,9 +87,9 @@ export default {
 
   @include media-breakpoint-down(sm) {
     &__screenshot {
-      padding-top: 27px;
-    padding-right: 77px;
-    padding-left: 75px;
+    padding-top: 11px;
+    padding-right: 48px;
+    padding-left: 39px;
     }
   }
 }
