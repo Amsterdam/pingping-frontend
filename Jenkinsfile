@@ -39,7 +39,7 @@ node {
     stage("Build image") {
         tryStep "build", {
             docker.withRegistry("${DOCKER_REGISTRY_HOST}",'docker_registry_auth') {
-                image = docker.build("${CONTAINERNAME}-acc","-f ${DOCKERFILE} ${DOCKER_BUILD_PARAMS} --build-arg ENVIRONMENT=acceptance ${CONTAINERDIR}")
+                image = docker.build("${CONTAINERNAME}-acc","-f ${DOCKERFILE} ${DOCKERBUILDPARAMS} --build-arg ENVIRONMENT=acceptance ${CONTAINERDIR}")
                 image.push()
             }
         }
@@ -111,7 +111,7 @@ if (BRANCH == "master") {
         stage("Build production image") {
             tryStep "build", {
                 docker.withRegistry("${DOCKER_REGISTRY_HOST}",'docker_registry_auth') {
-                    image = docker.build("${CONTAINERNAME}-prod","-f ${DOCKERFILE} ${DOCKER_BUILD_PARAMS} --build-arg ENVIRONMENT=production ${CONTAINERDIR}")
+                    image = docker.build("${CONTAINERNAME}-prod","-f ${DOCKERFILE} ${DOCKERBUILDPARAMS} --build-arg ENVIRONMENT=production ${CONTAINERDIR}")
                     image.push()
                 }
             }
