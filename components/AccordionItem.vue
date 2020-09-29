@@ -3,8 +3,8 @@
     <div :class="['bar', active ? 'bar--active' : '']"></div>
     <div :class="['ball', active ? 'ball--active' : '']"></div>
     <div class="title row">
-      <div class="col-11 h3">{{ title }}</div>
-      <div class="col-1 icon-column">
+      <div class="col-10 h3">{{ title }}</div>
+      <div class="col-2 icon-column">
         <Icon
           :name="icon"
           :color="active ? '#0d2036' : '#2dbcca'"
