@@ -46,19 +46,19 @@
         </div>
         <div class="col-6 embed-column">
           <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG"
+            src="https://player.vimeo.com/video/461740651"
             frameborder="0"
-            allow="autoplay; encrypted-media"
+            width="550"
+            height="315"
             class="video-embed"
+            allow="autoplay; fullscreen"
             allowfullscreen
           ></iframe>
         </div>
       </div>
     </section>
     <DownloadNow class="mt-10 mb-10" />
-    <CoreSection
+    <!-- <CoreSection
       class="mt-10 mb-10"
       title="PING PING als onderdeel van de financiele educatie"
       subtitle="We zetten PING PING als onderdeel van de financiele educatie nog voordat er betalingsachterstanden ontstaan"
@@ -72,7 +72,10 @@
         />
       </div>
 
-    </CoreSection>
+    </CoreSection> -->
+    <CoreIconTopSection icon="format-quote-close">
+      <Quotes />
+    </CoreIconTopSection>
   </div>
 </template>
 
@@ -83,12 +86,11 @@ import AccordionDisplay from '~/components/AccordionDisplay'
 import CoreButton from '~/components/CoreButton'
 import CoreItemCard from '~/components/CoreItemCard'
 import DownloadNow from '~/components/DownloadNow'
+import CoreIconTopSection from '~/components/CoreIconTopSection'
+import Quotes from '~/components/Quotes'
 
 export default {
   name: 'HomePage',
-  head: {
-    title: ''
-  },
 
   components: {
     TopBanner,
@@ -96,8 +98,15 @@ export default {
     AccordionDisplay,
     CoreButton,
     CoreItemCard,
-    DownloadNow
+    DownloadNow,
+    CoreIconTopSection,
+    Quotes
   },
+
+  head: {
+    title: ''
+  },
+
 
   data () {
     return {

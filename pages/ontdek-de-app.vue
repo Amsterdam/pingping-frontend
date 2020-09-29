@@ -15,12 +15,12 @@
         </div>
         <div class="col-6 embed-column">
           <iframe
+            src="https://player.vimeo.com/video/461740651"
+            frameborder="0"
             width="550"
             height="315"
-            src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG"
-            frameborder="0"
-            allow="autoplay; encrypted-media"
             class="video-embed"
+            allow="autoplay; fullscreen"
             allowfullscreen
           ></iframe>
         </div>
@@ -32,12 +32,12 @@
       <div class="row mt-10 mb-10">
         <div class="col-6 embed-column">
           <iframe
+            src="https://player.vimeo.com/video/461740651"
+            frameborder="0"
             width="550"
             height="315"
-            src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG"
-            frameborder="0"
-            allow="autoplay; encrypted-media"
             class="video-embed"
+            allow="autoplay; fullscreen"
             allowfullscreen
           ></iframe>
         </div>
@@ -64,7 +64,7 @@
       </div>
     </section>
     <CoreIconTopSection icon="format-quote-close">
-      <Quotes/>
+      <Quotes />
     </CoreIconTopSection>
   </div>
 </template>
