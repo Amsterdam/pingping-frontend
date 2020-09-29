@@ -12,7 +12,7 @@
       />
     </template>
     <template slot="frame">
-      <PhoneFrame />
+      <PhoneFrame :image="activeImage" />
       <img
         src="~assets/images/rocket.png"
         alt="rocket"
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import _ from 'lodash'
 import AccordionItem from './AccordionItem'
 import PhoneFrame from './PhoneFrame'
 import CoreSplitDisplay from './CoreSplitDisplay'
@@ -36,6 +37,12 @@ export default {
     CoreSplitDisplay
   },
 
+  computed: {
+    activeImage () {
+      return _.get(this.items, this.activeItem + '.image')
+    }
+  },
+
   data () {
     return {
       activeItem: 0,
@@ -43,6 +50,7 @@ export default {
         {
           title: '1. Stapsgewijs en doelgericht.',
           icon: 'map-marker-outline',
+          image: 'routeOverview',
           points: [
             'Overzichtelijke route in kleine behapbare stappen om een doel te bereiken.',
             'Gefaseerde informatie (per stap in de route)',
@@ -52,6 +60,7 @@ export default {
         {
           title: '3. Context Based Servicing',
           icon: 'comment-question-outline',
+          image: 'zorg',
           points: [
             'Gepersonaliseerde informatie.',
             'De juiste info, op het juiste moment.'
@@ -60,6 +69,7 @@ export default {
         {
           title: '2. Loyalty Programma',
           icon: 'close-circle-multiple-outline',
+          image: 'rewards',
           points: [
             'Vorderingen in de route worden zichtbaar.',
             'Door successen te vieren, geef je je eigen handelen positieve aandacht.',
@@ -69,6 +79,7 @@ export default {
         {
           title: '4. Ping Ping beweging',
           icon: 'account-group-outline',
+          image: 'routes',
           points: [
             'Jongvolwassenen de tools geven om zelf regie te nemen.',
             'Schulden voorkomen rondom life events.',

@@ -21,7 +21,7 @@ export default {
   name: 'PhoneFrame',
 
   props: {
-    image: VueTypes.string.def('route1')
+    image: VueTypes.string.def('routes')
   },
 
   computed: {
@@ -87,9 +87,19 @@ export default {
 
   @include media-breakpoint-down(sm) {
     &__screenshot {
-    padding-top: 11px;
-    padding-right: 48px;
-    padding-left: 39px;
+      padding-top: 11px;
+      padding-right: 48px;
+      padding-left: 39px;
+    }
+  }
+
+  @include media-breakpoint-only(md) {
+    margin: auto;
+
+    &__screenshot {
+      padding-top: 10px;
+      padding-right: 48px;
+      padding-left: 35px;
     }
   }
 }
