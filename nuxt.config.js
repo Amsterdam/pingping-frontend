@@ -19,14 +19,30 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    titleTemplate: 'Ping Ping %s',
+    titleTemplate: "Ping Ping %s",
+    htmlAttrs: {
+      lang: "nl"
+    },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         hid: "description",
         name: "description",
-        content: "PINGPING helpt je om je financiële basis op orde te hebben. Zo weet je precies wanneer je wat moet regelen, wat je moet betalen en wat je kunt krijgen."
+        content:
+          "Met Ping Ping bieden we je een persoonlijke routeplanner om op een leuke en makkelijke manier je (financiële) zaken te regelen en je basis op orde te brengen. Zo weet je precies wanneer en wat je moet regelen bij verschillende life events, zoals 18 worden, werken, studeren en op jezelf gaan wonen."
+      },
+      {
+        property: "og:title",
+        content: `Ping Ping`
+      },
+      {
+        property: "og:description",
+        content: "Met Ping Ping bieden we je een persoonlijke routeplanner om op een leuke en makkelijke manier je (financiële) zaken te regelen en je basis op orde te brengen. Zo weet je precies wanneer en wat je moet regelen bij verschillende life events, zoals 18 worden, werken, studeren en op jezelf gaan wonen."
+      },
+      {
+        property: "og:image",
+        content: `static/apple-touch-icon.png`
       }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
@@ -69,7 +85,7 @@ export default {
     bootstrapVueCSS: false
   },
 
-  css: ['~assets/scss/custom.scss'],
+  css: ["~assets/scss/custom.scss"],
 
   styleResources: {
     // scss: ["~assets/style.scss"]
