@@ -2,7 +2,9 @@
   <div class="core-icon-top-section">
     <div class="core-icon-top-section__top top justify-content-center">
       <div class="top__icon-wrapper icon-wrapper">
-        <div class="icon-wrapper__icon">#{{ icon }}</div>
+        <div class="icon-wrapper__icon">
+          <Icon :name="icon" size="lg" />
+        </div>
       </div>
     </div>
     <div class="core-icon-top-section__content">
@@ -15,11 +17,17 @@
 
 <script>
 import VueTypes from 'vue-types'
+import Icon from './Icon'
+
 export default {
   name: 'CoreIconTopSection',
 
   props: {
     icon: VueTypes.string.def('')
+  },
+
+  components: {
+    Icon
   }
 }
 </script>

@@ -41,16 +41,39 @@ export default {
       activeItem: 0,
       items: [
         {
-          title: '1. Stapsgewijs & Doelgericht'
+          title: '1. Stapsgewijs en doelgericht.',
+          icon: 'map-marker-outline',
+          points: [
+            'Overzichtelijke route in kleine behapbare stappen om een doel te bereiken.',
+            'Gefaseerde informatie (per stap in de route)',
+            'Visueel en actiegericht.'
+          ]
         },
         {
-          title: '2. Loyalty Programma'
+          title: '3. Context Based Servicing',
+          icon: 'comment-question-outline',
+          points: [
+            'Gepersonaliseerde informatie.',
+            'De juiste info, op het juiste moment.'
+          ]
         },
         {
-          title: '3. Context Based Servicing'
+          title: '2. Loyalty Programma',
+          icon: 'close-circle-multiple-outline',
+          points: [
+            'Vorderingen in de route worden zichtbaar.',
+            'Door successen te vieren, geef je je eigen handelen positieve aandacht.',
+            'Motivatie stijgt bij meer positieve ervaringen.'
+          ]
         },
         {
-          title: '4. Community'
+          title: '4. Ping Ping beweging',
+          icon: 'account-group-outline',
+          points: [
+            'Jongvolwassenen de tools geven om zelf regie te nemen.',
+            'Schulden voorkomen rondom life events.',
+            'Gedeelde verantwoordelijkheid met bedrijven en organisaties.'
+          ]
         }
       ]
     }

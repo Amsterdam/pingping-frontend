@@ -6,8 +6,8 @@
     />
     <section class="section mt-5">
       <CoreSection
-        title="Hoe kom je aan City pings"
-        subtitle="Als je de appvragen hebt beantwoordt en je route hebt aangemaakt, maar voordat je verder aan je route begint, kies je een beloning als 'spaardoel'. Dan ga je aan de slag met de route en wanneer je de route hebt 'uitgespeeld' kun je de beloning claimen. "
+        title="Hoe worden City Pings verdiend?"
+        subtitle="Door de stappen in het persoonlijke routeplan te doorlopen en de acties uit te voeren, verdient de gebruiker punten die aan het eind van de route ingewisseld kunnen worden voor een beloning."
       >
         <div>
           <div class="row">
@@ -24,7 +24,7 @@
       </CoreSection>
     </section>
     <GameRules class="mt-10 mb-10" />
-    <section class="section mt-5">
+    <!-- <section class="section mt-5">
       <Partners class="mt-10 mb-10" />
 
       <CoreSection
@@ -33,11 +33,11 @@
         subtitle="Help je ons mee? Wij zijn opzoek naar bedrijven, organisaties en andere gemeenten die met ons PingPing wil samenwerken. Je wil graag meewerken aan het loyalty programma (beloningen) en daar ook zelf een aanbod voor hebben. Ook zoeken we nieuwe investeerders voor de app en die mogelijk interesse hebben om (mede) eigenaar te worden of onderdeel te zijn van een alliantie rondom de app. Help jij ons om voor een schuldvrije toekomst voor jongeren te strijden?"
       >
       </CoreSection>
-    </section>
+    </section> -->
 
-    <CoreIconTopSection icon="phone">
+    <!-- <CoreIconTopSection icon="phone">
       <ContactForm />
-    </CoreIconTopSection>
+    </CoreIconTopSection> -->
   </div>
 </template>
 
@@ -50,9 +50,6 @@ import ContactForm from '~/components/ContactForm'
 
 export default {
   name: 'VoorPartners',
-  head: {
-    title: '- Voor Partners'
-  },
 
   components: {
     CorePageHeader,
@@ -62,23 +59,27 @@ export default {
     ContactForm
   },
 
+  head: {
+    title: '- Voor Partners'
+  },
+
   data () {
     return {
       items: [
         {
-          title: 'Voltooi prestaties',
-          subtitle: 'Ping Ping helpt je om je financiële basis op orde te hebben.',
+          title: 'Volg jouw route.',
+          subtitle: 'Kijk welke stappen je moet nemen om jouw doel te bereiken.',
+          image: 'why-2.png'
+        },
+        {
+          title: 'Verdien City Pings.',
+          subtitle: 'Vier je successen.',
           image: 'why-4.png'
         },
         {
-          title: 'Claim Rewards',
-          subtitle: 'Ping Ping helpt je om je financiële basis op orde te hebben.',
-          image: 'why-5.png'
-        },
-        {
-          title: 'Bepaal jouw goals',
-          subtitle: 'Ping Ping helpt je om je financiële basis op orde te hebben.',
-          image: 'why-6.png'
+          title: 'Claim rewards.',
+          subtitle: 'Beloon jezelf.',
+          image: 'why-3.png'
         }
       ]
     }

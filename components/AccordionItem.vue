@@ -3,18 +3,23 @@
     <div :class="['bar', active ? 'bar--active' : '']"></div>
     <div :class="['ball', active ? 'ball--active' : '']"></div>
     <div class="title row">
-      <div class="col-10 h3">{{ title }}</div>
-      <div class="col-2"></div>
+      <div class="col-11 h3">{{ title }}</div>
+      <div class="col-1 icon-column">
+        <Icon
+          :name="icon"
+          :color="active ? '#0d2036' : '#2dbcca'"
+        />
+      </div>
     </div>
     <div
       v-if="active"
       class="content"
     >
       <ul>
-        <li>De route biedt een overzicht met behapbare kleine stapjes om
-          groter doel te bereiken</li>
-        <li>Gefaseerde informatie (per stap in route)</li>
-        <li>Actiegericht: weten is nog geen doen</li>
+        <li
+          v-for="(item, i) in points"
+          :key="'point-' + i"
+        >{{ item }}</li>
       </ul>
     </div>
   </div>
@@ -22,20 +27,28 @@
 
 <script>
 import VueTypes from 'vue-types'
+import Icon from './Icon'
+
 export default {
   name: 'AccordionItem',
 
+  components: {
+    Icon
+  },
+
   props: {
     title: VueTypes.string.def(''),
+    icon: VueTypes.string.def('map-marker-outline'),
+    points: VueTypes.arrayOf(String).def([]),
     active: VueTypes.bool.def(false)
   }
 }
 </script>
 
 <style lang="scss">
-@import 'bootstrap/scss/_functions.scss';
-@import 'bootstrap/scss/_variables.scss';
-@import 'bootstrap/scss/_mixins.scss';
+@import "bootstrap/scss/_functions.scss";
+@import "bootstrap/scss/_variables.scss";
+@import "bootstrap/scss/_mixins.scss";
 
 .accordion-item {
   position: relative;
@@ -53,10 +66,17 @@ export default {
   .title {
     padding: 0.8rem 1.25rem;
     cursor: pointer;
+    flex-direction: reverse;
   }
 
   ul {
     padding-inline-start: 0;
+  }
+
+  .icon-column {
+    // padding: 0;
+    text-align: right;
+    // margin-bottom: 0.2rem;
   }
 
   .content {
@@ -114,7 +134,8 @@ export default {
   .accordion-item {
     margin-left: 0;
 
-    .bar, .ball {
+    .bar,
+    .ball {
       display: none;
     }
   }

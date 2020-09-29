@@ -47,7 +47,7 @@ export default {
   position: relative;
 
   &--reverse {
-    .row {
+    .bg-section.row, .container > .row {
       flex-direction: row-reverse;
     }
   }

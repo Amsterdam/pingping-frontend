@@ -12,6 +12,7 @@
       </div>
       <div class="col-7 text-column">
         <div class="h1">{{ title }}</div>
+        <div class="h3" v-if="subtitle">{{ subtitle }}</div>
       </div>
     </div>
   </div>
@@ -25,6 +26,7 @@ export default {
 
   props: {
     title: VueTypes.string.def(''),
+    subtitle: VueTypes.string.def(undefined),
     imageName: VueTypes.string.def('')
   },
 

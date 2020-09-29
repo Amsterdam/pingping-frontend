@@ -1,7 +1,8 @@
 <template>
   <div class="">
     <CorePageHeader
-      title="Ontdek nu de PingPing app voor jongeren"
+      title="Ontdek Ping Ping"
+      subtitle="Voor jongvolwassenen die hun basis op orde willen hebben. "
       image-name="abacus"
     />
     <section class="container">
@@ -62,7 +63,7 @@
         </div>
       </div>
     </section>
-    <CoreIconTopSection icon="quotes">
+    <CoreIconTopSection icon="format-quote-close">
       <Quotes/>
     </CoreIconTopSection>
   </div>
