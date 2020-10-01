@@ -58,7 +58,7 @@ export default {
           ]
         },
         {
-          title: '3. Context Based Servicing',
+          title: '2. Context Based Servicing',
           icon: 'comment-question-outline',
           image: 'zorg',
           points: [
@@ -67,7 +67,7 @@ export default {
           ]
         },
         {
-          title: '2. Loyalty Programma',
+          title: '3. Loyalty Programma',
           icon: 'close-circle-multiple-outline',
           image: 'rewards',
           points: [

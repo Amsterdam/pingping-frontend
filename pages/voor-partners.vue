@@ -24,7 +24,43 @@
       </CoreSection>
     </section>
     <GameRules class="mt-10 mb-10" />
-    <!-- <section class="section mt-5">
+    <section class="container">
+      <Partners class="row mt-10 mb-10" />
+      <div class="row mt-10 mb-10">
+        <div class="col-6 embed-column">
+          <iframe
+            src="https://player.vimeo.com/video/461740651"
+            frameborder="0"
+            width="550"
+            height="315"
+            class="video-embed"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="h2">Waarom bestaat PING PING</div>
+          <p>
+            Met PingPing bieden we je een persoonlijke routeplanner om op een leuke en makkelijke manier je (financiële) vaardigheden te verbeteren en je basis op orde te brengen. Zo weet je precies wanneer en wat je moet regelen bij verschillende life events, zoals 18 worden, werken, studeren en op jezelf gaan wonen.
+          </p>
+          <p>
+            Wie heeft PING PING mogelijk gemaakt voor de jongeren:
+          </p>
+          <div class="parnter-logos">
+            <img
+              src="~assets/images/ilc.png"
+              alt="fleks"
+              class="mr-5"
+            >
+            <a href="https://www.fleks.works"><img
+                src="~assets/images/fleks.png"
+                alt="Innovatie LAB"
+              ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section mt-5">
       <Partners class="mt-10 mb-10" />
 
       <CoreSection
@@ -33,11 +69,11 @@
         subtitle="Help je ons mee? Wij zijn opzoek naar bedrijven, organisaties en andere gemeenten die met ons PingPing wil samenwerken. Je wil graag meewerken aan het loyalty programma (beloningen) en daar ook zelf een aanbod voor hebben. Ook zoeken we nieuwe investeerders voor de app en die mogelijk interesse hebben om (mede) eigenaar te worden of onderdeel te zijn van een alliantie rondom de app. Help jij ons om voor een schuldvrije toekomst voor jongeren te strijden?"
       >
       </CoreSection>
-    </section> -->
+    </section>
 
-    <!-- <CoreIconTopSection icon="phone">
+    <CoreIconTopSection icon="phone">
       <ContactForm />
-    </CoreIconTopSection> -->
+    </CoreIconTopSection>
   </div>
 </template>
 

@@ -27,42 +27,6 @@
       </div>
     </section>
     <AccordionDisplay />
-    <section class="container">
-      <Partners class="row mt-10 mb-10" />
-      <div class="row mt-10 mb-10">
-        <div class="col-6 embed-column">
-          <iframe
-            src="https://player.vimeo.com/video/461740651"
-            frameborder="0"
-            width="550"
-            height="315"
-            class="video-embed"
-            allow="autoplay; fullscreen"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="col-md-6 col-sm-12">
-          <div class="h2">Waarom bestaat PING PING</div>
-          <p>
-            Met PingPing bieden we je een persoonlijke routeplanner om op een leuke en makkelijke manier je (financiële) vaardigheden te verbeteren en je basis op orde te brengen. Zo weet je precies wanneer en wat je moet regelen bij verschillende life events, zoals 18 worden, werken, studeren en op jezelf gaan wonen.
-          </p>
-          <p>
-            Wie heeft PING PING mogelijk gemaakt voor de jongeren:
-          </p>
-          <div class="parnter-logos">
-            <img
-              src="~assets/images/ilc.png"
-              alt="fleks"
-              class="mr-5"
-            >
-            <a href="https://www.fleks.works"><img
-                src="~assets/images/fleks.png"
-                alt="Innovatie LAB"
-              ></a>
-          </div>
-        </div>
-      </div>
-    </section>
     <CoreIconTopSection icon="format-quote-close">
       <Quotes />
     </CoreIconTopSection>
