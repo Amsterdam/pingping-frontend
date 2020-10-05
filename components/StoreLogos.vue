@@ -1,13 +1,16 @@
 <template>
   <p class="store-logos">
-    <img
-      src="~assets/images/apple.png"
-      alt="app store"
-    >
-    <img
-      src="~assets/images/google.png"
-      alt="google play"
-    >
+    <a href="https://apps.apple.com/nl/app/pingping/id1531867912?l=en">
+      <img
+        src="~assets/images/apple.png"
+        alt="app store" />
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.pingpingnative">
+      <img
+        src="~assets/images/google.png"
+        alt="google play"
+      />
+    </a>
   </p>
 </template>
 

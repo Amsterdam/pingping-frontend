@@ -1,18 +1,18 @@
 <template>
   <div>
     <CorePageHeader
-      title="Wordt nu onze nieuwe partner"
+      :title="page.title"
       image-name="safe"
     />
     <section class="section mt-5">
       <CoreSection
-        title="Hoe worden City Pings verdiend?"
-        subtitle="Door de stappen in het persoonlijke routeplan te doorlopen en de acties uit te voeren, verdient de gebruiker punten die aan het eind van de route ingewisseld kunnen worden voor een beloning."
+        :title="sectionOne.title"
+        :subtitle="sectionOne.subtitle"
       >
         <div>
           <div class="row">
             <CoreItemCard
-              v-for="(item, i) in items"
+              v-for="(item, i) in sectionOne.items"
               :key="'whyItem-' + i"
               class="col-4"
               :image="item.image"
@@ -23,13 +23,12 @@
         </div>
       </CoreSection>
     </section>
-    <GameRules class="mt-10 mb-10" />
+    <GameRules class="mt-10 mb-10" :items="sectionGameRules" />
     <section class="container">
-      <Partners class="row mt-10 mb-10" />
       <div class="row mt-10 mb-10">
         <div class="col-6 embed-column">
           <iframe
-            src="https://player.vimeo.com/video/461740651"
+            :src="page.videoUrl"
             frameborder="0"
             width="550"
             height="315"
@@ -95,31 +94,21 @@ export default {
     ContactForm
   },
 
+  async asyncData ({ $content, head }) {
+    const page = await $content('voor-partners').fetch()
+    const sectionOne = await $content('blocks/voor-partners-one').fetch()
+    const sectionGameRules = await $content('blocks/voor-partners-spelregels').fetch()
+
+    return {
+      page,
+      sectionOne,
+      sectionGameRules
+    }
+  },
+
   head: {
     title: '- Voor Partners'
   },
-
-  data () {
-    return {
-      items: [
-        {
-          title: 'Volg jouw route.',
-          subtitle: 'Kijk welke stappen je moet nemen om jouw doel te bereiken.',
-          image: 'why-2.png'
-        },
-        {
-          title: 'Verdien City Pings.',
-          subtitle: 'Vier je successen.',
-          image: 'why-4.png'
-        },
-        {
-          title: 'Claim rewards.',
-          subtitle: 'Beloon jezelf.',
-          image: 'why-3.png'
-        }
-      ]
-    }
-  }
 }
 </script>
 

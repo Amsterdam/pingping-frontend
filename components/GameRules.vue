@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import VueTypes from 'vue-types'
 import CoreSplitDisplay from './CoreSplitDisplay'
 
 export default {
@@ -37,11 +38,9 @@ export default {
     CoreSplitDisplay
   },
 
-  data () {
-    return {
-      activeItem: 0,
-      items: []
-    }
+  props: {
+    title: VueTypes.string.def(''),
+    items: VueTypes.any.def(null)
   }
 }
 </script>
