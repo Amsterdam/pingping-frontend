@@ -50,7 +50,7 @@ export default {
         {
           title: '1. Stapsgewijs en doelgericht.',
           icon: 'map-marker-outline',
-          image: 'routeOverview',
+          image: 'routeOverview.png',
           points: [
             'Overzichtelijke route in kleine behapbare stappen om een doel te bereiken.',
             'Gefaseerde informatie (per stap in de route)',
@@ -60,7 +60,7 @@ export default {
         {
           title: '2. Context Based Servicing',
           icon: 'comment-question-outline',
-          image: 'zorg',
+          image: 'zorg.png',
           points: [
             'Gepersonaliseerde informatie.',
             'De juiste info, op het juiste moment.'
@@ -69,7 +69,7 @@ export default {
         {
           title: '3. Loyalty Programma',
           icon: 'close-circle-multiple-outline',
-          image: 'rewards',
+          image: 'rewards.png',
           points: [
             'Vorderingen in de route worden zichtbaar.',
             'Door successen te vieren, geef je je eigen handelen positieve aandacht.',
@@ -79,7 +79,7 @@ export default {
         {
           title: '4. Ping Ping beweging',
           icon: 'account-group-outline',
-          image: 'routes',
+          image: 'routes.jpg',
           points: [
             'Jongvolwassenen de tools geven om zelf regie te nemen.',
             'Schulden voorkomen rondom life events.',

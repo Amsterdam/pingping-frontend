@@ -21,7 +21,7 @@ export default {
   name: 'PhoneFrame',
 
   props: {
-    image: VueTypes.string.def('routes')
+    image: VueTypes.string.def('routes.jpg')
   },
 
   computed: {
@@ -30,7 +30,7 @@ export default {
     },
 
     screenshot () {
-      return require('~/assets/images/screens/' + this.image + '.png')
+      return require('~/assets/images/screens/' + this.image)
     }
   }
 }
