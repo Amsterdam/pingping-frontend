@@ -79,7 +79,7 @@ export default {
         {
           title: '4. Ping Ping beweging',
           icon: 'account-group-outline',
-          image: 'routes.jpg',
+          image: 'routes.png',
           points: [
             'Jongvolwassenen de tools geven om zelf regie te nemen.',
             'Schulden voorkomen rondom life events.',
