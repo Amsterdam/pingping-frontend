@@ -2,6 +2,7 @@
   <div class="pb-5">
     <b-form
       @submit="onSubmit"
+      v-if="!done"
       ref="form"
     >
       <b-form-group
@@ -11,7 +12,7 @@
       >
         <b-form-input
           id="input-2"
-          v-model="form.naam"
+          v-model="form.name"
           required
         ></b-form-input>
       </b-form-group>
@@ -36,7 +37,7 @@
       >
         <b-form-textarea
           id="input-3"
-          v-model="form.bericht"
+          v-model="form.body"
           required
         ></b-form-textarea>
       </b-form-group>
@@ -48,27 +49,50 @@
         @click="$refs.form.submit()"
       />
     </b-form>
+    <div v-else>Bedankt. uw bericht wordt afgeleverd.</div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'ContactForm',
 
   methods: {
     onSubmit (e) {
       e.preventDefault()
-      console.log('submit')
+      this.loading = true
+      const body = {
+        query: `
+          mutation ($input: ContactInput!) {
+            contact (input: $input)
+          }
+          `,
+        variables: {
+          input: this.form
+        }
+      }
+      axios.post(`https://acc.api.pingping.amsterdam.nl/api`, body)
+        .catch(() => {
+          this.loading = false
+        })
+        .then(() => {
+          this.loading = false
+          this.done = true
+        })
     }
   },
 
   data () {
     return {
+      done: false,
+      loading: false,
       form: {
-        naam: '',
+        name: '',
         // achternaam: '',
         email: '',
-        bericht: ''
+        body: ''
       }
     }
   }
