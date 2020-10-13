@@ -74,7 +74,7 @@
 
     </CoreSection> -->
     <CoreIconTopSection icon="format-quote-close">
-      <Quotes />
+      <Quotes :items="quotes" />
     </CoreIconTopSection>
   </div>
 </template>
@@ -110,6 +110,13 @@ export default {
 
   data () {
     return {
+      quotes: [
+        {
+          image: 'avatar.jpg',
+          quote: 'Dankzij Ping ping heb ik overzicht en geen stress',
+          title: 'Jason, mbo-student'
+        }
+      ],
       whyItems: [
         {
           title: 'Bepaal jouw goals.',

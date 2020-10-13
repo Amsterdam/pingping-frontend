@@ -5,10 +5,15 @@
 </template>
 
 <script>
+import VueTypes from 'vue-types'
 import QuoteItem from './QuoteItem'
 
 export default {
   name: 'Quotes',
+
+  props: {
+    items: VueTypes.arrayOf(Object)
+  },
 
   components: {
     QuoteItem
@@ -16,14 +21,7 @@ export default {
 
   data () {
     return {
-      current: 0,
-      items: [
-        {
-          image: 'johm-kan-71-ngi-xcd-tz-e-unsplash',
-          quote: 'Met PingPing bieden we je een persoonlijke routeplanner om op een leuke en makkelijke manier je (financiële) vaardigheden te verbeteren en je basis op orde te brengen.',
-          title: 'John Doe, Student aan de Hogeschool van Amsterdam'
-        }
-      ]
+      current: 0
     }
   }
 }

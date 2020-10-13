@@ -1,6 +1,6 @@
 ---
-title: Hoe worden City Pings verdiend?
-subtitle: Door de stappen in het persoonlijke routeplan te doorlopen en de acties uit te voeren, verdient de gebruiker punten die aan het eind van de route ingewisseld kunnen worden voor een beloning.
+title: 
+subtitle: Doe mee met de Ping Ping beweging en wordt partner! We zijn op zoek naar organisaties, bedrijven en andere Gemeenten met een maatschappelijke insteek die willen helpen schulden bij jongeren te voorkomen en willen investeren in de app door mee te werken aan de inhoudelijke of technische doorontwikkeling van de routeplanner of door mee te werken aan het loyalty programma (City Pings oftewel beloningen) en daar ook zelf een aanbod voor hebben.
 items:
   - title: Volg jouw route.
     subtitle: Kijk welke stappen je moet nemen om jouw doel te bereiken.

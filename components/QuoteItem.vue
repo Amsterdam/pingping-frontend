@@ -22,7 +22,7 @@ export default {
 
   computed: {
     imageSource () {
-      return require('~/assets/images/quotes/' + this.image + '.png')
+      return require('~/assets/images/quotes/' + this.image)
     }
   }
 }
@@ -44,7 +44,12 @@ export default {
     text-align: justify;
   }
 
-  .--John-Doe-Student-Copy {
+  &__image {
+    img {
+      border-radius: 50%;
+      max-height: 5rem;
+      max-width: 5rem;
+    }
   }
 }
 </style>

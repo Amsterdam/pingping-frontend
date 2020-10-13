@@ -26,26 +26,18 @@
     <GameRules class="mt-10 mb-10" :items="sectionGameRules" />
     <section class="container">
       <div class="row mt-10 mb-10">
-        <div class="col-6 embed-column">
-          <iframe
-            :src="page.videoUrl"
-            frameborder="0"
-            width="550"
-            height="315"
-            class="video-embed"
-            allow="autoplay; fullscreen"
-            allowfullscreen
-          ></iframe>
+        <div class="col-6 rounded-image">
+          <img src="~assets/images/img.png" />
         </div>
         <div class="col-md-6 col-sm-12">
-          <div class="h2">Waarom bestaat PING PING</div>
+          <div class="h2">Over Ping Ping</div>
           <p>
-            Met PingPing bieden we je een persoonlijke routeplanner om op een leuke en makkelijke manier je (financiële) vaardigheden te verbeteren en je basis op orde te brengen. Zo weet je precies wanneer en wat je moet regelen bij verschillende life events, zoals 18 worden, werken, studeren en op jezelf gaan wonen.
+            Ping Ping is een initiatief van de Gemeente Amsterdam en tot stand gekomen in samenwerking met het jongeren, professionals, IV Lab Sociaal en Fleks en een groot aantal andere partijen.
           </p>
           <p>
-            Wie heeft PING PING mogelijk gemaakt voor de jongeren:
+            Het doel is om jongvolwassenen een tool in handen te geven die hun in staat stelt zelf de regie te nemen over de regelzaken die komen kijken bij life events, zoals 18 worden, studeren, werken en op jezelf gaan wonen. Samen werken we aan een schuldenvrije toekomst voor jongvolwassenen. 
           </p>
-          <div class="parnter-logos">
+          <!-- <div class="parnter-logos">
             <img
               src="~assets/images/ilc.png"
               alt="fleks"
@@ -55,7 +47,7 @@
                 src="~assets/images/fleks.png"
                 alt="Innovatie LAB"
               ></a>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -70,6 +62,10 @@
       </CoreSection>
     </section>
 
+    <CoreIconTopSection icon="format-quote-close" class="mb-10">
+      <Quotes :items="quotes" />
+    </CoreIconTopSection>
+
     <CoreIconTopSection icon="phone">
       <ContactForm />
     </CoreIconTopSection>
@@ -81,6 +77,7 @@ import CorePageHeader from '~/components/CorePageHeader'
 import CoreIconTopSection from '~/components/CoreIconTopSection'
 import GameRules from '~/components/GameRules'
 import Partners from '~/components/Partners'
+import Quotes from '~/components/Quotes'
 import ContactForm from '~/components/ContactForm'
 
 export default {
@@ -91,6 +88,7 @@ export default {
     CoreIconTopSection,
     GameRules,
     Partners,
+    Quotes,
     ContactForm
   },
 
@@ -109,8 +107,25 @@ export default {
   head: {
     title: '- Voor Partners'
   },
+
+  data () {
+    return {
+       quotes: [
+        {
+          image: 'avatar.jpg',
+          quote: 'Je stapt in een andere wereld als je 18 wordt, daar mag je best een beetje hulp bij krijgen',
+          title: 'Aicha, mbo studente'
+        }
+      ]
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+.rounded-image {
+  img {
+    border-radius: 30px;
+  }
+}
 </style>
