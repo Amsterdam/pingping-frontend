@@ -1,5 +1,12 @@
 #!groovy
 
+String PROJECTNAME = "pingping"
+String CONTAINERNAME = "cto/pingping_frontend:${env.BUILD_NUMBER}"
+String DOCKERFILE = "Dockerfile"
+String CONTAINERDIR = "."
+String DOCKERBUILDPARAMS="--shm-size 1G"
+
+
 def tryStep(String message, Closure block, Closure tearDown = null) {
     try {
         block();
@@ -29,16 +36,12 @@ node {
 //       }
 //    }
 
-
     stage("Build image") {
         tryStep "build", {
-             sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-acc " +
-                "--shm-size 1G " +
-                "--build-arg ENVIRONMENT=acceptance " +
-                "."
-             sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-acc"
-                // def image = docker.build("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}". "--build-arg ENVIRONMENT=acceptance .")
-                // image.push()
+            docker.withRegistry("${DOCKER_REGISTRY_HOST}",'docker_registry_auth') {
+                image = docker.build("${CONTAINERNAME}-acc","-f ${DOCKERFILE} ${DOCKERBUILDPARAMS} --build-arg ENVIRONMENT=acceptance ${CONTAINERDIR}")
+                image.push()
+            }
         }
     }
 }
@@ -53,9 +56,9 @@ if (BRANCH != "master") {
     node {
         stage('Push acceptance image') {
             tryStep "image tagging", {
-                    def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-acc")
-                    image.pull()
+                docker.withRegistry("${DOCKER_REGISTRY_HOST}",'docker_registry_auth') {
                     image.push("acceptance")
+                }
             }
         }
     }
@@ -66,7 +69,8 @@ if (BRANCH != "master") {
                 build job: 'Subtask_Openstack_Playbook',
                 parameters: [
                     [$class: 'StringParameterValue', name: 'INVENTORY', value: 'acceptance'],
-                    [$class: 'StringParameterValue', name: 'PLAYBOOK', value: 'deploy-pingping-frontend.yml'],
+                    [$class: 'StringParameterValue', name: 'PLAYBOOK', value: 'deploy.yml'],
+                    [$class: 'StringParameterValue', name: 'PLAYBOOKPARAMS', value: "-e cmdb_id=app_${PROJECTNAME}"],
                 ]
             }
         }
@@ -77,9 +81,9 @@ if (BRANCH == "master") {
     node {
         stage('Push acceptance image') {
             tryStep "image tagging", {
-                    def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-acc")
-                    image.pull()
+                docker.withRegistry("${DOCKER_REGISTRY_HOST}",'docker_registry_auth') {
                     image.push("acceptance")
+                }
             }
         }
     }
@@ -90,7 +94,8 @@ if (BRANCH == "master") {
                 build job: 'Subtask_Openstack_Playbook',
                 parameters: [
                     [$class: 'StringParameterValue', name: 'INVENTORY', value: 'acceptance'],
-                    [$class: 'StringParameterValue', name: 'PLAYBOOK', value: 'deploy-pingping-frontend.yml'],
+                    [$class: 'StringParameterValue', name: 'PLAYBOOK', value: 'deploy.yml'],
+                    [$class: 'StringParameterValue', name: 'PLAYBOOKPARAMS', value: "-e cmdb_id=app_${PROJECTNAME}"],
                 ]
             }
         }
@@ -105,19 +110,18 @@ if (BRANCH == "master") {
     node {
         stage("Build production image") {
             tryStep "build", {
-                sh "docker build -t build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-prod " +
-                    "--shm-size 1G " +
-                    "--build-arg ENVIRONMENT=production " +
-                    "."
-                sh "docker push build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-prod"
+                docker.withRegistry("${DOCKER_REGISTRY_HOST}",'docker_registry_auth') {
+                    image = docker.build("${CONTAINERNAME}-prod","-f ${DOCKERFILE} ${DOCKERBUILDPARAMS} --build-arg ENVIRONMENT=production ${CONTAINERDIR}")
+                    image.push()
+                }
             }
         }
         stage('Push production image') {
             tryStep "image tagging", {
-                def image = docker.image("build.app.amsterdam.nl:5000/cto/pingping_frontend:${env.BUILD_NUMBER}-prod")
-                image.pull()
+                docker.withRegistry("${DOCKER_REGISTRY_HOST}",'docker_registry_auth') {
                     image.push("production")
                     image.push("latest")
+                }
             }
         }
     }
@@ -128,7 +132,8 @@ if (BRANCH == "master") {
                 build job: 'Subtask_Openstack_Playbook',
                 parameters: [
                     [$class: 'StringParameterValue', name: 'INVENTORY', value: 'production'],
-                    [$class: 'StringParameterValue', name: 'PLAYBOOK', value: 'deploy-pingping-frontend.yml'],
+                    [$class: 'StringParameterValue', name: 'PLAYBOOK', value: 'deploy.yml'],
+                    [$class: 'StringParameterValue', name: 'PLAYBOOKPARAMS', value: "-e cmdb_id=app_${PROJECTNAME}"],
                 ]
             }
         }
