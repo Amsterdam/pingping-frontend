@@ -51,7 +51,7 @@
         </div>
       </div>
     </section>
-    <section class="section mt-5">
+    <section class="section mt-5" v-if="false">
       <Partners class="mt-10 mb-10" />
 
       <CoreSection

@@ -21,7 +21,7 @@ export default {
   name: 'PhoneFrame',
 
   props: {
-    image: VueTypes.string.def('routes.png')
+    image: VueTypes.string.def('routes.jpg')
   },
 
   computed: {

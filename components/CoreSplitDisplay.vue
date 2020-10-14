@@ -13,7 +13,7 @@
         </div>
         <div class="col-5 frame-column text-center">
           <slot name="frame">
-            <PhoneFrame image="rewards.png" />
+            <PhoneFrame image="rewards.jpg" />
           </slot>
         </div>
       </div>
