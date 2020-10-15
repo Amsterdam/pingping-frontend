@@ -2,27 +2,7 @@
   <CoreSplitDisplay class="game-rules">
     <template>
       <div class="h2 mb-3">Spelregels citypings</div>
-       <div class="game-rules__rule mb-5">
-        <img
-          src="~assets/images/coin.png"
-          alt="coin"
-        >
-        <div class="h4 pl-3"><span class="font-weight-bold">City Pings</span> verdien je door gebruik te maken van ping Ping en je persoonlijke route af te leggen.</div>
-      </div>
-       <div class="game-rules__rule mb-5">
-        <img
-          src="~assets/images/coin.png"
-          alt="coin"
-        >
-        <div class="h4 pl-3"><span class="font-weight-bold">City Pings</span> zijn verdeeld over de verschillende stappen die je kunt doorlopen.</div>
-      </div>
-       <div class="game-rules__rule mb-5">
-        <img
-          src="~assets/images/coin.png"
-          alt="coin"
-        >
-        <div class="h4 pl-3"><span class="font-weight-bold">City Pings</span> die je hebt verdiend door je route af te ronden wissel je in voor een beloning.</div>
-      </div>
+      <nuxt-content :document="$props" />
     </template>
   </CoreSplitDisplay>
 </template>
@@ -40,7 +20,8 @@ export default {
 
   props: {
     title: VueTypes.string.def(''),
-    items: VueTypes.any.def(null)
+    items: VueTypes.any.def(null),
+    body: VueTypes.any
   }
 }
 </script>
@@ -48,6 +29,27 @@ export default {
 <style lang="scss">
 .game-rules {
   position: relative;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      position: relative;
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      padding-left: 4rem;
+
+      &:before {
+        background: transparent url("~assets/images/coin.png") scroll 0 0 no-repeat;
+        content: "";
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 0;
+        top: 8px;
+      }
+    }
+  }
 
   &__rule {
     display: flex;

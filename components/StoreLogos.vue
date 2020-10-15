@@ -1,11 +1,11 @@
 <template>
   <p class="store-logos">
-    <a href="https://apps.apple.com/nl/app/pingping/id1531867912?l=en">
+    <a :href="appleLink">
       <img
         src="~assets/images/apple.png"
         alt="app store" />
     </a>
-    <a href="https://play.google.com/store/apps/details?id=com.pingpingnative">
+    <a :href="googleLink">
       <img
         src="~assets/images/google.png"
         alt="google play"
@@ -16,7 +16,21 @@
 
 <script>
 export default {
-  name: 'StoreLogos'
+  name: 'StoreLogos',
+
+  async mounted () {
+    const { appleLink, googleLink } = await this.$content('index').only(['appleLink', 'googleLink']).fetch()
+
+    this.appleLink = appleLink
+    this.googleLink = googleLink
+  },
+
+  data () {
+    return {
+      appleLink: '',
+      googleLink: ''
+    }
+  }
 }
 </script>
 

@@ -15,6 +15,7 @@
       v-if="active"
       class="content"
     >
+      <nuxt-content :document="$props" />
       <ul>
         <li
           v-for="(item, i) in points"
@@ -40,7 +41,8 @@ export default {
     title: VueTypes.string.def(''),
     icon: VueTypes.string.def('map-marker-outline'),
     points: VueTypes.arrayOf(String).def([]),
-    active: VueTypes.bool.def(false)
+    active: VueTypes.bool.def(false),
+    body: VueTypes.any
   }
 }
 </script>

@@ -8,9 +8,9 @@
     </div>
     <div class="container row mt-10 m-auto">
       <div class="col-7 main-column">
-        <div class="h1 mb-3">Een routeplanner die jongeren op weg helpt!</div>
+        <div class="h1 mb-3">{{ title }}</div>
 
-        <p>Met Ping Ping bieden we je een persoonlijke routeplanner om op een leuke en makkelijke manier je (financiële) zaken te regelen en je basis op orde te brengen. Zo weet je precies wanneer en wat je moet regelen bij verschillende life events, zoals 18 worden, werken, studeren en op jezelf gaan wonen.</p>
+        <p>{{ subtitle }}</p>
 
         <StoreLogos class="text-left" />
 
@@ -27,6 +27,7 @@
 <script>
 import StoreLogos from './StoreLogos'
 import PhoneFrame from './PhoneFrame'
+import VueTypes from 'vue-types'
 
 export default {
   name: 'TopBanne',
@@ -34,6 +35,11 @@ export default {
   components: {
     StoreLogos,
     PhoneFrame
+  },
+
+  props: {
+    title: VueTypes.string,
+    subtitle: VueTypes.string
   }
 }
 </script>

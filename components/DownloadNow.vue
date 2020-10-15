@@ -9,7 +9,7 @@
         >
       </div>
       <div class="col-5 content-column">
-        <div class="h2">Download nu de app om jouw doelen te bereiken!</div>
+        <div class="h2">{{ label }}</div>
       </div>
       <div class="col-5 action-column">
         <StoreLogos class="text-right" />
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import VueTypes from 'vue-types'
 import CoreActionBox from './CoreActionBox'
 import StoreLogos from './StoreLogos'
 
@@ -28,6 +29,10 @@ export default {
   components: {
     CoreActionBox,
     StoreLogos
+  },
+
+  props: {
+    label: VueTypes.string.def('Download nu de app om jouw doelen te bereiken!')
   }
 }
 </script>

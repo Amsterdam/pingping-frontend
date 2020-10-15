@@ -27,6 +27,7 @@ import _ from 'lodash'
 import AccordionItem from './AccordionItem'
 import PhoneFrame from './PhoneFrame'
 import CoreSplitDisplay from './CoreSplitDisplay'
+import VueTypes from 'vue-types'
 
 export default {
   name: 'AccordionDisplay',
@@ -37,6 +38,10 @@ export default {
     CoreSplitDisplay
   },
 
+  props: {
+    items: VueTypes.arrayOf(Object)
+  },
+
   computed: {
     activeImage () {
       return _.get(this.items, this.activeItem + '.image')
@@ -45,48 +50,7 @@ export default {
 
   data () {
     return {
-      activeItem: 0,
-      items: [
-        {
-          title: '1. Stapsgewijs en doelgericht.',
-          icon: 'map-marker-outline',
-          image: 'routeOverview.jpg',
-          points: [
-            'Overzichtelijke route in kleine behapbare stappen om een doel te bereiken.',
-            'Gefaseerde informatie (per stap in de route)',
-            'Visueel en actiegericht.'
-          ]
-        },
-        {
-          title: '2. Context Based Servicing',
-          icon: 'comment-question-outline',
-          image: 'zorg.jpg',
-          points: [
-            'Gepersonaliseerde informatie.',
-            'De juiste info, op het juiste moment.'
-          ]
-        },
-        {
-          title: '3. Loyalty Programma',
-          icon: 'close-circle-multiple-outline',
-          image: 'rewards.jpg',
-          points: [
-            'Vorderingen in de route worden zichtbaar.',
-            'Door successen te vieren, geef je je eigen handelen positieve aandacht.',
-            'Motivatie stijgt bij meer positieve ervaringen.'
-          ]
-        },
-        {
-          title: '4. Ping Ping beweging',
-          icon: 'account-group-outline',
-          image: 'routes.jpg',
-          points: [
-            'Jongvolwassenen de tools geven om zelf regie te nemen.',
-            'Schulden voorkomen rondom life events.',
-            'Gedeelde verantwoordelijkheid met bedrijven en organisaties.'
-          ]
-        }
-      ]
+      activeItem: 0
     }
   }
 }

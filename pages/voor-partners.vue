@@ -4,54 +4,20 @@
       :title="page.title"
       image-name="safe"
     />
-    <section class="section mt-5">
-      <CoreSection
-        :title="sectionOne.title"
-        :subtitle="sectionOne.subtitle"
-      >
-        <div>
-          <div class="row">
-            <CoreItemCard
-              v-for="(item, i) in sectionOne.items"
-              :key="'whyItem-' + i"
-              class="col-4"
-              :image="item.image"
-              :title="item.title"
-              :subtitle="item.subtitle"
-            />
-          </div>
-        </div>
-      </CoreSection>
-    </section>
-    <GameRules class="mt-10 mb-10" :items="sectionGameRules" />
-    <section class="container">
+    <SectionWithItems v-bind="itemsSection" />
+    <GameRules class="mt-10 mb-10" v-bind="sectionGameRules" />
+    <section class="container" v-if="aboutPingPing">
       <div class="row mt-10 mb-10">
         <div class="col-6 rounded-image">
           <img src="~assets/images/img.png" />
         </div>
         <div class="col-md-6 col-sm-12">
-          <div class="h2">Over Ping Ping</div>
-          <p>
-            Ping Ping is een initiatief van de Gemeente Amsterdam en tot stand gekomen in samenwerking met het jongeren, professionals, IV Lab Sociaal en Fleks en een groot aantal andere partijen.
-          </p>
-          <p>
-            Het doel is om jongvolwassenen een tool in handen te geven die hun in staat stelt zelf de regie te nemen over de regelzaken die komen kijken bij life events, zoals 18 worden, studeren, werken en op jezelf gaan wonen. Samen werken we aan een schuldenvrije toekomst voor jongvolwassenen. 
-          </p>
-          <!-- <div class="parnter-logos">
-            <img
-              src="~assets/images/ilc.png"
-              alt="fleks"
-              class="mr-5"
-            >
-            <a href="https://www.fleks.works"><img
-                src="~assets/images/fleks.png"
-                alt="Innovatie LAB"
-              ></a>
-          </div> -->
+          <div class="h2">{{ aboutPingPing.title }}</div>
+          <nuxt-content :document="aboutPingPing" />
         </div>
       </div>
     </section>
-    <section class="section mt-5" v-if="false">
+    <section class="section mt-5" v-if="false ">
       <Partners class="mt-10 mb-10" />
 
       <CoreSection
@@ -62,7 +28,7 @@
       </CoreSection>
     </section>
 
-    <CoreIconTopSection icon="format-quote-close" class="mb-10">
+    <CoreIconTopSection icon="format-quote-close" class="mb-10" v-if="quotes">
       <Quotes :items="quotes" />
     </CoreIconTopSection>
 
@@ -75,6 +41,7 @@
 <script>
 import CorePageHeader from '~/components/CorePageHeader'
 import CoreIconTopSection from '~/components/CoreIconTopSection'
+import SectionWithItems from '~/components/SectionWithItems'
 import GameRules from '~/components/GameRules'
 import Partners from '~/components/Partners'
 import Quotes from '~/components/Quotes'
@@ -85,6 +52,7 @@ export default {
 
   components: {
     CorePageHeader,
+    SectionWithItems,
     CoreIconTopSection,
     GameRules,
     Partners,
@@ -94,31 +62,24 @@ export default {
 
   async asyncData ({ $content, head }) {
     const page = await $content('voor-partners').fetch()
-    const sectionOne = await $content('blocks/voor-partners-one').fetch()
+    const itemsSection = await $content('blocks/voor-partners-items').fetch()
+    const aboutPingPing = await $content('blocks/over-pingping').fetch()
+
     const sectionGameRules = await $content('blocks/voor-partners-spelregels').fetch()
+    const quotes = await $content('quotes').where({ id: 2 }).fetch()
 
     return {
       page,
-      sectionOne,
-      sectionGameRules
+      itemsSection,
+      sectionGameRules,
+      aboutPingPing,
+      quotes
     }
   },
 
   head: {
     title: '- Voor Partners'
   },
-
-  data () {
-    return {
-       quotes: [
-        {
-          image: 'avatar.jpg',
-          quote: 'Je stapt in een andere wereld als je 18 wordt, daar mag je best een beetje hulp bij krijgen',
-          title: 'Aicha, mbo studente'
-        }
-      ]
-    }
-  }
 }
 </script>
 
