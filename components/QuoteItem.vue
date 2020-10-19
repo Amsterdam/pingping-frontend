@@ -4,7 +4,7 @@
       <img :srcset="imageSource">
     </div>
     <div class="quote-item__quote text-center mb-4 h4">“{{ quote }}”</div>
-    <div class="quote-item__title text-center">- {{ title }}</div>
+    <div class="quote-item__title text-center">- {{ person }}</div>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
   props: {
     image: VueTypes.string.def(''),
     quote: VueTypes.string.def(''),
-    title: VueTypes.string.def('')
+    person: VueTypes.string.def('')
   },
 
   computed: {
