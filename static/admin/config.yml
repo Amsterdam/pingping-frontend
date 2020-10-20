@@ -2,6 +2,7 @@ backend:
   name: github
   repo: amsterdam/pingping-frontend
   open_authoring: true
+  site_domain: pingping.netlify.app
 
 publish_mode: editorial_workflow
 site_url: https://pingping.amsterdam.nl
