@@ -1,5 +1,6 @@
 backend:
-  name: pingping-frontend
+  name: github
+  repo: amsterdam/pingping-frontend
   branch: master
 
 media_folder: static/img
@@ -9,7 +10,7 @@ collections:
   - name: 'quote'
     label: 'Quote'
     format: 'json'
-    folder: 'content/blog'
+    folder: 'content/quotes'
     create: true
     slug: 'quote-{{id}}'
     editor:
@@ -19,3 +20,16 @@ collections:
       - { label: 'Quote', name: 'quote', widget: 'string' }
       - { label: 'Image', name: 'image', widget: 'string' }
       - { label: 'Person', name: 'person', widget: 'string' }
+  - name: 'principle'
+    label: 'Principes'
+    format: 'json'
+    folder: 'content/principes'
+    create: true
+    slug: 'principle-{{id}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Icon', name: 'icon', widget: 'string' }
+      - { label: 'Image', name: 'image', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }

@@ -80,8 +80,11 @@ export default {
     Quotes
   },
 
-  head: {
-    title: ''
+  head () {
+    return {
+      title: '',
+      script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
+    }
   },
 
   async asyncData ({ $content, params }) {
