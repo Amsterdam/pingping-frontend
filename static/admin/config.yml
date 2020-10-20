@@ -1,15 +1,36 @@
 backend:
   name: github
   repo: amsterdam/pingping-frontend
-  branch: master
+  open_authoring: true
 
+publish_mode: editorial_workflow
+site_url: https://pingping.amsterdam.nl
 media_folder: static/img
 public_folder: /img
 
 collections:
+  - label: "Pages"
+    name: "page"
+    editor:
+      preview: false
+    files:
+      - label: "Home"
+        name: "home"
+        file: "content/index.md"
+        fields:
+          - {label: "Title", name: title, widget: string}
+          - {label: "Subtitle", name: subtitle, widget: string}
+          - {label: "Download Now Label", name: downloadNowLabel, widget: string}
+          - {label: "Apple Link", name: appleLink, widget: string}
+          - {label: "Google Link", name: googleLink, widget: string}
+      - label: "Voor Partners"
+        name: "voor-partners"
+        file: "content/voor-partners.md"
+        fields:
+          - {label: "Title", name: title, widget: string}
+          - {label: "Video URL", name: videoUrl, widget: string}
   - name: 'quote'
     label: 'Quote'
-    format: 'json'
     folder: 'content/quotes'
     create: true
     slug: 'quote-{{id}}'
@@ -22,7 +43,6 @@ collections:
       - { label: 'Person', name: 'person', widget: 'string' }
   - name: 'principle'
     label: 'Principes'
-    format: 'json'
     folder: 'content/principes'
     create: true
     slug: 'principle-{{id}}'
