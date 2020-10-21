@@ -4,8 +4,8 @@ FROM node:10
 WORKDIR /app
 ADD . /app/
 
-RUN rm yarn.lock
-RUN yarn
+RUN yarn config set "strict-ssl" false -g
+RUN yarn install
 RUN yarn build
 
 ENV HOST 0.0.0.0

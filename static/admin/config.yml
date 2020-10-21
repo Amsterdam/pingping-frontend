@@ -23,15 +23,11 @@ collections:
             required: true
             hint: Site title
           - widget: string
-            name: videoUrl
-            label: Video URL
-            required: true
-          - widget: string
-            name: appleUrl
+            name: appleLink
             label: Apple URL
             required: true
           - widget: string
-            name: googleUrl
+            name: googleLink
             label: Google URL
             required: true
   - label: "Pages"
@@ -46,14 +42,11 @@ collections:
           - {label: "Title", name: title, widget: string}
           - {label: "Subtitle", name: subtitle, widget: string}
           - {label: "Download Now Label", name: downloadNowLabel, widget: string}
-          - {label: "Apple Link", name: appleLink, widget: string}
-          - {label: "Google Link", name: googleLink, widget: string}
       - label: "Voor Partners"
         name: "voor-partners"
         file: "content/voor-partners.md"
         fields:
           - {label: "Title", name: title, widget: string}
-          - {label: "Video URL", name: videoUrl, widget: string}
   - name: 'quote'
     label: 'Quote'
     folder: 'content/quotes'
@@ -62,8 +55,8 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: 'ID', name: 'id', widget: 'string' }
       - { label: 'Quote', name: 'quote', widget: 'string' }
+      - { label: 'ID', name: 'id', widget: 'hidden' }
       - { label: 'Image', name: 'image', widget: 'string' }
       - { label: 'Person', name: 'person', widget: 'string' }
   - name: 'principle'
