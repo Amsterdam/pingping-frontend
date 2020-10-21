@@ -61,11 +61,11 @@ export default {
   },
 
   async asyncData ({ $content, head }) {
-    const page = await $content('voor-partners').fetch()
-    const itemsSection = await $content('blocks/voor-partners-items').fetch()
-    const aboutPingPing = await $content('blocks/over-pingping').fetch()
+    const page = await $content('voor-partners/config').fetch()
+    const itemsSection = await $content('voor-partners/items').fetch()
+    const aboutPingPing = await $content('voor-partners/over-pingping').fetch()
 
-    const sectionGameRules = await $content('blocks/voor-partners-spelregels').fetch()
+    const sectionGameRules = await $content('voor-partners/spelregels').fetch()
     const quotes = await $content('quotes').where({ id: 2 }).fetch()
 
     return {

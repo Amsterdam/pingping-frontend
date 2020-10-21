@@ -41,10 +41,71 @@ collections:
             name: title
             label: Title
             required: true
-            hint: Site title
+            hint: Page title
+          - label: "Quote"
+            name: "quote"
+            widget: "relation"
+            collection: "quotes"
+            search_fields: ["quote", "person"]
+            value_field: "id"
+            display_fields: ["quote", "person"]
       - name: waarom
         label: Waarom kies je voor Ping Ping
         file: "content/home/waarom.md"
+        fields:
+          - widget: string
+            name: title
+            label: Title
+            required: true
+            hint: Section title
+          - widget: string
+            name: subtitle
+            label: Subtitle
+            required: true
+            hint: Section subtitle
+          - widget: list
+            name: items
+            label: Items
+            required: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Subtitle, name: subtitle, widget: string}
+              - {label: Image, name: image, widget: string}
+      - name: principes
+        label: Principes
+        file: "content/home/principes.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+      - name: video
+        label: Video
+        file: "content/common/video.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Url", name: "url", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: voor-partners
+    label: "Voor Partners"
+    files:
+      - name: config
+        label: Voor Partners Config
+        file: "content/voor-partners/config.md"
+        fields:
+          - widget: string
+            name: title
+            label: Title
+            required: true
+            hint: Site title
+          - label: "Quote"
+            name: "quote"
+            widget: "relation"
+            collection: "quotes"
+            search_fields: ["quote", "person"]
+            value_field: "id"
+            display_fields: ["quote", "person"]
+      - name: Items
+        label: Items
+        file: "content/voor-partners/items.md"
         fields:
           - widget: string
             name: title
@@ -65,28 +126,27 @@ collections:
               - {label: Title, name: title, widget: string}
               - {label: Subtitle, name: subtitle, widget: string}
               - {label: Image, name: image, widget: image}
-  - label: "Pages"
-    name: "page"
-    editor:
-      preview: false
-    files:
-      - label: "Home"
-        name: "home"
-        file: "content/index.md"
+      - name: spelregels
+        label: Spelregels
+        file: "content/voor-partners/spelregels.md"
         fields:
-          - { label: "Title", name: title, widget: string }
-          - { label: "Subtitle", name: subtitle, widget: string }
-          - {
-              label: "Download Now Label",
-              name: downloadNowLabel,
-              widget: string,
-            }
-      - label: "Voor Partners"
-        name: "voor-partners"
-        file: "content/voor-partners.md"
+          - widget: string
+            name: title
+            label: Title
+            required: true
+            hint: Section title
+          - { label: "Body", name: "body", widget: "markdown" }
+      - name: over-pingping
+        label: Over Ping Ping
+        file: "content/voor-partners/over-pingping.md"
         fields:
-          - { label: "Title", name: title, widget: string }
-  - name: "quote"
+          - widget: string
+            name: title
+            label: Title
+            required: true
+            hint: Section title
+          - { label: "Body", name: "body", widget: "markdown" }
+  - name: "quotes"
     label: "Quote"
     folder: "content/quotes"
     create: true
@@ -98,7 +158,7 @@ collections:
       - { label: "ID", name: "id", widget: "hidden" }
       - { label: "Image", name: "image", widget: "string" }
       - { label: "Person", name: "person", widget: "string" }
-  - name: "principle"
+  - name: "principles"
     label: "Principes"
     folder: "content/principes"
     create: true
