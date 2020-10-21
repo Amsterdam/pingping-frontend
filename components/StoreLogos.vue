@@ -19,7 +19,7 @@ export default {
   name: 'StoreLogos',
 
   async mounted () {
-    const { appleLink, googleLink } = await this.$content('index').only(['appleLink', 'googleLink']).fetch()
+    const { appleLink, googleLink } = await this.$content('config').only(['appleLink', 'googleLink']).fetch()
 
     this.appleLink = appleLink
     this.googleLink = googleLink

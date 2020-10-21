@@ -10,6 +10,30 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: config
+    label: Global Site Config
+    files:
+      - name: config
+        label: Global Site Config
+        file: "content/config.md"
+        fields:
+          - widget: string
+            name: title
+            label: Title
+            required: true
+            hint: Site title
+          - widget: string
+            name: videoUrl
+            label: Video URL
+            required: true
+          - widget: string
+            name: appleUrl
+            label: Apple URL
+            required: true
+          - widget: string
+            name: googleUrl
+            label: Google URL
+            required: true
   - label: "Pages"
     name: "page"
     editor:
