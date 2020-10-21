@@ -30,6 +30,41 @@ collections:
             name: googleLink
             label: Google URL
             required: true
+  - name: Home
+    label: Home
+    files:
+      - name: config
+        label: Home Config
+        file: "content/home/config.md"
+        fields:
+          - widget: string
+            name: title
+            label: Title
+            required: true
+            hint: Site title
+      - name: waarom
+        label: Waarom kies je voor Ping Ping
+        file: "content/home/waarom.md"
+        fields:
+          - widget: string
+            name: title
+            label: Title
+            required: true
+            hint: Section title
+          - widget: string
+            name: subtitle
+            label: Subtitle
+            required: true
+            hint: Section subtitle
+          - widget: list
+            name: items
+            label: Items
+            required: true
+            hint: Section subtitle
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Subtitle, name: subtitle, widget: string}
+              - {label: Image, name: image, widget: image}
   - label: "Pages"
     name: "page"
     editor:
@@ -39,35 +74,50 @@ collections:
         name: "home"
         file: "content/index.md"
         fields:
-          - {label: "Title", name: title, widget: string}
-          - {label: "Subtitle", name: subtitle, widget: string}
-          - {label: "Download Now Label", name: downloadNowLabel, widget: string}
+          - { label: "Title", name: title, widget: string }
+          - { label: "Subtitle", name: subtitle, widget: string }
+          - {
+              label: "Download Now Label",
+              name: downloadNowLabel,
+              widget: string,
+            }
       - label: "Voor Partners"
         name: "voor-partners"
         file: "content/voor-partners.md"
         fields:
-          - {label: "Title", name: title, widget: string}
-  - name: 'quote'
-    label: 'Quote'
-    folder: 'content/quotes'
+          - { label: "Title", name: title, widget: string }
+  - name: "quote"
+    label: "Quote"
+    folder: "content/quotes"
     create: true
-    slug: 'quote-{{id}}'
+    slug: "quote-{{id}}"
     editor:
       preview: false
     fields:
-      - { label: 'Quote', name: 'quote', widget: 'string' }
-      - { label: 'ID', name: 'id', widget: 'hidden' }
-      - { label: 'Image', name: 'image', widget: 'string' }
-      - { label: 'Person', name: 'person', widget: 'string' }
-  - name: 'principle'
-    label: 'Principes'
-    folder: 'content/principes'
+      - { label: "Quote", name: "quote", widget: "string" }
+      - { label: "ID", name: "id", widget: "hidden" }
+      - { label: "Image", name: "image", widget: "string" }
+      - { label: "Person", name: "person", widget: "string" }
+  - name: "principle"
+    label: "Principes"
+    folder: "content/principes"
     create: true
-    slug: 'principle-{{id}}'
+    slug: "principle-{{id}}"
     editor:
       preview: false
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Icon', name: 'icon', widget: 'string' }
-      - { label: 'Image', name: 'image', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Icon",
+          name: "icon",
+          widget: "select",
+          options:
+            [
+              "map-marker-outline",
+              "comment-question-outline",
+              "comment-question-outline",
+              "account-group-outline",
+            ],
+        }
+      - { label: "Image", name: "image", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
