@@ -3,7 +3,6 @@ backend:
   repo: amsterdam/pingping-frontend
   open_authoring: true
   base_url: https://dandelion-lime-seismosaurus.glitch.me
-  # site_domain: pingping.netlify.app
 
 publish_mode: editorial_workflow
 site_url: https://pingping.amsterdam.nl
