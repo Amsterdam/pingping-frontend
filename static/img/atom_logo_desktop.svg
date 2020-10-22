@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="99px" height="67px" viewBox="0 0 99 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>Atom/Logo/Desktop</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Atom/Logo/Desktop" fill="#EC0000">
+            <g>
+                <text id="Gemeente-Amsterdam" font-family="AvenirNextLTPro-Demi, Avenir Next LT Pro" font-size="13" font-weight="400" line-spacing="13" letter-spacing="0.0001392857">
+                    <tspan x="30" y="13">Gemeente</tspan>
+                    <tspan x="30" y="26">Amsterdam</tspan>
+                </text>
+                <g id="Andreaskruisen">
+                    <polygon id="Path" points="0 62.9092669 5.86510264 57.0148387 0 51.1204106 3.91006843 47.1907918 9.77517107 53.0852199 15.6402737 47.1907918 19.5503421 51.1204106 13.6852395 57.0148387 19.5503421 62.9092669 15.6402737 66.8388856 9.77517107 60.9444575 3.91006843 66.8388856"></polygon>
+                    <polygon id="Path" points="0 15.7184751 5.86510264 9.82404692 0 3.92961877 3.91006843 0 9.77517107 5.89442815 15.6402737 0 19.5503421 3.92961877 13.6852395 9.82404692 19.5503421 15.7184751 15.6402737 19.6480938 9.77517107 13.7536657 3.91006843 19.6480938"></polygon>
+                    <polygon id="Path" points="0 39.3335191 5.86510264 33.4390909 0 27.5446628 3.91006843 23.615044 9.77517107 29.5094721 15.6402737 23.615044 19.5503421 27.5446628 13.6852395 33.4390909 19.5503421 39.3335191 15.6402737 43.2631378 9.77517107 37.3687097 3.91006843 43.2631378"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
