@@ -17,27 +17,12 @@
 </template>
 
 <script>
+import VueTypes from 'vue-types'
 export default {
   name: 'Partners',
 
-  data () {
-    return {
-      items: [
-        {
-          image: 'artis',
-          logoImage: 'artis-logo'
-        },
-        {
-          image: 'artis',
-          logoImage: 'artis-logo'
-        },
-        {
-          image: 'artis',
-          logoImage: 'artis-logo',
-          link: 'https://www.artis.nl/en/'
-        }
-      ]
-    }
+  props: {
+    items: VueTypes.arrayOf(Object)
   }
 }
 </script>

@@ -103,6 +103,13 @@ collections:
             search_fields: ["quote", "person"]
             value_field: "id"
             display_fields: ["quote", "person"]
+          - widget: list
+            name: partners
+            label: Partners
+            hint: List of partners
+            fields:
+              - {label: image, name: image, widget: image, required: false}
+              - {label: logo, name: logo, widget: image, required: true}
       - name: Items
         label: Items
         file: "content/voor-partners/items.md"

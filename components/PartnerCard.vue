@@ -1,28 +1,25 @@
 
 <template>
-  <a
-    :href="link"
-    target="_blank"
-    class="partner-card"
-  >
+  <div class="partner-card">
     <div class="partner-card__inner">
       <div
         class="partner-card__image"
         :style="style"
       >
-        <!-- <img
-        :srcset="imageSource"
-        alt="partner-image"
-      > -->
+        <img
+          v-if="image"
+          :srcset="image"
+          alt="partner-image"
+        >
       </div>
       <div class="partner-card__logo">
         <img
-          :srcset="logoSource"
+          :srcset="logo"
           alt="partner-logo"
         >
       </div>
     </div>
-  </a>
+  </div>
 </template>
 
 <script>
@@ -32,16 +29,12 @@ export default {
   name: 'PartnerCard',
 
   props: {
-    logoImage: VueTypes.string.def(null),
+    logo: VueTypes.string.def(null),
     image: VueTypes.string.def(null),
     link: VueTypes.string.def('#')
   },
 
   computed: {
-    imageSource () {
-      return require('~/assets/images/partners/' + this.image + '.png')
-    },
-
     style () {
       const res = {
         'background-image': 'url("' + this.imageSource + '")'
@@ -52,10 +45,6 @@ export default {
       }
 
       return res
-    },
-
-    logoSource () {
-      return require('~/assets/images/partners/' + this.logoImage + '.png')
     }
   }
 }
@@ -78,6 +67,13 @@ export default {
     border-top-right-radius: $border-radius;
     height: 20rem;
     background-size: cover;
+
+    img {
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+      max-width: 100%;
+      object-fit: contain;
+    }
   }
 
   &__logo {
@@ -89,7 +85,7 @@ export default {
     background-color: white;
     width: 100%;
     margin: auto;
-    bottom: -1.5rem;
+    bottom: -3rem;
     margin-bottom: 1rem;
     box-shadow: 0 2px 6px 0 rgba(203, 203, 203, 0.4);
     border-bottom-right-radius: $border-radius;
@@ -97,6 +93,9 @@ export default {
 
     img {
       padding: 1rem;
+      max-width: 100%;
+      height: 10rem;
+      object-fit: contain;
     }
   }
 }

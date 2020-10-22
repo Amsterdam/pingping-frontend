@@ -17,8 +17,8 @@
         </div>
       </div>
     </section>
-    <section class="section mt-5" v-if="false ">
-      <Partners class="mt-10 mb-10" />
+    <section class="section mt-5">
+      <Partners class="mt-10 mb-10" :items="page.partners" />
 
       <CoreSection
         class="mt-10 mb-10"
@@ -66,7 +66,7 @@ export default {
     const aboutPingPing = await $content('voor-partners/over-pingping').fetch()
 
     const sectionGameRules = await $content('voor-partners/spelregels').fetch()
-    const quotes = await $content('quotes').where({ id: 2 }).fetch()
+    const quotes = await $content('quotes').where({ id: page.quote }).fetch()
 
     return {
       page,

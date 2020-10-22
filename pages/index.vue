@@ -91,7 +91,7 @@ export default {
     const page = await $content('home/config').fetch()
     const principles = await $content('principes').sortBy('title', 'asc').fetch()
     const itemsSection = await $content('home/waarom').fetch()
-    const quotes = await $content('quotes').where({ id: 1 }).fetch()
+    const quotes = await $content('quotes').where({ id: page.quote }).fetch()
     const video = await $content('common/video').fetch()
 
 
