@@ -63,7 +63,7 @@ node {
     stage('Push acceptance image') {
         tryStep "image tagging", {
             docker.withRegistry("${DOCKER_REGISTRY_HOST}",'docker_registry_auth') {
-                docker.image("${CONTAINERNAME}-acc").pull()
+                docker.image("${CONTAINERNAME}:${env.BUILD_NUMBER}-acc").pull()
                 // The Image.push() function ignores the docker registry prefix of the image name,
                 // which means that we cannot re-tag an image that was built in a different stage (on a different node).
                 // Resort to manual tagging to allow build and tag steps to run on different Jenkins slaves.
