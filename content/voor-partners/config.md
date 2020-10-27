@@ -9,4 +9,6 @@ partners:
   - title: ""
     logo: /img/logo-zilveren-kruis-1-.png
     image: /img/screenshot-2020-10-22-at-12.39.10.png
+  - logo: /img/logo-jongerenpunt.png
+    image: /img/screenshot-2020-10-22-at-12.31.57.png
 ---
