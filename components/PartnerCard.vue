@@ -56,6 +56,7 @@ export default {
   position: relative;
   padding: 0 1.5rem;
   margin-bottom: 2rem;
+  padding-bottom: 2rem;
 
   &__inner {
     position: relative;
@@ -72,7 +73,9 @@ export default {
       border-top-left-radius: $border-radius;
       border-top-right-radius: $border-radius;
       max-width: 100%;
-      object-fit: contain;
+      width: 100%;
+      max-height: 100%;
+      object-fit: cover;
     }
   }
 
