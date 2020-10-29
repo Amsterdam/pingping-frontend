@@ -1,7 +1,7 @@
 <template>
   <CoreSplitDisplay class="game-rules">
     <template>
-      <div class="h2 mb-3">Spelregels citypings</div>
+      <div class="h2 mb-3">{{ title }}</div>
       <nuxt-content :document="$props" />
     </template>
   </CoreSplitDisplay>
