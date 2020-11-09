@@ -95,9 +95,9 @@ export default {
     border-bottom-left-radius: $border-radius;
 
     img {
-      padding: 1rem;
+      padding: 0.5rem;
       max-width: 100%;
-      height: 10rem;
+      height: 5rem;
       object-fit: contain;
     }
   }

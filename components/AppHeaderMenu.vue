@@ -14,7 +14,8 @@
           is-nav
         >
           <b-navbar-nav class="ml-auto is-secondary-font">
-            <b-nav-item to="/voor-partners">Voor Partners</b-nav-item>
+            <b-nav-item to="/" :active="$route.name === 'index'">Ontdek de app</b-nav-item>
+            <b-nav-item to="/voor-partners" :active="$route.name === 'index'">Voor Partners</b-nav-item>
             <!-- <b-nav-item to="/blijf-op-de-hoogte">Blijf Op De Hoogte</b-nav-item> -->
           </b-navbar-nav>
         </b-collapse>

@@ -3,6 +3,7 @@
       <CoreSection
         :title="title"
         :subtitle="subtitle"
+        :undertitle="undertitle"
       >
         <div>
           <div class="row">
@@ -28,6 +29,7 @@ import VueTypes from 'vue-types'
     props: {
       title: VueTypes.string,
       subtitle: VueTypes.string,
+      undertitle: VueTypes.string,
       items: VueTypes.arrayOf(Object)
     }
   }

@@ -14,6 +14,9 @@
           <slot></slot>
         </div>
 
+        <p class="text-md-center" v-if="undertitle">
+          {{ undertitle }}
+        </p>
       </div>
     </div>
   </section>
@@ -27,7 +30,8 @@ export default {
 
   props: {
     title: VueTypes.string.def(''),
-    subtitle: VueTypes.string.def('')
+    subtitle: VueTypes.string.def(''),
+    undertitle: VueTypes.string.def(null)
   }
 }
 </script>

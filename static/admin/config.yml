@@ -117,12 +117,12 @@ collections:
           - widget: string
             name: title
             label: Title
-            required: true
+            required: false
             hint: Section title
           - widget: string
             name: subtitle
             label: Subtitle
-            required: true
+            required: false
             hint: Section subtitle
           - widget: list
             name: items
@@ -133,6 +133,11 @@ collections:
               - {label: Title, name: title, widget: string}
               - {label: Subtitle, name: subtitle, widget: string}
               - {label: Image, name: image, widget: image}
+          - widget: string
+            name: undertitle
+            label: Undertitle
+            required: false
+            hint: Section undertitle
       - name: spelregels
         label: Spelregels
         file: "content/voor-partners/spelregels.md"
