@@ -4,11 +4,11 @@ undertitle: "Doe mee met de Ping Ping beweging en wordt partner! We zijn op zoek
 items:
   - title: De inhoudelijke doorontwikkeling
     subtitle: ""
-    image: why-2.png
+    image: /img/p7.png
   - title: Technische doorontwikkeling
     subtitle: ""
-    image: why-4.png
+    image: /img/p8.png
   - title: Het aanbod van het loyalty programma
     subtitle: ""
-    image: why-3.png
+    image: /img/p9.png
 ---

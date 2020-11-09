@@ -6,11 +6,11 @@
         class="partner-card__image"
         :style="style"
       >
-        <img
+        <!-- <img
           v-if="image"
           :srcset="image"
           alt="partner-image"
-        >
+        > -->
       </div>
       <div class="partner-card__logo">
         <img
@@ -66,7 +66,7 @@ export default {
     opacity: 0.5;
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
-    height: 20rem;
+    height: 5rem;
     background-size: cover;
 
     img {
@@ -97,7 +97,8 @@ export default {
     img {
       padding: 0.5rem;
       max-width: 100%;
-      height: 5rem;
+      width: 100%;
+      height: 7rem;
       object-fit: contain;
     }
   }

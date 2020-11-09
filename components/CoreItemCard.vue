@@ -23,7 +23,8 @@ export default {
 
   computed: {
     imageSource () {
-      return require('~/assets/images/' + this.image)
+      // return require('~/assets/images/' + this.image)
+      return this.image
     }
   }
 }
