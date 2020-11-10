@@ -28,4 +28,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.partners {
+  .row {
+    justify-content: center;
+  }
+}
 </style>

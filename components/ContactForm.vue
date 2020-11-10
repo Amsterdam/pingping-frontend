@@ -54,6 +54,8 @@
 </template>
 
 <script>
+// const CONTACT_API = 'https://acc.api.pingping.amsterdam.nl/api'
+const CONTACT_API = 'http://localhost:4010/api'
 import axios from 'axios'
 
 export default {
@@ -73,7 +75,7 @@ export default {
           input: this.form
         }
       }
-      axios.post(`https://acc.api.pingping.amsterdam.nl/api`, body)
+      axios.post(CONTACT_API, body)
         .catch(() => {
           this.loading = false
         })

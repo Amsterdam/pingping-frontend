@@ -14,8 +14,8 @@
           is-nav
         >
           <b-navbar-nav class="ml-auto is-secondary-font">
-            <b-nav-item to="/" :active="$route.name === 'index'">Ontdek de app</b-nav-item>
-            <b-nav-item to="/voor-partners" :active="$route.name === 'index'">Voor Partners</b-nav-item>
+            <b-nav-item href="/" :active="$route.name === 'index'">Ontdek de app</b-nav-item>
+            <b-nav-item to="/voor-partners" :active="$route.name === 'voor-partners'">Voor Partners</b-nav-item>
             <!-- <b-nav-item to="/blijf-op-de-hoogte">Blijf Op De Hoogte</b-nav-item> -->
           </b-navbar-nav>
         </b-collapse>
@@ -45,8 +45,9 @@ export default {
     background-color: rgba(192, 234, 239, 0.5);
   }
 
-  .nuxt-link-active {
+  .nuxt-link-active, .nav-link.active {
     text-decoration: underline;
+    text-decoration-thickness: 3px;
   }
 
   button {
