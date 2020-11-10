@@ -8,4 +8,5 @@ partners:
   - logo: /img/logo-jongerenpunt.png
   - logo: /img/logo-levvel.png
     color: "#F5F4F0"
+  - logo: /img/logo-svn.png
 ---
