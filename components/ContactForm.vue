@@ -54,8 +54,8 @@
 </template>
 
 <script>
-// const CONTACT_API = 'https://acc.api.pingping.amsterdam.nl/api'
-const CONTACT_API = 'http://localhost:4010/api'
+const CONTACT_API = 'https://api.pingping.amsterdam.nl/api'
+// const CONTACT_API = 'http://localhost:4010/api'
 import axios from 'axios'
 
 export default {
