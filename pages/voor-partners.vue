@@ -87,6 +87,9 @@ export default {
 .rounded-image {
   img {
     border-radius: 30px;
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
   }
 }
 </style>
