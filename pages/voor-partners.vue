@@ -9,7 +9,7 @@
     <section class="container" v-if="aboutPingPing">
       <div class="row mt-10 mb-10">
         <div class="col-6 rounded-image">
-          <img src="~assets/images/img.png" />
+          <img src="~assets/images/img.jpg" />
         </div>
         <div class="col-md-6 col-sm-12">
           <div class="h2">{{ aboutPingPing.title }}</div>
