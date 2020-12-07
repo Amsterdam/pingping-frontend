@@ -23,17 +23,17 @@
       <CoreSection
         class="mt-10 mb-10"
         title="Wil jij onze nieuwe partner worden?"
-        subtitle="Help je ons mee? Wij zijn opzoek naar bedrijven, organisaties en andere gemeenten die met ons PingPing wil samenwerken. Je wil graag meewerken aan het loyalty programma (beloningen) en daar ook zelf een aanbod voor hebben. Ook zoeken we nieuwe investeerders voor de app en die mogelijk interesse hebben om (mede) eigenaar te worden of onderdeel te zijn van een alliantie rondom de app. Help jij ons om voor een schuldvrije toekomst voor jongeren te strijden?"
+        subtitle="Wij zijn op zoek naar bedrijven, organisaties en andere gemeenten die samen met ons Ping Ping verder willen brengen. Dit kan door mee te werken aan het loyaltyprogramma door het aanbieden van een beloning. Ook zoeken we nieuwe investeerder die mogelijk ook mede-eigenaar willen worden van de app of onderdeel willen vormen van de PingPing –Alliantie. Help mee in de strijd voor een schuldenvrije toekomst en neem contact op via het contactformulier."
       >
       </CoreSection>
     </section>
 
-    <CoreIconTopSection icon="format-quote-close" class="mb-10" v-if="quotes">
-      <Quotes :items="quotes" />
+    <CoreIconTopSection icon="phone" class="mb-10">
+      <ContactForm />
     </CoreIconTopSection>
 
-    <CoreIconTopSection icon="phone">
-      <ContactForm />
+    <CoreIconTopSection icon="format-quote-close" v-if="quotes">
+      <Quotes :items="quotes" />
     </CoreIconTopSection>
   </div>
 </template>

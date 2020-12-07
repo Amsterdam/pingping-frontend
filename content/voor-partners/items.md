@@ -1,6 +1,6 @@
 ---
 title: 
-undertitle: "Doe mee met de Ping Ping beweging en wordt partner! We zijn op zoek naar organisaties, bedrijven met een maatschappelijke insteek en andere Gemeenten die willen helpen bij het voorkomen van schulden bij jongeren. Als partner kunt u op verschillende manieren investeren in de app door mee te werken aan:"
+undertitle: "Doe mee met de Ping Ping beweging en wordt partner! We zijn op zoek naar organisaties, bedrijven met een maatschappelijke insteek en andere Gemeenten die willen helpen bij het voorkomen van schulden bij jongeren. Als partner kunt u op verschillende manieren investeren in de app door mee te werken aan door de inhoudelijke-en/of de technische ontwikkeling van de app en het aanbod van het loyaltyprogramma."
 items:
   - title: De inhoudelijke doorontwikkeling
     subtitle: ""
