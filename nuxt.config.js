@@ -50,7 +50,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ["~assets/scss/custom.scss"],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -84,8 +84,6 @@ export default {
     bootstrapCSS: false,
     bootstrapVueCSS: false
   },
-
-  css: ["~assets/scss/custom.scss"],
 
   styleResources: {
     // scss: ["~assets/style.scss"]

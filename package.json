@@ -18,6 +18,7 @@
     "bootstrap-vue": "^2.15.0",
     "mdi-vue": "^1.8.1",
     "nuxt": "^2.14.0",
+    "nuxt-matomo": "^1.2.3",
     "sass": "^1.26.10",
     "sass-loader": "^10.0.2",
     "vue-material-design-icons": "^4.9.0",
