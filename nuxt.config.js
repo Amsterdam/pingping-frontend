@@ -77,7 +77,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
     // Doc: https://github.com/nuxt/content
-    "@nuxt/content"
+    "@nuxt/content",
+    ['nuxt-matomo', { matomoUrl: '//pingping.amsterdam.nl/', siteId: 32 }]
   ],
 
   bootstrapVue: {
