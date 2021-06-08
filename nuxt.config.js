@@ -78,7 +78,7 @@ export default {
     "@nuxtjs/axios",
     // Doc: https://github.com/nuxt/content
     "@nuxt/content",
-    ['nuxt-matomo', { matomoUrl: '//pingping.amsterdam.nl/', siteId: 32 }]
+    ['nuxt-matomo', { matomoUrl: '//analytics.data.amsterdam.nl/', siteId: 30 }]
   ],
 
   bootstrapVue: {
