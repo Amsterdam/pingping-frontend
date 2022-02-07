@@ -2524,7 +2524,7 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-bootstrap-vue@^2.15.0:
+bootstrap-vue@^2.21.2:
   version "2.21.2"
   resolved "https://registry.yarnpkg.com/bootstrap-vue/-/bootstrap-vue-2.21.2.tgz#ec38f66c3a2205becccddb6158a991d96509ed0b"
   integrity sha512-0Exe+4MZysqhZNXIKf4TzkvXaupxh9EHsoCRez0o5Dc0J7rlafayOEwql63qXv74CgZO8E4U8ugRNJko1vMvNw==
@@ -8537,7 +8537,7 @@ sass-loader@10.1.1:
     schema-utils "^3.0.0"
     semver "^7.3.2"
 
-sass-loader@^10.1.1:
+sass-loader@^10.2.1:
   version "10.2.1"
   resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-10.2.1.tgz#17e51df313f1a7a203889ce8ff91be362651276e"
   integrity sha512-RRvWl+3K2LSMezIsd008ErK4rk6CulIMSwrcc2aZvjymUgKo/vjXGp1rSWmfTUX7bblEOz8tst4wBwWtCGBqKA==
@@ -8548,7 +8548,7 @@ sass-loader@^10.1.1:
     schema-utils "^3.0.0"
     semver "^7.3.2"
 
-sass@^1.26.10:
+sass@^1.49.7:
   version "1.49.7"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.49.7.tgz#22a86a50552b9b11f71404dfad1b9ff44c6b0c49"
   integrity sha512-13dml55EMIR2rS4d/RDHHP0sXMY3+30e1TKsyXaSz3iLWVoDWEoboY8WzJd5JMnxrRHffKO3wq2mpJ0jxRJiEQ==
@@ -9873,7 +9873,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue-types@^2.0.1:
+vue-types@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/vue-types/-/vue-types-2.0.3.tgz#d4d3b124e8ae09e2d58785054451a6eb7e672d6d"
   integrity sha512-pLTOquc/x5uvVLZBjEKwC8e3eni17wv9M/2XdYbDQ/93pk3vW6eXvoynMw0ACBvHad7GgQ92F+D+C7d7e5msBw==

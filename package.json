@@ -15,16 +15,16 @@
     "@nuxt/content": "^1.15.1",
     "@nuxtjs/axios": "^5.12.5",
     "bootstrap": "^4.5.0",
-    "bootstrap-vue": "^2.15.0",
+    "bootstrap-vue": "^2.21.2",
     "lodash": "^4.17.21",
     "mdi-vue": "^1.8.1",
     "nuxt": "^2.15.8",
     "nuxt-matomo": "^1.2.3",
-    "sass": "^1.26.10",
-    "sass-loader": "^10.1.1",
+    "sass": "^1.49.7",
+    "sass-loader": "^10.2.1",
     "vue-material-design-icons": "^4.9.0",
     "vue-mdijs": "^0.4.21",
-    "vue-types": "^2.0.1"
+    "vue-types": "^2.0.3"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
