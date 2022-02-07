@@ -21,7 +21,7 @@
     "nuxt": "^2.15.8",
     "nuxt-matomo": "^1.2.3",
     "sass": "^1.26.10",
-    "sass-loader": "^10.0.2",
+    "sass-loader": "^10.1.1",
     "vue-material-design-icons": "^4.9.0",
     "vue-mdijs": "^0.4.21",
     "vue-types": "^2.0.1"
