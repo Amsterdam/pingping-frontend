@@ -1,6 +1,6 @@
 <template>
   <div class="pb-5 contact-form">
-    <div class="h2">Stel hier jouw vraag</div>
+    <div class="h2">{{ title }}</div>
     <b-form
       @submit="onSubmit"
       v-if="!done"
@@ -98,6 +98,7 @@ export default {
 
   props: {
     type: VueTypes.string.def('contact'),
+    title: VueTypes.string.def('Stel hier jouw vraag')
   },
 
   computed: {

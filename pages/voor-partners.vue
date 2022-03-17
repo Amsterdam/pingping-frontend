@@ -46,7 +46,7 @@
     </b-modal>
 
     <b-modal ref="modal-appointment" hide-header hide-footer>
-      <ContactForm @close="closeAppointment" type="appointment" />
+      <ContactForm @close="closeAppointment" type="appointment" title="Maak een afspraak" />
     </b-modal>
   </div>
 </template>
