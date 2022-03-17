@@ -16,14 +16,13 @@ export default {
   name: 'CoreItemCard',
 
   props: {
-    image: VueTypes.string.def(null),
+    image: VueTypes.string,
     title: VueTypes.string.def(''),
     subtitle: VueTypes.string.def('')
   },
 
   computed: {
     imageSource () {
-      // return require('~/assets/images/' + this.image)
       return this.image
     }
   }

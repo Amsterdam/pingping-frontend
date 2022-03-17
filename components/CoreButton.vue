@@ -32,11 +32,17 @@ export default {
   border: solid 1px #fb9f4b;
   background-color: #fb9f4b;
   font-weight: bold;
-  padding: 0.5rem 2.5rem;
+  padding: 0.3rem 2.5rem;
 
   span {
     font-weight: bold;
     letter-spacing: 0.8px;
+  }
+
+  &.alt {
+    background: #E8E8E8 !important;
+    border: solid 1px #E8E8E8;
+    color: #000;
   }
 }
 </style>

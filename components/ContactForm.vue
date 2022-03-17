@@ -1,70 +1,116 @@
 <template>
-  <div class="pb-5">
+  <div class="pb-5 contact-form">
+    <div class="h2">Stel hier jouw vraag</div>
     <b-form
       @submit="onSubmit"
       v-if="!done"
       ref="form"
     >
       <b-form-group
-        id="input-group-2"
+        id="input-group-name"
         label="Naam"
-        label-for="input-2"
+        label-for="input-name"
       >
         <b-form-input
-          id="input-2"
+          id="input-name"
           v-model="form.name"
           required
         ></b-form-input>
       </b-form-group>
 
       <b-form-group
-        id="input-group-1"
-        label="E-Mail"
-        label-for="input-1"
+        id="input-group-org"
+        label="Organisatie"
+        label-for="input-org"
       >
         <b-form-input
-          id="input-1"
+          id="input-org"
+          v-model="form.organization"
+          required
+        ></b-form-input>
+      </b-form-group>
+
+      <b-form-group
+        id="input-group-email"
+        label="E-mailadres"
+        label-for="input-email"
+      >
+        <b-form-input
+          id="input-email"
           v-model="form.email"
           type="email"
           required
         ></b-form-input>
       </b-form-group>
 
+       <b-form-group
+        id="input-group-phone"
+        label="Telefoonnummer"
+        label-for="input-1"
+      >
+        <b-form-input
+          id="input-phone"
+          v-model="form.phoneNumber"
+          type="phoneNumber"
+        ></b-form-input>
+      </b-form-group>
+
       <b-form-group
-        id="input-group-3"
-        label="Bericht"
-        label-for="input-3"
+        id="input-group-body"
+        label="Jouw vraag"
+        v-if="type === 'contact'"
+        label-for="input-body"
       >
         <b-form-textarea
-          id="input-3"
+          id="input-body"
+          rows="6"
           v-model="form.body"
           required
         ></b-form-textarea>
       </b-form-group>
-
-      <CoreButton
-        label="Verstuur"
-        class="text-center"
-        type="submit"
-        @click="$refs.form.submit()"
-      />
+      <div class="row btn-row">
+        <CoreButton
+          label="Annuleer"
+          class="text-center alt"
+          type="button"
+          @click.native="$emit('close')"
+        />
+        <CoreButton
+          :label="sendButtonLabel"
+          class="text-center"
+          type="submit"
+          @click="$refs.form.submit()"
+        />
+      </div>
     </b-form>
     <div v-else>Bedankt. uw bericht wordt afgeleverd.</div>
   </div>
 </template>
 
 <script>
-const CONTACT_API = 'https://api.pingping.amsterdam.nl/api'
-// const CONTACT_API = 'http://localhost:4010/api'
+// const CONTACT_API = 'https://api.pingping.amsterdam.nl/api'
+const CONTACT_API = 'http://localhost:4010/api'
 import axios from 'axios'
+import VueTypes from 'vue-types'
 
 export default {
   name: 'ContactForm',
+
+  props: {
+    type: VueTypes.string.def('contact'),
+  },
+
+  computed: {
+    sendButtonLabel () {
+      return this.type === 'contact' ? 'Verstuur' : 'Maak een afspraak'
+    }
+  },
 
   methods: {
     onSubmit (e) {
       e.preventDefault()
       this.loading = true
+      this.form.type = this.type
       const body = {
         query: `
           mutation ($input: ContactInput!) {
@@ -92,7 +138,9 @@ export default {
       loading: false,
       form: {
         name: '',
-        // achternaam: '',
+        organization: '',
+        phoneNumber: '',
+        type: 'Stel je vraag',
         email: '',
         body: ''
       }
@@ -101,5 +149,21 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.contact-form {
+  padding: 1rem;
+  margin-top: 1rem;
+
+  .h2 {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    margin-bottom: 0.1rem;
+  }
+
+  .form-group {
+
+  }
+}
 </style>

@@ -1,14 +1,23 @@
 ---
-title: 
-undertitle: "Doe mee met de Ping Ping beweging en wordt partner! We zijn op zoek naar organisaties, bedrijven met een maatschappelijke insteek en andere Gemeenten die willen helpen bij het voorkomen van schulden bij jongeren. Als partner kunt u op verschillende manieren investeren in de app door mee te werken aan de inhoudelijke-en/of de technische ontwikkeling van de app en het aanbod van het loyaltyprogramma."
+title:
+undertitle:
 items:
-  - title: De inhoudelijke doorontwikkeling
+  - title: Ze doen bijna alles op hun mobiel.
     subtitle: ""
-    image: /img/p7.png
-  - title: Technische doorontwikkeling
+    image: /img/f1.png
+  - title: ZE Missen vaak nog het vermogen het overzicht te houden in hun volwassen verantwoordelijken.
     subtitle: ""
-    image: /img/p8.png
-  - title: Het aanbod van het loyalty programma
+    image: /img/f2.png
+  - title: ZE Pakken zaken liefst stapje voor stapje aan.
     subtitle: ""
-    image: /img/p9.png
+    image: /img/f3.png
+  - title: ZE Willen de hulp die bij hun situatie past.
+    subtitle: ""
+    image: /img/f4.png
+  - title: ZE Houden niet van grote hoeveelheden tekst.
+    subtitle: ""
+    image: /img/f5.png
+  - title: ZE vinden hulp van anderen het liefst dichtbij en direct wanneer ze het nodig hebben. 
+    subtitle: ""
+    image: /img/f6.png
 ---

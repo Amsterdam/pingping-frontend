@@ -1,40 +1,53 @@
 <template>
   <div>
-    <CorePageHeader
+    <TopBanner
       :title="page.title"
-      image-name="safe"
+      :subtitle="page.subtitle"
     />
-    <SectionWithItems v-bind="itemsSection" />
-    <GameRules class="mt-10 mb-10" v-bind="sectionGameRules" />
-    <section class="container" v-if="aboutPingPing">
-      <div class="row mt-10 mb-10">
-        <div class="col-6 rounded-image">
-          <img src="~assets/images/img.jpg" />
-        </div>
-        <div class="col-md-6 col-sm-12">
-          <div class="h2">{{ aboutPingPing.title }}</div>
-          <nuxt-content :document="aboutPingPing" />
-        </div>
-      </div>
-    </section>
+    <section-with-media v-bind="blockOne" :reverse="true" :content="blockOne" />
+    <section-with-media v-bind="blockTwo" :content="blockTwo" />
     <section class="section mt-5">
-      <Partners class="mt-10 mb-10" :items="page.partners" />
-
       <CoreSection
         class="mt-10 mb-10"
-        title="Wil jij onze nieuwe partner worden?"
-        subtitle="Wij zijn op zoek naar bedrijven, organisaties en andere gemeenten die samen met ons Ping Ping verder willen brengen. Dit kan door mee te werken aan het loyaltyprogramma door het aanbieden van een beloning. Ook zoeken we nieuwe investeerder die mogelijk ook mede-eigenaar willen worden van de app of onderdeel willen vormen van de PingPing –Alliantie. Help mee in de strijd voor een schuldenvrije toekomst en neem contact op via het contactformulier."
+        overtitle="Wat werkt voor jongeren?"
+        title="Design thinking voor oplossing"
+        subtitle="Net zoals andere gemeenten wil Amsterdam jongeren hierbij helpen. En ging met design thinking aan de slag: alle betrokkenen – beleidsmedewerkers, jeugdprofessionals, de Belastingdienst, zorgverzekeraars en natuurlijk ook jongeren zelf - werkten samen aan een aanpak. Samen ontdekten zij wat voor jongeren werkt:"
       >
       </CoreSection>
     </section>
+    <SectionWithItems v-bind="itemsSection" />
+    <section-with-media v-bind="blockThree" :reverse="true" :content="blockThree" />
+    <section-with-media v-bind="blockFour" :content="blockFour" />
+    <section class="section mt-5">
+      <CoreSection
+        class="mt-10 mb-10 call-to-action"
+        overtitle="Wil je meer weten?"
+        title="stel je vraag of maak een afspraak "
+      >
+        <div class="row btn-row">
+          <CoreButton
+            label="Stel je vraag"
+            class="text-center"
+            type="button"
+            @click.native="openContact"
+          />
+          <CoreButton
+            label="Maak een afspraak"
+            class="text-center alt"
+            type="button"
+            @click.native="openAppointment"
+          />
+        </div>
+      </CoreSection>
+    </section>
 
-    <CoreIconTopSection icon="phone" class="mb-10">
-      <ContactForm />
-    </CoreIconTopSection>
+    <b-modal ref="modal-contact" hide-header hide-footer>
+      <ContactForm @close="closeContact" />
+    </b-modal>
 
-    <CoreIconTopSection icon="format-quote-close" v-if="quotes">
-      <Quotes :items="quotes" />
-    </CoreIconTopSection>
+    <b-modal ref="modal-appointment" hide-header hide-footer>
+      <ContactForm @close="closeAppointment" type="appointment" />
+    </b-modal>
   </div>
 </template>
 
@@ -46,6 +59,7 @@ import GameRules from '~/components/GameRules'
 import Partners from '~/components/Partners'
 import Quotes from '~/components/Quotes'
 import ContactForm from '~/components/ContactForm'
+import SectionWithMedia from '~/components/SectionWithMedia'
 
 export default {
   name: 'VoorPartners',
@@ -57,7 +71,26 @@ export default {
     GameRules,
     Partners,
     Quotes,
-    ContactForm
+    ContactForm,
+    SectionWithMedia
+  },
+
+  methods: {
+    openContact () {
+      this.$refs['modal-contact'].show()
+    },
+
+    closeContact () {
+      this.$refs['modal-contact'].hide()
+    },
+
+    openAppointment () {
+      this.$refs['modal-appointment'].show()
+    },
+
+    closeAppointment () {
+      this.$refs['modal-appointment'].hide()
+    },
   },
 
   async asyncData ({ $content, head }) {
@@ -68,12 +101,21 @@ export default {
     const sectionGameRules = await $content('voor-partners/spelregels').fetch()
     const quotes = await $content('quotes').where({ id: page.quote }).fetch()
 
+    const blockOne = await $content('voor-partners/block-1').fetch()
+    const blockTwo = await $content('voor-partners/block-2').fetch()
+    const blockThree = await $content('voor-partners/block-3').fetch()
+    const blockFour = await $content('voor-partners/block-4').fetch()
+
     return {
       page,
       itemsSection,
       sectionGameRules,
       aboutPingPing,
-      quotes
+      quotes,
+      blockOne,
+      blockTwo,
+      blockThree,
+      blockFour
     }
   },
 
@@ -83,7 +125,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .rounded-image {
   img {
     border-radius: 30px;
@@ -91,5 +133,17 @@ export default {
     width: 100%;
     object-fit: cover;
   }
+}
+
+.btn-row {
+  justify-content: center;
+  button:first-child {
+    margin-right: 1rem;
+  }
+}
+
+.modal-content {
+  border: 0px solid white;
+  border-radius: 15px;
 }
 </style>

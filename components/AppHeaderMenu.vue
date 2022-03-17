@@ -11,6 +11,7 @@
 
         <b-collapse
           id="navbar-toggle-collapse"
+          class="move-right"
           is-nav
         >
           <b-navbar-nav class="ml-auto is-secondary-font">
@@ -42,7 +43,7 @@ export default {
 
 .app-header-menu {
   &.page-ontdek-de-app, &.page-voor-partners, &.page-blijf-op-de-hoogte {
-    background-color: rgba(192, 234, 239, 0.5);
+    // background-color: rgba(192, 234, 239, 0.5);
   }
 
   .nuxt-link-active, .nav-link.active {

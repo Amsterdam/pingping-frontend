@@ -10,27 +10,7 @@
       :items="principles"
       class="mt-10 mb-10"
     />
-    <section class="container" v-if="video">
-      <div class="row mt-10 mb-10">
-        <div class="col-md-6 col-sm-12">
-          <div class="h2">{{ video.title }}</div>
-          <p>
-            <nuxt-content :document="video" />
-          </p>
-        </div>
-        <div class="col-6 embed-column">
-          <iframe
-            :src="video.url"
-            frameborder="0"
-            width="550"
-            height="315"
-            class="video-embed"
-            allow="autoplay; fullscreen"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-    </section>
+    <SectionWithMedia v-bind="video" :content="video" />
     <DownloadNow class="mt-10 mb-10" :label="page.downloadNowLabel" />
     <!-- <CoreSection
       class="mt-10 mb-10"
@@ -64,6 +44,7 @@ import CoreButton from '~/components/CoreButton'
 import CoreItemCard from '~/components/CoreItemCard'
 import DownloadNow from '~/components/DownloadNow'
 import CoreIconTopSection from '~/components/CoreIconTopSection'
+import SectionWithMedia from '~/components/SectionWithMedia'
 import Quotes from '~/components/Quotes'
 
 export default {
@@ -77,6 +58,7 @@ export default {
     CoreItemCard,
     DownloadNow,
     CoreIconTopSection,
+    SectionWithMedia,
     Quotes
   },
 
