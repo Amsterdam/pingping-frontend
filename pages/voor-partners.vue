@@ -137,8 +137,13 @@ export default {
 
 .btn-row {
   justify-content: center;
+
+  button {
+    margin-bottom: 0.5rem;
+  }
+
   button:first-child {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
   }
 }
 
