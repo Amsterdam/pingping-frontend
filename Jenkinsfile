@@ -47,10 +47,6 @@ pipeline {
       }
     }
     stage("Push and deploy acceptance image") {
-      when {
-        not { buildingTag() }
-        anyOf { branch "dev" }
-      }
       steps {
         tag_image_as("acceptance")
         deploy("acceptance")
@@ -59,7 +55,7 @@ pipeline {
     stage("Push and deploy production image") {
       when {
         not { buildingTag() }
-        anyOf { branch "main" }
+        anyOf { branch "master" }
       }
       steps {
         script { docker.image("${DOCKER_IMAGE_URL}:${env.COMMIT_HASH}").pull() }
