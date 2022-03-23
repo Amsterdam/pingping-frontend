@@ -1,6 +1,7 @@
 <template>
   <div class="pb-5 contact-form">
     <div class="h2">{{ title }}</div>
+    <div class="mb-3" v-if="type=='appointment'">Laat je contactgegevens achter en wij nemen contact met je op.</div>
     <b-form
       @submit="onSubmit"
       v-if="!done"
