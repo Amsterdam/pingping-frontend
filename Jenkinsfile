@@ -17,7 +17,7 @@ pipeline {
   agent any
   environment {
     APP = "pingping"
-    DOCKER_IMAGE = "cto/${APP}"
+    DOCKER_IMAGE = "cto/${APP}_frontend"
     DOCKER_IMAGE_URL = "${DOCKER_REGISTRY_NO_PROTOCOL}/${DOCKER_IMAGE}"
   }
   stages {
