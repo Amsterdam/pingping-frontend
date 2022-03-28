@@ -2,6 +2,10 @@
   <section class="core-section">
     <div class="container">
       <div>
+        <p class="overtitle text-md-center" v-if="overtitle">
+          {{ overtitle }}
+        </p>
+
         <p class="h2 text-md-center">
           {{ title }}
         </p>
@@ -29,15 +33,23 @@ export default {
   name: 'CoreSection',
 
   props: {
+    overtitle: VueTypes.string.def(''),
     title: VueTypes.string.def(''),
     subtitle: VueTypes.string.def(''),
-    undertitle: VueTypes.string.def(null)
+    undertitle: VueTypes.string
   }
 }
 </script>
 
 <style lang="scss">
 .core-section {
+  .overtitle {
+    color: #FB9F4B;
+    font-size: 22px;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
   .content-slot {
     img {
       object-fit: contain;

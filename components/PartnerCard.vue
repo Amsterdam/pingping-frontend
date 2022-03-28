@@ -19,7 +19,7 @@ export default {
   name: 'PartnerCard',
 
   props: {
-    logo: VueTypes.string.def(null),
+    logo: VueTypes.string,
     color: VueTypes.string.def('#ffffff')
   },
 

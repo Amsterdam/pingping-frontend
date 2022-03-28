@@ -44,7 +44,7 @@ export default {
 
   computed: {
     activeImage () {
-      return _.get(this.items, this.activeItem + '.image')
+      return this.items[this.activeItem + '.image']
     }
   },
 
